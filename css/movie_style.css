@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* main */
+main{
+    width: 70%;
+    margin: 200px auto 300px auto;
+}
+/* main end */
+
+/* title */
+.contents__title{
+    margin: 150px auto 100px auto;
+
+    height: 125px;
+
+    border-left: solid 0.7rem #298698;
+}
+
+.contents__title h1 {
+    padding: 0;
+    margin: 0 0 0 25px;
+
+    color: #555555;
+    font-size: 45px;
+}
+
+.contents__title h2 {
+    padding: 0;
+    margin: 25px 0 0 25px;
+
+    color: #707070;
+    font-size: 35px;
+}
+/* title end */
+
+/* wrapper */
+#wrap{
+  display: flex;
+  margin: 0;
+}
+/* wrapper end */
+
+/* movie_image */
+.movie_img{
+    width: 700px;
+    height: 495px;
+    background-color: #fff;
+}
+/* movie_image end */
+
+/* subtitle */
+.subtitle{
+    margin: 0 auto 40px 48px;
+
+    height: 125px;
+
+    border-left: solid 0.7rem #298698;
+}
+
+.subtitle h2 {
+    padding: 0;
+    margin: 25px 0 0 25px;
+    line-height: 125px;
+
+    color: #555555;
+    font-size: 35px;
+}
+/* subtitle end */
+
+/* story */
+.story{
+    margin-top: 85px;
+    width: 700px;
+    height: 495px;
+    padding-top: 30px;
+    background-color: #fff;
+}
+/* story end */
+
+/* data */
+.works_data{
+    margin-top: 85px;
+    width: 700px;
+    height: 495px;
+    padding-top: 30px;
+    background-color: #fff;
+}
+/* data end */
+
+/* schedule */
+.schedule{
+    margin-left: 35px;
+    width: 300px;
+    height: 150px;
+}
+
+.schedule div{
+  text-align: center;
+  width: 300px;
+  height: 180px;
+  padding: 30px;
+  color: #707070;
+  background-color: #fff;
+}
+
+.schedule div p.date span{
+  font-size: 30px;
+}
+/* schedule end */
+
+

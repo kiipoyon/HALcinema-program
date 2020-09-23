@@ -1,0 +1,54 @@
+main{
+    width: 90%;
+    margin: 200px auto 300px auto;
+}
+
+/* title */
+.contents__title{
+    margin: 150px auto 50px auto;
+
+    height: 125px;
+
+    border-left: solid 0.7rem #E46E5C;
+}
+
+.contents__title h1 {
+    padding: 0;
+    margin: 0 0 0 25px;
+
+    color: #555555;
+    font-size: 45px;
+}
+
+.contents__title h2 {
+    padding: 0;
+    margin: 25px 0 0 25px;
+
+    color: #707070;
+    font-size: 35px;
+}
+/* title end */
+
+/* kaiinn */
+form{
+    padding: 30px 50px;
+}
+
+form dl h3{
+    padding: 50px 0;
+}
+
+form dl dt{
+    width: 350px;
+    padding: 10px 0;
+    float: left;
+    clear: both;
+}
+
+form dl dd{
+    padding: 10px 0;
+}
+
+form dl dd input[type=text]{
+    width: 500px;
+}

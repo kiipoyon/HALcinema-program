@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+.main_wrap{
+    margin-left: 300px;
+}
+
+h4{
+    font-size: 30px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}
+
+.all_box{
+    width: 900px;
+    height: 368px;
+    margin-left: 50px;
+}
+
+    .top_box{
+        width: 700px;
+        height: 150px;
+        margin-bottom: 68px;
+    }
+
+    .btm_box{
+        width: 700px;
+        height: 150px;
+    }
+
+        .hidari{
+            width: 300px;
+            height: 150px;
+            border: solid 1px;
+            float: left;
+            box-shadow: 2px 2px 4px gray;
+        }
+
+        .migi{
+            width: 300px;
+            height: 150px;
+            border: solid 1px;
+            float: left;
+            box-shadow: 2px 2px 4px gray;
+            margin-left: 100px;
+        }
+
+            a:hover{
+                text-decoration: none;
+            }
+
+            .hidari:hover,.migi:hover{
+                background-color: #909090;
+            }
+
+            h5{
+                margin-top: 20px;
+                font-size: 20px;
+                color: #707070;
+            }
+
+            h5#uriage:before {
+                content: url("../images/kanri/uriage.png");
+                vertical-align: middle;
+                margin-left: 20px;
+                margin-right: 40px;
+            }
+
+            h5#eiga:before {
+                content: url("../images/common/COMINGSOON.png");
+                vertical-align: middle;
+                margin-left: 20px;
+                margin-right: 40px;
+            }
+
+            h5#kaiin:before {
+                content: url("../images/kanri/kaiin.png");
+                vertical-align: middle;
+                margin-left: 20px;
+                margin-right: 40px;
+            }
+
+            h5#zaseki:before {
+                content: url("../images/common/THEATER.png");
+                vertical-align: middle;
+                margin-left: 20px;
+                margin-right: 40px;
+            }

@@ -1,0 +1,70 @@
+main{
+    width: 70%;
+    margin: 0 auto 100px auto;
+}
+
+/* title------------------------------------------ */
+#title_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    height: 100px;
+    margin: 100px auto 100px auto;
+}
+
+.contents_title{
+    width: 80%;
+    margin: auto;
+    border-left: solid 0.7rem #EC93B6;
+}
+
+.contents_title h1 {
+    padding: 0;
+    margin: 0 0 0 25px;
+
+    color: #555555;
+    font-size: 35px;
+}
+
+.contents_title h2 {
+    padding: 0;
+    margin: 0 0 0 25px;
+
+    color: #707070;
+    font-size: 25px;
+}
+/* title end--------------------------------------------- */
+
+/* 会員登録 */
+section{
+    background-color: #fff;
+    margin: auto;    
+}
+
+section > h1{
+    font-size: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+section > p{
+    text-align: center;
+}
+
+input[type=submit]{
+    width: 120px;
+    height: 30px;
+    color: #fff;
+    background-color: #4DA7D8;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#b-submit{
+    margin-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}

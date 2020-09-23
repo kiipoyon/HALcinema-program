@@ -1,0 +1,281 @@
+/* news */
+#news li{
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+
+#news li a {
+    font-size: 20px;
+    text-decoration: none;
+}
+/* news end */
+
+/* schedule */
+#schedule_box{
+    position: relative;
+
+    z-index: 1;
+}
+
+#date_box{
+    position: relative;
+    overflow: hidden;
+
+    width: 90%;
+    top: -301px;
+    z-index: 2;
+    margin: 0 auto;
+}
+
+#schedule_date{
+    position: relative;
+
+    left: 0;
+    display: flex;
+}
+
+/* flex content */
+.flex_cont{
+    flex: 0 0 auto;
+}
+/* flex content end */
+
+/* arrow */
+.fas{
+    font-size: 50px;
+}
+#arrow{
+    display: flex;
+}
+.arrow{
+    width: 50px;
+    background-color: #4DA7D8;
+    height: 300px;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrow_right{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+/* arrow end */
+
+
+
+/* date */
+#date_p{
+    display: flex;
+    position: relative;
+
+    top: -80px;
+}
+#date_p h3,#date_p p{
+    flex: 0 0 0 auto;
+}
+#date_p p{
+    margin: 0 0 0 5rem;
+    font-size: 20px;
+}
+select{
+    position: relative;
+
+    top: -50px;
+    width: 300px;
+    height: 30px;
+}
+.custom-select{
+    width: 300px;
+}
+/* date end */
+
+
+
+/* rect */
+.rect{
+    width: 300px;
+    height: 300px;
+    background-color: #4DA7D8;
+    margin: 1px;
+}
+.active{
+    background-color: #FF8B60;
+    font-weight: bold;
+}
+.date_box{
+    display: flex;
+
+    width: 180px;
+    margin: 0 auto;
+}
+.date{
+    flex: 0 0 0 auto;
+
+    font-size: 4rem;
+    color: white;
+    font-weight: bold;
+}
+.date_wd{
+    flex: 0 0 0 auto;
+
+    font-size: 2rem;
+    padding: 2rem 0;
+    color: white;
+}
+/* rect end */
+/* schedule end */
+
+
+
+/* schedule content box */
+.schedule_content-box{
+    width: 100%;
+}
+.movie_p{
+    margin-top: 1rem;
+    font-size: 20px;
+    color: #357497;
+}
+
+/* col-md-10 */
+.col-md-10{
+    display: flex;
+    flex: 0 0 auto;
+    position: relative;
+
+    max-width: 100%;
+    width: 100%;
+    color: white;
+}
+.movies:nth-child(2n+1) .col-md-10{
+    background-color: #CCCCCC;
+}
+.movies:nth-child(2n+2) .col-md-10{
+    background-color: #555555;
+}
+.col-md-10 h3{
+    position: absolute;
+
+    font-weight: bold;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+}
+.col-md-10 a{
+    margin: 0 0 0 auto;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+/* col-md-10 end */
+
+/* schedule content body */
+.schedule_content-body{
+    width: 95%;
+    margin: 0 auto 3rem auto;
+}
+.schedule_content-body img{
+    height: 400px;
+}
+.theater_number{
+    margin-top: 1rem;
+    padding: 0 10px;
+    color: black;
+    border-bottom: solid 1px black;
+    width: 280px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.movie_time{
+    color: black;
+    font-size: 17px;
+    text-align: center;
+    width: 200px;
+}
+/* schedule content body end */
+
+/* movie time */
+.movie_body{
+    display: flex;
+}
+.movie_times{
+    display: flex;
+    flex: 0 0 0 auto;
+    flex-wrap: wrap;
+
+    width: 100%;
+    margin-top: 70px;
+    margin-left: 3rem;
+}
+.times{
+    position: absolute;
+
+    top: 10px;
+    font-size: 30px;
+    margin-left: 1rem;
+}
+.times_end{
+    position: absolute;
+
+    bottom: 50px;
+    right: 30px;
+    font-size: 20px;
+}
+.times_ticket{
+    display: flex;
+    position: absolute;
+
+    align-items: center;
+    left: 20px;
+    bottom: 10px;
+    height: 35px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #4DA7D8;
+}
+.minus{
+    position: relative;
+
+    margin-left: 10px;
+    width: 25px;
+    height: 25px;
+    border: solid 1px black;
+    background-color: white;
+}
+.minus svg{
+    display: flex;
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    height: 70%;
+    width: 70%;
+    color: #4DA7D8;
+}
+.times_ticket p{
+    display: flex;
+
+    margin-bottom: 0;
+    margin-left: 1rem;
+    font-size: 20px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.theater_movie{
+    position: relative;
+    flex: 0 0 auto;
+
+    margin: 10px 1rem;
+    width: 200px;
+    height: 150px;
+    background-color: #F6F6F6;
+}

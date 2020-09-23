@@ -1,0 +1,49 @@
+/* main */
+main {
+    width: 70%;
+    margin: 100px auto 100px auto;
+}
+
+/* main end */
+
+/* title */
+.contents__title {
+    width: 60%;
+    height: 100px;
+    border-left: solid 0.7rem #4DA7D8;
+    display: table;
+    vertical-align: middle;
+    margin-bottom: 80px;
+}
+
+.contents__title h1 {
+    margin: 10px 0 0 20px;
+    color: #555555;
+    font-size: 3.5rem;
+}
+
+.contents__title h2 {
+    margin: 10px 0 0px 25px;
+    color: #707070;
+    font-size: 2.5rem;
+}
+
+/* title end */
+
+/* 上映中コンテンツ */
+.col-md-6 {
+    width: 90%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+    .col-md-6 a {
+        display: flex;
+    }
+    .col-md-6 a:hover {
+        text-decoration: none;
+    }
+
+.col-md-6 div.card {
+    margin: 50px auto;
+}

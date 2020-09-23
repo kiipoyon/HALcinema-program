@@ -1,0 +1,312 @@
+@charset "utf-8";
+
+/* main */
+main {
+    width: 70%;
+    margin: 50px auto 100px auto;
+}
+
+/* main end */
+
+/* title */
+.contents_box {
+    height: 150px;
+    background-color: #fff;
+    margin: 50px auto 50px auto;
+    padding: 20px 20px 20px 0px;
+}
+
+
+.contents__title {
+    float: left;
+    width: 60%;
+    height: 100px;
+    border-left: solid 0.7rem #77be74;
+}
+
+.contents__title h1 {
+    margin: 10px 0 0 20px;
+    color: #555555;
+    font-size: 3.5rem;
+}
+
+.contents__title h2 {
+    margin: 10px 0 0 25px;
+    color: #707070;
+    font-size: 2.5rem;
+}
+
+.contents_sub {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contents_sub li {}
+
+.contents_sub a {
+    color: #555;
+}
+
+.contents_sub a:hover {
+    text-decoration: underline;
+}
+
+
+/* title end */
+
+/* subtitle */
+.subtitle {
+    margin: 0 auto 40px 48px;
+    height: 70px;
+    border-left: solid 0.7rem #77be74;
+}
+
+.subtitle h2 {
+    padding: 0;
+    margin: 25px 0 0 25px;
+    line-height: 70px;
+    color: #555555;
+    font-size: 3.0rem;
+}
+
+/* subtitle end */
+
+/* ticket */
+.ticket {
+    margin-top: 85px;
+    padding: 30px 0 60px 0;
+    background-color: #fff;
+}
+
+/* ticket end */
+
+
+/*** チケット購入ステップ ***/
+.ticket_flow {
+    margin: 80px 0 110px 0;
+}
+
+.step {
+    list-style-type: none;
+    display: table;
+    width: 90%;
+    padding: 0;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.step li {
+    display: table-cell;
+    width: 15%;
+    text-align: center;
+    position: relative;
+    background: #ddd;
+    padding: 1em 0.5em 1em 1em;
+    color: #000;
+}
+
+.step li:last-child {
+    padding-right: 1em;
+}
+
+.step li:last-child:before,
+.step li:last-child:after {
+    display: none;
+}
+
+.step li:before,
+.step li:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: auto;
+}
+
+.step li:before {
+    top: -15px;
+    right: -1em;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    border-width: 40px 0 40px 1em;
+    z-index: 10;
+}
+
+.step li:after {
+    top: -15px;
+    right: -.8em;
+    border-style: solid;
+    border-color: transparent transparent transparent #ddd;
+    border-width: 40px 0 40px 1em;
+    z-index: 10;
+}
+
+.step li.is-current {
+    color: #fff;
+    background: #ff8b60;
+    font-weight: bold;
+}
+
+.step li.is-current:after {
+    border-color: transparent transparent transparent #ff8b60;
+}
+
+
+
+
+.ticket_wrap {
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* 座席選択内容 */
+.seat {
+    padding: 30px;
+    background-color: #F7F7F7;
+}
+
+.seat dl {
+    margin: 30px 0 0 10px;
+}
+
+.seat dl dt {
+    float: left;
+    clear: both;
+    margin-right: 45px;
+    text-align: center;
+    padding: 5px 0;
+    width: 10%;
+    color: #fff;
+    background-color: #555555;
+}
+
+.seat dl dd {
+    padding: 5px 0;
+}
+
+.seat dl dd.total {
+    font-weight: bold;
+}
+
+
+/* 会員ログイン */
+.login_area {
+    margin: 70px 0;
+    width: 45%;
+}
+
+.login_area h3 {
+    font-size: 2.8rem;
+}
+
+.login_area .form_area {
+    width: 100%;
+    padding: 30px 0 10px 40px;
+}
+
+.login_area .form_area a {
+    color: #838383;
+    display: block;
+    text-align: right;
+    padding-top: 10px;
+    font-size: 1.4rem;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+}
+
+.login_area .login_btn {
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+/* 一般の方 */
+.ippan_area {
+    margin: 70px 0;
+    width: 100%;
+    padding-top: 50px;
+    border-top: 1px dotted #707070;
+}
+
+.ippan_area h3 {
+    font-size: 2.8rem;
+}
+
+.ippan_area .ippan_sec {
+    margin: 40px;
+}
+
+.ippan_area .ippan_sec ul {
+    margin-top: 30px;
+}
+
+.ippan_area .ippan_sec ul li {
+    padding: 3px 0;
+}
+
+.ippan_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 60px 120px;
+}
+
+.no-member_btn {
+    padding: 10px 40px;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    background-color: #898989;
+    font-size: 1.6rem;
+}
+
+.no-member_btn:hover {
+    opacity: 0.7;
+}
+
+
+
+
+/* ボタン */
+.btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 100px;
+}
+
+.back_btn {
+    padding: 10px 20px;
+    border: 1px solid #606060;
+    color: #606060;
+    font-weight: bold;
+    background-color: #fff;
+    font-size: 1.6rem;
+}
+
+.back_btn:hover {
+    opacity: 0.7;
+}
+
+.next {
+    text-align: right;
+}
+
+.next_btn {
+    padding: 10px 40px;
+    border: none;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4da7d8;
+    font-size: 1.6rem;
+}
+
+.next_btn:hover {
+    opacity: 0.7;
+}

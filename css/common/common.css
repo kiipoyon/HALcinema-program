@@ -1,0 +1,299 @@
+@charset "utf-8";
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #eeeeee;
+    color: #555555;
+    font-size: 1.6rem;
+    font-family: “游ゴシック体”, YuGothic, “游ゴシック”, “Yu Gothic”, “メイリオ”, Meiryo, ”ヒラギノ角ゴ ProN W3”, “Hiragino Kaku Gothic ProN”, “Hiragino Kaku Gothic ProN”, “Hiragino Sans”, sans-serif;
+    font-weight: 500;
+}
+
+/* wrap ( slide以外のmainサイズ ) */
+#wrap {
+    width: 80%;
+
+    margin: 0 auto;
+}
+
+/* box */
+.box {
+    overflow-x: hidden;
+
+    margin: 100px auto;
+    padding: 50px 100px;
+
+    background-color: white;
+}
+
+.flex-box {
+    display: flex;
+}
+
+/* list */
+li {
+    list-style: none;
+}
+
+
+
+/* header */
+header {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+/* logo */
+header div {
+    width: 100%;
+    height: 30%;
+    border-bottom: solid #707070 1px;
+    background: #333;
+    margin-bottom: 25px;
+}
+
+header div img {
+    margin: 0;
+    padding: 0;
+
+    height: 110%;
+    width: auto;
+}
+
+/* logo end */
+
+/* nav */
+header nav {
+    width: 80%;
+    height: 70%;
+    margin: 0 auto;
+}
+
+header nav ul {
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+
+    list-style: none;
+}
+
+header nav ul li {
+    border: 1px solid #ddd;
+    float: left;
+    width: 16.458333%;
+    height: 100%;
+    text-align: center;
+}
+
+nav ul li.nav__solid {
+    /* border-right: solid #707070 1px; */
+    margin-right: 0.25%;
+}
+
+header nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 5px 0;
+    color: #212529;
+}
+
+header nav ul li a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+header nav ul li img {
+    width: 30%;
+    padding: 7% 0 3% 0;
+}
+
+header ul li h1 {
+    font-size: 2.0rem;
+    margin: 0;
+    font-weight: bolder;
+}
+
+header ul li p {
+    font-size: 1.6rem;
+}
+
+header ul li:nth-child(1) {
+    border-bottom: solid #4DA7D8 3px;
+}
+
+header ul li:nth-child(1):hover {
+    background: #4DA7D8;
+    color: #fff;
+
+}
+
+header ul li:nth-child(2) {
+    border-bottom: solid #298698 3px;
+}
+
+header ul li:nth-child(2):hover {
+    background: #298698;
+    color: #fff;
+}
+
+header ul li:nth-child(3) {
+    border-bottom: solid #E46E5C 3px;
+}
+
+header ul li:nth-child(3):hover {
+    background: #E46E5C;
+    color: #fff;
+}
+
+header ul li:nth-child(4) {
+    border-bottom: solid #F1BD32 3px;
+}
+
+header ul li:nth-child(4):hover {
+    background: #F1BD32;
+    color: #fff;
+}
+
+header ul li:nth-child(5) {
+    border-bottom: solid #EC93B6 3px;
+}
+
+header ul li:nth-child(5):hover {
+    background: #EC93B6;
+    color: #fff;
+}
+
+header ul li:nth-child(6) {
+    border-bottom: solid #77be74 3px;
+}
+
+header ul li:nth-child(6):hover {
+    background: #77be74;
+    color: #fff;
+}
+
+/* nav end */
+/* header end */
+
+
+
+/* contents__title */
+.contents__title {
+    margin: 0 0 50px 30px;
+
+    height: 75px;
+
+    border-left: solid 0.5rem #4DA7D8;
+}
+
+.contents__title h1 {
+    padding: 0;
+    margin: 0 0 0 20px;
+
+    font-size: 3.5rem;
+}
+
+.contents__title h2 {
+    padding: 0;
+    margin: 0 0 0 20px;
+
+    font-size: 2.5rem;
+}
+
+/* contents__title end */
+
+
+
+/* footer */
+footer {
+    width: 100%;
+
+    background-color: #FFFFFF;
+}
+
+footer ul {
+    height: 120px;
+
+    text-align: center;
+    padding: 52.5px 0;
+}
+
+footer ul li {
+    display: inline;
+
+    font-size: 1.8rem;
+}
+
+footer ul li.footer__nav {
+    border-right: solid 1px black;
+}
+
+footer ul li a {
+    color: black;
+    margin: 0 15px 0 15px;
+}
+
+footer ul li a:hover {
+    color: black;
+}
+
+footer ul li a:visited {
+    color: black;
+}
+
+footer div#copyright {
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.4rem;
+    background-color: #333;
+    text-align: center;
+    color: white;
+}
+
+/* footer end */
+
+
+
+/* page top */
+#page__top div {
+    position: fixed;
+    bottom: -100px;
+    right: 20px;
+
+    width: 42px;
+    height: 42px;
+    background-color: #737373;
+
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#page__top p{
+    position: fixed;
+    bottom: -50px;
+    right: 70px;
+}
+
+#page__top div:hover {
+    background: #aaa;
+}
+
+#page__top i {
+    position: fixed;
+    bottom: -50px;
+    right: 30px;
+
+    font-size: 3.5rem;
+    text-align: center;
+    color: white;
+}
+
+/* page top end */

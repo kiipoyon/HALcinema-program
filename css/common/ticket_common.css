@@ -1,0 +1,212 @@
+@charset "utf-8";
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #eeeeee;
+    color: #555555;
+    font-size: 1.6rem;
+    font-family: “游ゴシック体”, YuGothic, “游ゴシック”, “Yu Gothic”, “メイリオ”, Meiryo, ”ヒラギノ角ゴ ProN W3”, “Hiragino Kaku Gothic ProN”, “Hiragino Kaku Gothic ProN”, “Hiragino Sans”, sans-serif;
+    font-weight: 500;
+}
+
+/* wrap ( slide以外のmainサイズ ) */
+#wrap {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* box */
+.box {
+    overflow-x: hidden;
+
+    margin: 100px auto;
+    padding: 50px 100px;
+
+    background-color: white;
+}
+
+/* list */
+li {
+    list-style: none;
+}
+
+/* header */
+header {
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+/* logo */
+header div {
+    width: 100%;
+    height: 30%;
+}
+
+header div img {
+    margin: 0;
+    padding: 0;
+
+    height: 110%;
+    width: auto;
+}
+
+/* logo end */
+
+/* nav */
+header nav {
+    width: 100%;
+    height: 70%;
+}
+
+header nav ul {
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+    border-top: solid #707070 1px;
+}
+
+header nav ul li {
+    float: left;
+
+    width: 16.6666666667%;
+    height: 100%;
+    text-align: center;
+}
+
+nav ul li.nav__solid {
+    border-right: solid #707070 1px;
+}
+
+header nav ul li img {
+    width: 30%;
+    padding: 7% 0 3% 0;
+}
+
+header ul li h1 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: bolder;
+}
+
+header ul li p {
+    font-size: 17px;
+}
+
+header ul li:nth-child(1) {
+    border-bottom: solid #4DA7D8 3px;
+}
+
+header ul li:nth-child(2) {
+    border-bottom: solid #298698 3px;
+}
+
+header ul li:nth-child(3) {
+    border-bottom: solid #E46E5C 3px;
+}
+
+header ul li:nth-child(4) {
+    border-bottom: solid #F1BD32 3px;
+}
+
+header ul li:nth-child(5) {
+    border-bottom: solid #EC93B6 3px;
+}
+
+header ul li:nth-child(6) {
+    border-bottom: solid #4C4C4C 3px;
+}
+
+/* nav end */
+/* header end */
+
+
+
+/* contents__title */
+.contents__title {
+    margin: 0 0 50px 30px;
+
+    height: 75px;
+
+    border-left: solid 0.5rem #4DA7D8;
+}
+
+.contents__title h1 {
+    padding: 0;
+    margin: 0 0 0 20px;
+
+    font-size: 35px;
+}
+
+.contents__title h2 {
+    padding: 0;
+    margin: 0 0 0 20px;
+
+    font-size: 30px;
+}
+
+/* contents__title end */
+
+
+
+/* footer */
+footer {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+
+footer div#copyright {
+    padding: 1rem;
+    width: 100%;
+    font-size: 20px;
+    background-color: #969696;
+    text-align: center;
+    color: white;
+}
+
+/* footer end */
+
+
+
+/* page top */
+#page__top p {
+    position: fixed;
+    bottom: -100px;
+    right: 90px;
+
+    font-size: 20px;
+    color: black;
+}
+
+#page__top div {
+    position: fixed;
+    bottom: -100px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+    background-color: #737373;
+
+    border-radius: 5px;
+}
+
+#page__top i {
+    position: fixed;
+    bottom: -100px;
+    right: 30px;
+
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
+
+/* page top end */

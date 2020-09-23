@@ -1,0 +1,172 @@
+@charset "utf-8";
+
+main {
+    width: 70%;
+    margin: 50px auto 100px auto;
+}
+
+.login_section {
+    height: 150px;
+    background-color: white;
+    margin: 50px auto 100px auto;
+    padding: 20px 20px 20px 0px;
+}
+
+.contents_box {
+    height: 150px;
+    background-color: #fff;
+    margin: 50px auto 50px auto;
+    padding: 20px 20px 20px 0px;
+}
+
+
+.contents__title {
+    float: left;
+    clear: both;
+    width: 60%;
+    height: 100px;
+    border-left: solid 0.7rem #EC93B6;
+}
+
+.contents__title h1 {
+    margin: 10px 0 0 20px;
+    color: #555555;
+    font-size: 3.5rem;
+}
+
+.contents__title h2 {
+    margin: 10px 0 0px 25px;
+    color: #707070;
+    font-size: 2.5rem;
+}
+
+.contents_sub {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contents_sub a {
+    color: #555;
+}
+
+.contents_sub a:hover {
+    text-decoration: underline;
+}
+
+
+.ticket {
+    padding: 10px 50px 60px 50px;
+    background-color: #fff;
+    
+}
+
+
+/* 会員ログイン */
+.login_area {
+    margin: 40px 0;
+    width: 45%;
+}
+
+.login_area h3 {
+    font-size: 2.8rem;
+}
+
+.login_area .form_area {
+    width: 100%;
+    padding: 30px 0 10px 40px;
+}
+
+.login_area .form_area a {
+    color: #838383;
+    display: block;
+    text-align: right;
+    padding-top: 10px;
+    font-size: 1.4rem;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+}
+
+.login_area .login_btn {
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+/* 一般の方 */
+.ippan_area {
+    margin: 70px 0;
+    width: 100%;
+    padding-top: 50px;
+    border-top: 1px dotted #707070;
+}
+
+.ippan_area h3 {
+    font-size: 2.8rem;
+}
+
+.ippan_area .ippan_sec {
+    margin: 40px;
+}
+
+.ippan_area .ippan_sec ul {
+    margin-top: 30px;
+}
+
+.ippan_area .ippan_sec ul li {
+    padding: 3px 0;
+}
+
+.ippan_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 60px 120px;
+}
+
+.no-member_btn {
+    padding: 10px 40px;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    background-color: #898989;
+    font-size: 1.6rem;
+}
+
+.no-member_btn:hover {
+    opacity: 0.7;
+}
+
+
+
+
+/* ボタン */
+.btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 100px;
+}
+
+
+.next {
+    text-align: right;
+}
+
+.next_btn {
+    padding: 10px 40px;
+    border: none;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4da7d8;
+    font-size: 1.6rem;
+}
+
+.next_btn:hover {
+    opacity: 0.7;
+}

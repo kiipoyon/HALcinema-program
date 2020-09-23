@@ -1,0 +1,181 @@
+/* main */
+main {
+    width: 100%;
+}
+
+/* slide */
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    width: 50px;
+    height: 50px;
+}
+.carousel-item{
+    width: 100%;
+}
+.carousel-item:nth-child(2) svg{
+    background: url(../images/slide/slide_02.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.carousel-item:nth-child(n+3) img{
+    width: 100%;
+    height: 800px;
+}
+.carousel-item:nth-child(3) img{
+    object-fit: contain;
+}
+.carousel-item:nth-child(4) img{
+    object-fit: cover;
+}
+.carousel-item:nth-child(5) img{
+    object-fit: none;
+}
+.carousel-item:nth-child(6) img{
+    object-fit: scale-down;
+}
+.carousel-item:nth-child(7) img{
+    object-fit: fill;
+}
+/* slide end */
+
+/* bootstrap card */
+h5.card-text {
+    text-align: center;
+}
+
+h6.card-text {
+    text-align: center;
+}
+/* bootstrap card end */
+
+/* theater */
+#theater__list{
+    width: 100%;
+}
+#theater__list li{
+    width: 90%;
+    padding: 1.5rem 5%;
+    margin: 30px auto;
+
+    border: solid #4DA7D8 1px;
+    font-size: 20px;
+    color: black;
+    transition: all 1s;
+}
+#theater__p{
+}
+#theater__list li i{
+    float: right;
+    font-size: 30px;
+    color: #4DA7D8;
+    margin: 0 0 0 auto;
+}
+#theater__list a{
+    text-decoration: #4DA7D8;
+}
+#theater__list li:hover{
+    color: white;
+    background-color: deepskyblue;
+    transform: scaleX(1);
+}
+.theater__list{
+    display: inline;
+}
+
+/* theater end */
+
+/* ranking album */
+#ranking__box{
+    overflow-x: hidden;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#ranking {
+    overflow: hidden;
+
+    width: 1035px;
+    margin: 0 auto;
+}
+
+#ranking__row {
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+}
+
+.rankings {
+    flex: 0 0 auto;
+
+    max-width: 33.3333%;
+    padding: 0 15px;
+}
+
+.ranking__cards {
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    width: 315px;
+}
+
+.ranking__cards--body {
+}
+
+/* ranking arrow */
+#ranking__arrow{
+}
+
+.fa-angle-left {
+    font-size: 60px;
+    position: absolute;
+    left: 15%;
+    top: 1960px;
+    color: #737373;
+    padding: 0.5rem;
+}
+
+.fa-angle-right {
+    font-size: 60px;
+    position: absolute;
+    right: 15%;
+    top: 1960px;
+    color: #737373;
+    padding: 0.5rem;
+}
+
+/* ranking album end */
+
+/* campaigns */
+
+#campaigns{
+}
+#campaigns__row{
+    width: 90%;
+    margin: 0 auto;
+}
+#campaigns__row li{
+    margin: 0 auto;
+    padding: 5px 0;
+}
+
+#campaigns__row li a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+
+/* news */
+#news li{
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+
+#news li a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* news end */
+
+/* main end */

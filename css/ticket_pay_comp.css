@@ -1,0 +1,228 @@
+@charset "utf-8";
+
+/* main */
+main {
+    width: 70%;
+    margin: 50px auto 100px auto;
+}
+
+/* main end */
+
+/* title */
+.contents_box {
+    height: 150px;
+    background-color: #fff;
+    margin: 50px auto 50px auto;
+    padding: 20px 20px 20px 0px;
+}
+
+
+.contents__title {
+    float: left;
+    width: 60%;
+    height: 100px;
+    border-left: solid 0.7rem #77be74;
+}
+
+.contents__title h1 {
+    margin: 10px 0 0 20px;
+    color: #555555;
+    font-size: 3.5rem;
+}
+
+.contents__title h2 {
+    margin: 10px 0 0 25px;
+    color: #707070;
+    font-size: 2.5rem;
+}
+
+.contents_sub {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contents_sub li {}
+
+.contents_sub a {
+    color: #555;
+}
+
+.contents_sub a:hover {
+    text-decoration: underline;
+}
+
+
+/* title end */
+
+/* subtitle */
+.subtitle {
+    margin: 0 auto 40px 48px;
+    height: 70px;
+    border-left: solid 0.7rem #77be74;
+}
+
+.subtitle h2 {
+    padding: 0;
+    margin: 25px 0 0 25px;
+    line-height: 70px;
+    color: #555555;
+    font-size: 3.0rem;
+}
+
+/* subtitle end */
+
+/* ticket */
+.ticket {
+    margin-top: 85px;
+    padding: 30px 0 60px 0;
+    background-color: #fff;
+}
+
+/* ticket end */
+
+
+/*** チケット購入ステップ ***/
+.ticket_flow {
+    margin: 80px 0 110px 0;
+}
+
+.step {
+    list-style-type: none;
+    display: table;
+    width: 90%;
+    padding: 0;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.step li {
+    display: table-cell;
+    width: 15%;
+    text-align: center;
+    position: relative;
+    background: #ddd;
+    padding: 1em 0.5em 1em 1em;
+    color: #000;
+}
+
+.step li:last-child {
+    padding-right: 1em;
+}
+
+.step li:last-child:before,
+.step li:last-child:after {
+    display: none;
+}
+
+.step li:before,
+.step li:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: auto;
+}
+
+.step li:before {
+    top: -15px;
+    right: -1em;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    border-width: 40px 0 40px 1em;
+    z-index: 10;
+}
+
+.step li:after {
+    top: -15px;
+    right: -.8em;
+    border-style: solid;
+    border-color: transparent transparent transparent #ddd;
+    border-width: 40px 0 40px 1em;
+    z-index: 10;
+}
+
+.step li.is-current {
+    color: #fff;
+    background: #ff8b60;
+    font-weight: bold;
+}
+
+.step li.is-current:after {
+    border-color: transparent transparent transparent #ff8b60;
+}
+
+
+
+
+.ticket_wrap {
+    margin: 0 auto;
+    width: 90%;
+}
+
+
+
+/* 会員情報 */
+.info_area {
+    margin: 70px 0;
+    width: 80%;
+}
+
+.info_area h3 {
+    font-size: 2.8rem;
+}
+
+.info_area .info_p_01 {
+    margin: 30px 40px;
+    line-height: 1.8;
+}
+
+.info_area .info_p_02 {
+    margin: 20px 40px;
+    line-height: 1.8;
+}
+
+
+/* 購入番号 */
+.ticket_info {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.ticket_info p {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 80px;
+    width: 40%;
+    padding: 10px;
+    font-size: 2.8rem;
+    color: #fff;
+    letter-spacing: 0.2rem;
+    background-color: #FF8B60
+}
+
+.ticket_info p span {
+    font-weight: bold;
+}
+
+
+/* ボタン */
+.btn {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.back_btn {
+    padding: 10px 20px;
+    border: 1px solid #606060;
+    color: #606060;
+    font-weight: bold;
+    background-color: #F8F8F8;
+    font-size: 1.6rem;
+}
+
+.back_btn:hover {
+    opacity: 0.7;
+}

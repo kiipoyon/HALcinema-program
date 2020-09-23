@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+.main_wrap{
+    margin-left: 300px;
+}
+
+h4{
+    font-size: 30px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}
+
+form{
+    margin-left: 300px;
+}
+
+.msr_text_02 {
+    padding-bottom: 20px;
+    width: 460px;
+  }
+  .msr_text_02  label {
+    display: block;
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+  .msr_text_02 input[type=text] {
+    border: 1px solid #1B73BA;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    color: #333;
+    font-size: 13px;
+    padding: 10px;
+    height: 40px;
+    width: 460px;
+  }
+
+  /*--------------------------------------
+  ファイル選択
+  ---------------------------------------*/
+  
+  .msr_file_02 {
+    padding-bottom: 20px;
+    width: 460px;
+  }
+  .msr_file_02>p {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+  .msr_filebox_02 {
+    position: relative;
+  }
+  .msr_filebox_02 input[type=file] {
+    display: none;
+  }
+  .msr_filebox_02 label {
+    border: 1px solid #1B73BA;
+    cursor: pointer;
+    font-size: 14px;
+    display: block;
+    position: relative;
+    padding: 10px;
+    height: 40px;
+    width: 460px;
+  }
+  .msr_filebox_02 label:before {
+    background: #1B73BA;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    content: "Browse...";
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    position: absolute;
+    right: 0;
+    top: -1px;
+    height: 40px;
+    width: 99px;
+  }
+  
+  /*--------------------------------------
+  テキストエリア
+  ---------------------------------------*/
+  
+  .msr_textarea_02 {
+    padding-bottom: 10px;
+    width: 460px;
+  }
+  .msr_textarea_02 label {
+    display: block;
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+  .msr_textarea_02 textarea {
+    border: 1px solid #1B73BA;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    color: #333;
+    font-size: 13px;
+    padding: 10px;
+    height: 210px;
+    width: 460px;
+  }
+  
+  /*--------------------------------------
+  送信ボタン
+  ---------------------------------------*/
+  .msr_sendbtn_02{
+    margin:0 0 10px;
+  }
+  .msr_sendbtn_02 input[type=submit] {
+    background: url(/stylerecipe_img/arrow_blue02.png) no-repeat;
+    background-position: 10px;
+    border: 2px solid #1B73BA;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    color: #1B73BA;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    height: 40px;
+    width: 150px;
+  }
+  .msr_sendbtn_02 input[type=submit]:hover {
+    opacity: 0.6;
+  }
+  .msr_sendbtn_02 input[disabled=disabled] {
+    background: #B4B4B4 url(/stylerecipe_img/arrow_gray02.png) no-repeat;
+    background-position: 10px;
+    border: 2px solid #7E7E7E;
+    color: #7E7E7E;
+    cursor: default;
+  }
+  .msr_sendbtn_02 input[disabled=disabled]:hover {
+    opacity: 1;
+  }
