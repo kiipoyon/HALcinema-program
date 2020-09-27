@@ -1,3 +1,26 @@
+<?php
+
+    require 'common/common.php';
+    // データベースに接続する
+    $pdo = connect();
+
+    $movie_no = $_GET["movie_no"];
+
+    // 作品を検索する
+    $stmt = $pdo->query("SELECT * FROM movie_tbl where $movie_no = movie_no");
+    // 取り出し
+    $movie_tbl = $stmt->fetchAll();
+    // 格納
+    foreach($movie_tbl as $movie){
+        $title = $movie['title'];
+        $story = $movie['story'];
+        $director = $movie['director'];
+        $cast = $movie['cast'];
+        $image = $movie['image'];
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -101,8 +124,9 @@
             <div class="movie_data">
 
                 <!-- movie_image -->
-                <div class="movie_img">
+                <div>
                     <!-- ここに映画サムネ入る -->
+                    <img class="card-img-right flex-auto d-none d-lg-block" src="images/thumbnail/<?php echo $image; ?>"alt="Thumbnail">
                 </div>
                 <!-- movie_image end -->
 
@@ -111,6 +135,9 @@
                     <div class="subtitle">
                         <h2>ストーリー</h2>
                     </div>
+                    <p>
+                        <?php echo $story; ?>
+                    </p>
                 </div>
                 <!-- story end -->
 
@@ -119,6 +146,12 @@
                     <div class="subtitle">
                         <h2>作品データ</h2>
                     </div>
+                    <p>
+                        <?php echo "監督：".$director; ?>
+                    </p>
+                    <p>
+                        <?php echo "キャスト：".$cast; ?>
+                    </p>
                 </div>
                 <!-- data end -->
 

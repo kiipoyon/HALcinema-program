@@ -107,9 +107,10 @@
             $sql = "SELECT * FROM movie_tbl";
             $stmt = $pdo->query($sql);
             foreach($stmt as $row){
+                
         ?>
         <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-            <a href="movie.php">
+            <a href="movie.php?movie_no=<?php echo $row["movie_no"] ?>" method="GET">
             <img class="card-img-right flex-auto d-none d-lg-block" src="images/thumbnail/<?php echo ($row["image"]); ?>" 
             alt="Thumbnail" style="width: 300px; height: auto;">
 
