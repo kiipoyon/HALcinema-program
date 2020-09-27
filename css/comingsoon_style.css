@@ -59,13 +59,10 @@ main {
     margin: 0 auto;
 }
 
-.col-md-6 a {
-    display: flex;
-}
-.col-md-6 a:hover {
-    text-decoration: none;
-}
-
 .col-md-6 div.card {
     margin: 50px auto;
+}
+
+.col-md-6 div a{
+    display: flex;
 }
