@@ -39,13 +39,6 @@ main{
 }
 /* wrapper end */
 
-/* movie_image */
-.movie_img{
-    width: 700px;
-    height: 495px;
-    background-color: #fff;
-}
-/* movie_image end */
 
 /* subtitle */
 .subtitle{
@@ -70,9 +63,12 @@ main{
 .story{
     margin-top: 85px;
     width: 700px;
-    height: 495px;
+    height: 600px;
     padding-top: 30px;
     background-color: #fff;
+}
+.story p{
+    padding: 0 45px;
 }
 /* story end */
 
@@ -83,6 +79,9 @@ main{
     height: 495px;
     padding-top: 30px;
     background-color: #fff;
+}
+.works_data p{
+    padding: 0 45px;
 }
 /* data end */
 
