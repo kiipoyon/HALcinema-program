@@ -38,42 +38,42 @@ session_start();
         <nav>
             <ul>
                 <li class="nav__solid">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="./images/common/HOME.png" alt="">
                         <h1>HALシネマ</h1>
                         <p>HOME</p>
                     </a>
                 </li><!--
             --><li class="nav__solid">
-                <a href="nowshowing.html">
+                <a href="nowshowing.php">
                     <img src="./images/common/NOWSHOWING.png" alt="">
                     <h1>上映中</h1>
                     <p>NOW SHOWING</p>
                 </a>
             </li><!--
             --><li class="nav__solid">
-                <a href="comingsoon.html">
+                <a href="comingsoon.php">
                     <img src="./images/common/COMINGSOON.png" alt="">
                     <h1>公開予定</h1>
                     <p>COMING SOON</p>
                 </a>
                 </li><!--
             --><li class="nav__solid">
-                <a href="service.html">
+                <a href="service.php">
                     <img src="./images/common/THEATER.png" alt="">
                     <h1>サービス案内</h1>
                     <p>SERVICE INFO</p>
                 </a>
                 </li><!--
             --><li class="nav__solid">
-                <a href="member_login.html">
+                <a href="member_login.php">
                     <img src="./images/common/LOGIN.png" alt="">
                     <h1>ログイン</h1>
                     <p>LOGIN</p>
                 </a>
                 </li><!--
             --><li>
-                <a href="ticket_choice.html">
+                <a href="ticket_choice.php">
                     <img src="./images/common/TICKETS.png" alt="">
                     <h1>チケット照会</h1>
                     <p>TICKETS</p>
@@ -109,7 +109,7 @@ session_start();
                 引き続きHALシネマをお楽しみ下さい。
             </p>
 
-            <a href="index.html">
+            <a href="index.php">
                 <div id="b-submit">
                     <input type="submit" value="TOPへ>">
                 </div>

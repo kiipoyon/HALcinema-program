@@ -37,7 +37,7 @@
     <nav>
       <ul>
         <li class="nav__solid">
-          <a href="index.html">
+          <a href="index.php">
             <img src="./images/common/HOME.png" alt="">
             <h1>HALシネマ</h1>
             <p>HOME</p>
@@ -46,7 +46,7 @@
         <!--
   -->
         <li class="nav__solid">
-          <a href="nowshowing.html">
+          <a href="nowshowing.php">
             <img src="./images/common/NOWSHOWING.png" alt="">
             <h1>上映中</h1>
             <p>NOW SHOWING</p>
@@ -55,7 +55,7 @@
         <!--
   -->
         <li class="nav__solid">
-          <a href="comingsoon.html">
+          <a href="comingsoon.php">
             <img src="./images/common/COMINGSOON.png" alt="">
             <h1>公開予定</h1>
             <p>COMING SOON</p>
@@ -64,7 +64,7 @@
         <!--
   -->
         <li class="nav__solid">
-          <a href="service.html">
+          <a href="service.php">
             <img src="./images/common/THEATER.png" alt="">
             <h1>サービス案内</h1>
             <p>SERVICE INFO</p>
@@ -73,7 +73,7 @@
         <!--
   -->
         <li class="nav__solid">
-          <a href="member_login.html">
+          <a href="member_login.php">
             <img src="./images/common/LOGIN.png" alt="">
             <h1>ログイン</h1>
             <p>LOGIN</p>
@@ -82,7 +82,7 @@
         <!--
   -->
         <li>
-          <a href="ticket.html">
+          <a href="ticket.php">
             <img src="./images/common/TICKETS.png" alt="">
             <h1>チケット購入/照会</h1>
             <p>TICKETS</p>
@@ -128,7 +128,7 @@
             <div class="form_area">
               <label>パスワード</label>
               <input type="password" placeholder="半角英数字8〜10文字" name="pass" size="10">
-              <a href="member_pass_rese.html">※パスワードをお忘れの方はこちら</a>
+              <a href="member_pass_rese.php">※パスワードをお忘れの方はこちら</a>
             </div>
 
             <div class="login_btn">
@@ -152,7 +152,7 @@
           <div class="ippan_btn">
 
             <div class="login_btn">
-              <input type="button" onclick="location.href='./member.html'" value=" 新規会員登録はこちら " class="next_btn">
+              <input type="button" onclick="location.href='./member.php'" value=" 新規会員登録はこちら " class="next_btn">
             </div>
 
           </div>

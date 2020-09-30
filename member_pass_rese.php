@@ -33,38 +33,60 @@
 
     <!-- nav -->
     <nav>
-        <ul>
-            <li class="nav__solid">
-                <img src="images/common/HOME.png" alt="HOME">
-                <h1>HALシネマ</h1>
-                <p>HOME</p>
-            </li><!--
-        --><li class="nav__solid">
-            <img src="images/common/NOWSHOWING.png" alt="NOWSHOWING">
+      <ul>
+        <li class="nav__solid">
+          <a href="index.php">
+            <img src="./images/common/HOME.png" alt="">
+            <h1>HALシネマ</h1>
+            <p>HOME</p>
+          </a>
+        </li>
+        <!--
+  -->
+        <li class="nav__solid">
+          <a href="nowshowing.php">
+            <img src="./images/common/NOWSHOWING.png" alt="">
             <h1>上映中</h1>
             <p>NOW SHOWING</p>
-        </li><!--
-        --><li class="nav__solid">
-            <img src="images/common/COMINGSOON.png" alt="COMINGSOON">
+          </a>
+        </li>
+        <!--
+  -->
+        <li class="nav__solid">
+          <a href="comingsoon.php">
+            <img src="./images/common/COMINGSOON.png" alt="">
             <h1>公開予定</h1>
             <p>COMING SOON</p>
-        </li><!--
-        --><li class="nav__solid">
-            <img src="images/common/THEATER.png" alt="THEATER">
+          </a>
+        </li>
+        <!--
+  -->
+        <li class="nav__solid">
+          <a href="service.php">
+            <img src="./images/common/THEATER.png" alt="">
             <h1>サービス案内</h1>
             <p>SERVICE INFO</p>
-        </li><!--
-        --><li class="nav__solid">
-            <img src="images/common/LOGIN.png" alt="LOGIN">
+          </a>
+        </li>
+        <!--
+  -->
+        <li class="nav__solid">
+          <a href="member_login.php">
+            <img src="./images/common/LOGIN.png" alt="">
             <h1>ログイン</h1>
             <p>LOGIN</p>
-        </li><!--
-        --><li>
-            <img src="images/common/TICKETS.png" alt="TICKETS">
+          </a>
+        </li>
+        <!--
+  -->
+        <li>
+          <a href="ticket.php">
+            <img src="./images/common/TICKETS.png" alt="">
             <h1>チケット購入/照会</h1>
             <p>TICKETS</p>
+          </a>
         </li>
-        </ul>
+      </ul>
     </nav>
     <!-- nav end -->
 
