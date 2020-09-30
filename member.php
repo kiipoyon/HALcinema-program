@@ -1,6 +1,95 @@
 <?php
-require 'common.php';
+
+require "common/common.php";
+
+
+
+// エラーメッセージ、登録完了メッセージの初期化
+$errorMessage = "";
+
+// $result初期化
+$result = "";
+
+
+if (isset($_POST['signup'])) {
+
+    // 必須項目(15個)が入力されているか
+    if (
+        !empty($_POST['name'])      && !empty($_POST['name_read']) && !empty($_POST['year'])      &&
+        !empty($_POST['month'])     && !empty($_POST['day'])       && !empty($_POST['gender'])    &&
+        !empty($_POST['tel'])       && !empty($_POST['mail'])      && !empty($_POST['mail_conf']) &&
+        !empty($_POST['pass'])      && !empty($_POST['pass_conf']) && !empty($_POST['number'])    &&
+        !empty($_POST['meigi'])     && !empty($_POST['date'])      && !empty($_POST['security'])
+    ) {
+
+        $pass = $_POST['pass'];
+        $pass_conf = $_POST['pass_conf'];
+
+        if ($pass == $pass_conf) {
+
+            $result = 1;
+            if ($result == 1) {
+
+                // セッション情報の保存
+                $_SESSION['name'] = $_POST['name'];
+                $_SESSION['name_read'] = $_POST['name_read'];
+
+                $_SESSION['year'] = $_POST['year'];
+                $_SESSION['month'] = $_POST['month'];
+                $_SESSION['day'] = $_POST['day'];
+
+                $_SESSION['gender'] = $_POST['gender'];
+                $_SESSION['tel'] = $_POST['tel'];
+
+                $_SESSION['mail'] = $_POST['mail'];
+                $_SESSION['mail_conf'] = $_POST['mail_conf'];
+                $_SESSION['pass'] = $_POST['pass'];
+                $_SESSION['pass_conf'] = $_POST['pass_conf'];
+
+                $_SESSION['number'] = $_POST['number'];
+                $_SESSION['meigi'] = $_POST['meigi'];
+                $_SESSION['date'] = $_POST['date'];
+                $_SESSION['security'] = $_POST['security'];
+
+                // セッション情報の取得
+                $name = $_SESSION['name'];
+                $name_read = $_SESSION['name_read'];
+
+                $year = $_SESSION['year'];
+                $month = $_SESSION['month'];
+                $day = $_SESSION['day'];
+
+                $gender = $_SESSION['gender'];
+                $tel = $_SESSION['tel'];
+
+                $mail = $_SESSION['mail'];
+                $mail_conf = $_SESSION['mail_conf'];
+                $pass = $_SESSION['pass'];
+                $pass_conf = $_SESSION['pass_conf'];
+
+                $number = $_SESSION['number'];
+                $meigi = $_SESSION['meigi'];
+                $date = $_SESSION['date'];
+                $security = $_SESSION['security'];
+
+                header('location:member_conf.php');
+            }
+        } else {
+            $errorMessage = "パスワードが一致しません";
+        }
+    } else {
+        $errorMessage = "必須項目をすべて入力してください";
+    }
+} else {
+
+    $pass = "";
+    $pass_conf = "";
+}
+
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -12,8 +101,7 @@ require 'common.php';
     <link rel="stylesheet" href="css/common/reset.css">
 
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- bootstrap css end -->
 
     <link rel="stylesheet" href="css/common/common.css">
@@ -37,7 +125,7 @@ require 'common.php';
         <nav>
             <ul>
                 <li class="nav__solid">
-                    <a href="index.php">
+                    <a href="index.html">
                         <img src="./images/common/HOME.png" alt="">
                         <h1>HALシネマ</h1>
                         <p>HOME</p>
@@ -46,7 +134,7 @@ require 'common.php';
                 <!--
         -->
                 <li class="nav__solid">
-                    <a href="nowshowing.php">
+                    <a href="nowshowing.html">
                         <img src="./images/common/NOWSHOWING.png" alt="">
                         <h1>上映中</h1>
                         <p>NOW SHOWING</p>
@@ -55,7 +143,7 @@ require 'common.php';
                 <!--
         -->
                 <li class="nav__solid">
-                    <a href="comingsoon.php">
+                    <a href="comingsoon.html">
                         <img src="./images/common/COMINGSOON.png" alt="">
                         <h1>公開予定</h1>
                         <p>COMING SOON</p>
@@ -64,7 +152,7 @@ require 'common.php';
                 <!--
         -->
                 <li class="nav__solid">
-                    <a href="service.php">
+                    <a href="service.html">
                         <img src="./images/common/THEATER.png" alt="">
                         <h1>サービス案内</h1>
                         <p>SERVICE INFO</p>
@@ -73,7 +161,7 @@ require 'common.php';
                 <!--
         -->
                 <li class="nav__solid">
-                    <a href="member_login.php">
+                    <a href="member_login.html">
                         <img src="./images/common/LOGIN.png" alt="">
                         <h1>ログイン</h1>
                         <p>LOGIN</p>
@@ -82,7 +170,7 @@ require 'common.php';
                 <!--
         -->
                 <li>
-                    <a href="ticket_choice.php">
+                    <a href="ticket_choice.html">
                         <img src="./images/common/TICKETS.png" alt="">
                         <h1>チケット照会</h1>
                         <p>TICKETS</p>
@@ -110,9 +198,9 @@ require 'common.php';
         </div>
         <!-- title end -->
 
-        <!-- 会員登録 -->
+        <!-- 会員登録 --------------------------------------------------------------------------------->
         <section>
-            <form action="member_conf.html" method="post">
+            <form action="" method="POST">
                 <dl>
 
 
@@ -129,7 +217,7 @@ require 'common.php';
 
                     <!-- 氏名(カナ) -->
                     <dt>氏名（かな）<span>&#42;</span></dt>
-                    <dd><input type="text" name="name_kana"></dd>
+                    <dd><input type="text" name="name_read"></dd>
 
                     <!-- 生年月日 -->
                     <dt>生年月日<span>&#42;</span></dt>
@@ -267,7 +355,7 @@ require 'common.php';
                             <option value="2028">2028</option>
                             <option value="2029">2029</option>
                             <option value="2030">2030</option>
-                        </select>　年
+                        </select>年
                         <select name="month" class="day">
                             <option value="">-</option>
                             <option value="1">1</option>
@@ -282,7 +370,7 @@ require 'common.php';
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
-                        </select>　月
+                        </select>月
                         <select name="day" class="day">
                             <option value="">-</option>
                             <option value="1">1</option>
@@ -316,48 +404,56 @@ require 'common.php';
                             <option value="29">29</option>
                             <option value="30">30</option>
                             <option value="31">31</option>
-                        </select>　日
+                        </select>日
                     </dd>
 
                     <!-- 性別 -->
                     <dt>性別<span>&#42;</span></dt>
                     <dd>
-                        <input type="radio" name="sex" value="未選択">未選択
-                        <input type="radio" name="sex" value="男">男
-                        <input type="radio" name="sex" value="女">女
+                        <input type="radio" name="gender" id="gen_01" value="未選択" checked>
+                        <label class="radio_label" for="gen_01"> 未選択</label>
+                        <input type="radio" name="gender" id="gen_02" value="男性">
+                        <label class="radio_label" for="gen_02"> 男性</label>
+                        <input type="radio" name="gender" id="gen_03" value="女性">
+                        <label class="radio_label" for="gen_03"> 女性</label>
                     </dd>
 
-                    <!-- 電話番号 -->
+                    <!-- 電話番号 ------------------------------------->
                     <dt>電話番号<span>&#42;</span></dt>
-                    <dd><input type="tel"></dd>
+                    <dd><input type="number" name="tel"></dd>
 
+                    <!-- メールアドレス ----------------------------------------->
                     <dt>メールアドレス<span>&#42;</span></dt>
-                    <dd><input type="text"></dd>
+                    <dd><input type="text" name="mail"></dd>
 
                     <dt>メールアドレス（確認用）<span>&#42;</span></dt>
-                    <dd><input type="text"></dd>
+                    <dd><input type="text" name="mail_conf"></dd>
 
+                    <!-- パスワード ----------------------------------------->
                     <dt>パスワード<span>&#42;</span></dt>
-                    <dd><input type="text"></dd>
+                    <dd><input type="password" name="pass"></dd>
 
                     <dt>パスワード（確認用）<span>&#42;</span></dt>
-                    <dd><input type="text"></dd>
+                    <dd><input type="password" name="pass_conf"></dd>
 
                     <h3>クレジットカード情報</h3>
 
                     <dt>クレジットカード番号<span>&#42;</span></dt>
-                    <dd><input type="text"></dd>
+                    <dd><input type="text" name="number"></dd>
+
+                    <dt>名義人<span>&#42;</span></dt>
+                    <dd><input type="text" name="meigi"></dd>
 
                     <dt>クレジットカード有効期限<span>&#42;</span></dt>
-                    <dd><input type="text"></dd>
+                    <dd><input type="text" name="date"></dd>
 
-                    <dt>セキュリティ番号<span>&#42;</span></dt>
-                    <dd><input type="text"></dd>
+                    <dt>セキュリティコード<span>&#42;</span></dt>
+                    <dd><input type="text" name="security"></dd>
 
                 </dl>
 
                 <div id="b-submit">
-                    <input type="submit" value="確認>">
+                    <input type="submit" value="確認>" name="signup">
                 </div>
 
             </form>
@@ -398,16 +494,12 @@ require 'common.php';
     <!-- load js -->
 
     <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <!-- jquery end -->
 
     <!-- bootstrap js -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- bootstrap js end -->
 
     <!-- fontawesome -->
