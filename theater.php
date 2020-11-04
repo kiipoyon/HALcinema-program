@@ -81,11 +81,13 @@
 
 
 
-
   <!-- main -->
 	<main>
 
         <div id="wrap">
+
+
+            <h2 class="theater">HALシネマ 名古屋</h2>
 
             <!-- news -->
             <div class="box">
