@@ -112,7 +112,7 @@
 
         <!-- title -->
         <div class="contents__title">
-            <h1>映画タイトル</h1>
+            <h1>上映中の作品</h1>
             <h2>NOW SHOWING<h2>
         </div>
         <!-- title end -->
@@ -157,15 +157,6 @@
 
             </div>
             <!-- movie_data end -->
-
-            <!-- schedule -->
-            <div class="schedule">
-                <div>
-                    <p class="date">2020年<span>06/26</span>(金)</p>
-                    <p>ロードショー</p>
-                </div>
-            </div>
-            <!-- schedule end -->
 
         </div>
         <!-- wrapper end -->
@@ -216,7 +207,7 @@
 <!-- fontawesome end -->
 
 <script src="js/pagetop.js"></script>
-<script src="js/nowshowing.js"></script>
+<script src="js/theater.js"></script>
 
 <!-- load js end -->
 	
