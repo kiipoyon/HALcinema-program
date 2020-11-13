@@ -1,3 +1,34 @@
+<?php
+    require 'common/common.php';
+    $pdo = connect();
+    // データベースへ接続
+    // $dsn = "mysql:dbname=haldb;host=localhost;charset=utf8mb4";
+    // $username = "nhs80333";
+    // $password = "nhs80333";
+    // $options = [];
+    // $pdo = new PDO($dsn, $username, $password, $options);
+    $key1 = "";
+    if(isset($_POST["key1"])){
+        $key1 = $_POST["key1"];
+    }
+    $key2 = "";
+    if(isset($_POST["key2"])){
+        $key2 = $_POST["key2"];
+    }
+    $errMsg = "";
+        if($key1 != "" OR $key2 != ""){ //IDおよびユーザー名の入力有無を確認
+            $stmt = $pdo->query("SELECT count(*) as cnt FROM ticket WHERE key1='".$key1."' OR key2 ='".$key2."'"); //SQL文を実行して、結果を$stmtに代入する。
+//            print "SELECT count(*) as cnt FROM ticket WHERE key1='".$key1."' OR key2 =  '".$key2."'";
+            //データが存在する場合
+//            echo $stmt->fetchColumn();
+            if($stmt->fetchColumn() > 0) {
+                header("Location: ticket_conf.php");
+            }else{
+                $errMsg = "該当データは存在しません。";
+            }
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -126,19 +157,51 @@
                     <br>
                     電話番号と購入番号を入力して「検索」ボタンを押してください。
                 </p>
-                <form method="POST" action="ticket_conf.php">
-                    <div class="form-group">
-                        <label class=”form-control”>電話番号</label>
-                        <input type="number" name="tell" class=”form-control”>
-                    </div>
-                    <div class="form-group">
-                        <label class=”form-control”>購入番号</label>
-                        <input type="number" name="order_num" class=”form-control”>
-                    </div>
 
+                <form action="ticket.php" method="post">
+                <div class="form-group">
+                    <label class="form-conrtol">電話番号</label>
+                    <input type="text" name="key1" oninput="validate(this)" onblur="validate(this)" />
+                    <p style="color:#f00;"></p>
+                </div>
+                <div class="from-group">
+                    <label class="form-conrtol">購入番号</label>
+                    <input type="text" name="key2" oninput="validate(this)" onblur="validate(this)" />
+                    <p style="color:#f00;"></p>
+                </div>
+                <br><br>
+                <?php print $errMsg; ?>
                     <input type="submit" name="search" value="検索 >" class="search">
 
                 </form>
+
+                <script>
+                function validate (self) {
+                    try {
+                    const fieldLabel = self.previousElementSibling.innerHTML;  //名前 or 電話番号
+
+                    if (!self.value) {
+                        throw new Error(fieldLabel + "を入力してください");
+                    }
+
+                    if (self.name === "key1" && !/^[0-9]+$/.test(self.value)) {
+                        throw new Error(fieldLabel + "は半角数字で入力してください");
+                    }
+                    if (self.name === "key2" && !/^[0-9]+$/.test(self.value)) {
+                        throw new Error(fieldLabel + "は半角数字で入力してください");
+                    }
+
+                    self.parentNode.style.backgroundColor = "#fff";
+                    self.nextElementSibling.innerHTML = "";
+                    } catch (err) {
+                    //inputの親の背景をピンクに
+                    self.parentNode.style.backgroundColor = "#fee";  
+
+                    //inputの弟にエラーメッセージを表示
+                    self.nextElementSibling.innerHTML = err.message; 
+                    }
+                }
+                </script>
             </div>
 
         </div>
@@ -197,6 +260,7 @@
 
     <script src="js/pagetop.js"></script>
     <script src="js/nowshowing.js"></script>
+    <script src="js/ticket.js"></script>
 
     <!-- load js end -->
 
