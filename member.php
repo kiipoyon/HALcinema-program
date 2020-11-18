@@ -15,11 +15,10 @@ if (isset($_POST['signup'])) {
 
     // 必須項目(15個)が入力されているか
     if (
-        !empty($_POST['name'])      && !empty($_POST['name_read']) && !empty($_POST['year'])      &&
+        !empty($_POST['username'])      && !empty($_POST['name_read']) && !empty($_POST['year'])      &&
         !empty($_POST['month'])     && !empty($_POST['day'])       && !empty($_POST['gender'])    &&
         !empty($_POST['tel'])       && !empty($_POST['mail'])      && !empty($_POST['mail_conf']) &&
-        !empty($_POST['pass'])      && !empty($_POST['pass_conf']) && !empty($_POST['number'])    &&
-        !empty($_POST['meigi'])     && !empty($_POST['date'])      && !empty($_POST['security'])
+        !empty($_POST['pass'])      && !empty($_POST['pass_conf'])
     ) {
 
         $pass = $_POST['pass'];
@@ -31,7 +30,7 @@ if (isset($_POST['signup'])) {
             if ($result == 1) {
 
                 // セッション情報の保存
-                $_SESSION['name'] = $_POST['name'];
+                $_SESSION['username'] = $_POST['username'];
                 $_SESSION['name_read'] = $_POST['name_read'];
 
                 $_SESSION['year'] = $_POST['year'];
@@ -42,17 +41,10 @@ if (isset($_POST['signup'])) {
                 $_SESSION['tel'] = $_POST['tel'];
 
                 $_SESSION['mail'] = $_POST['mail'];
-                $_SESSION['mail_conf'] = $_POST['mail_conf'];
                 $_SESSION['pass'] = $_POST['pass'];
-                $_SESSION['pass_conf'] = $_POST['pass_conf'];
-
-                $_SESSION['number'] = $_POST['number'];
-                $_SESSION['meigi'] = $_POST['meigi'];
-                $_SESSION['date'] = $_POST['date'];
-                $_SESSION['security'] = $_POST['security'];
 
                 // セッション情報の取得
-                $name = $_SESSION['name'];
+                $username = $_SESSION['username'];
                 $name_read = $_SESSION['name_read'];
 
                 $year = $_SESSION['year'];
@@ -66,11 +58,6 @@ if (isset($_POST['signup'])) {
                 $mail_conf = $_SESSION['mail_conf'];
                 $pass = $_SESSION['pass'];
                 $pass_conf = $_SESSION['pass_conf'];
-
-                $number = $_SESSION['number'];
-                $meigi = $_SESSION['meigi'];
-                $date = $_SESSION['date'];
-                $security = $_SESSION['security'];
 
                 header('location:member_conf.php');
             }
@@ -213,7 +200,7 @@ if (isset($_POST['signup'])) {
 
                     <!-- 氏名 -->
                     <dt>氏名<span>&#42;</span></dt>
-                    <dd><input type="text" name="name"></dd>
+                    <dd><input type="text" name="username"></dd>
 
                     <!-- 氏名(カナ) -->
                     <dt>氏名（かな）<span>&#42;</span></dt>
@@ -435,20 +422,6 @@ if (isset($_POST['signup'])) {
 
                     <dt>パスワード（確認用）<span>&#42;</span></dt>
                     <dd><input type="password" name="pass_conf"></dd>
-
-                    <h3>クレジットカード情報</h3>
-
-                    <dt>クレジットカード番号<span>&#42;</span></dt>
-                    <dd><input type="text" name="number"></dd>
-
-                    <dt>名義人<span>&#42;</span></dt>
-                    <dd><input type="text" name="meigi"></dd>
-
-                    <dt>クレジットカード有効期限<span>&#42;</span></dt>
-                    <dd><input type="text" name="date"></dd>
-
-                    <dt>セキュリティコード<span>&#42;</span></dt>
-                    <dd><input type="text" name="security"></dd>
 
                 </dl>
 

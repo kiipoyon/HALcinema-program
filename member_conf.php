@@ -2,7 +2,7 @@
 
 require "common/common.php";
 
-$name = $_SESSION['name'];
+$username = $_SESSION['username'];
 $name_read = $_SESSION['name_read'];
 
 $year = $_SESSION['year'];
@@ -13,14 +13,7 @@ $gender = $_SESSION['gender'];
 $tel = $_SESSION['tel'];
 
 $mail = $_SESSION['mail'];
-$mail_conf = $_SESSION['mail_conf'];
 $pass = $_SESSION['pass'];
-$pass_conf = $_SESSION['pass_conf'];
-
-$number = $_SESSION['number'];
-$meigi = $_SESSION['meigi'];
-$date = $_SESSION['date'];
-$security = $_SESSION['security'];
 
 //連結
 $birthday = $year . $month . $day;
@@ -46,15 +39,14 @@ if (isset($_POST['signup_last'])) {
     $stmt1->bindValue(':pass', $pass);
 
     //member_tbl
-    $stmt2 = $pdo->prepare("INSERT INTO member_tbl(name,name_read,birthday,gender,tel,mail)
-    VALUES (:name,:name_read,:birthday,:gender,:tel,:mail)");
+    $stmt2 = $pdo->prepare("INSERT INTO member_tbl(username,name_read,birthday,gender,tel)
+    VALUES (:username,:name_read,:birthday,:gender,:tel)");
 
-    $stmt2->bindValue(':name', $name);
+    $stmt2->bindValue(':username', $username);
     $stmt2->bindValue(':name_read', $name_read);
     $stmt2->bindValue(':birthday', $birthday);
     $stmt2->bindValue(':gender', $gender);
     $stmt2->bindValue(':tel', $tel);
-    $stmt2->bindValue(':mail', $mail);
 
     $stmt1->execute();
     $stmt2->execute();
@@ -186,59 +178,37 @@ if (isset($_POST['signup_last'])) {
                     <div class="form_conf">
                         <div>
                             <dt>氏名</dt>
-                            <dd><?php echo $name ?></dd>
+                            <dd><?php echo $username; ?></dd>
                         </div>
 
                         <div>
                             <dt>氏名（かな）</dt>
-                            <dd><?php echo $name_read ?></dd>
+                            <dd><?php echo $name_read; ?></dd>
                         </div>
 
                         <div>
                             <dt>生年月日</dt>
-                            <dd><?php echo $birthday ?></dd>
+                            <dd><?php echo $birthday; ?></dd>
                         </div>
 
                         <div>
                             <dt>性別</dt>
-                            <dd><?php echo $gender ?></dd>
+                            <dd><?php echo $gender; ?></dd>
                         </div>
 
                         <div>
                             <dt>電話番号</dt>
-                            <dd><?php echo $tel ?></dd>
+                            <dd><?php echo $tel; ?></dd>
                         </div>
 
                         <div>
                             <dt>メールアドレス</dt>
-                            <dd><?php echo $mail ?></dd>
+                            <dd><?php echo $mail; ?></dd>
                         </div>
 
                         <div>
                             <dt>パスワード</dt>
                             <dd><?php echo str_repeat("*", mb_strlen($pass, "UTF8")); ?></dd>
-                        </div>
-
-                        <h3>クレジットカード情報</h3>
-
-                        <div>
-                            <dt>クレジットカード番号</dt>
-                            <dd><?php echo $number ?></dd>
-                        </div>
-
-                        <div>
-                            <dt>名義</dt>
-                            <dd><?php echo $meigi ?></dd>
-                        </div>
-
-                        <div>
-                            <dt>クレジットカード有効期限</dt>
-                            <dd><?php echo $date ?></dd>
-                        </div>
-
-                        <div>
-                            <dt>セキュリティ番号</dt>
-                            <dd><?php echo $security ?></dd>
                         </div>
                     </div>
 
