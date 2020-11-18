@@ -40,27 +40,27 @@
 
     <ul>
         <li>
-            <a href="kanri_top.html">
+            <a href="kanri_top.php">
                 <h3 id="top">管理者トップ</h3>
             </a>
         </li>
         <li>
-            <a href="kanri_uriage.html">
+            <a href="kanri_uriage.php">
                 <h3 id="uriage">売上情報管理</h3>
             </a>
         </li>
         <li>
-            <a href="kanri_eiga.html">
+            <a href="kanri_eiga.php">
                 <h3 id="eiga">映画情報管理</h3>
             </a>
         </li>
         <li>
-            <a href="kanri_kaiin.html">
+            <a href="kanri_kaiin.php">
                 <h3 id="kaiin">会員情報管理</h3>
             </a>
         </li>
         <li>
-            <a href="kanri_zaseki.html">
+            <a href="kanri_zaseki.php">
                 <h3 id="zaseki">座席予約管理</h3>
             </a>
         </li>
@@ -75,18 +75,18 @@
     <section class="all_box">
         <section class="top_box">
             <section class="hidari">
-                <a href="kanri_uriage.html"><h5 id="uriage">売上情報</h5></a>
+                <a href="kanri_uriage.php"><h5 id="uriage">売上情報</h5></a>
             </section>
             <section class="migi">
-                <a href="kanri_eiga.html"><h5 id="eiga">映画情報管理</h5></a>
+                <a href="kanri_eiga.php"><h5 id="eiga">映画情報管理</h5></a>
             </section>
         </section>
         <section class="btm_box">
             <section class="hidari">
-                <a href="kanri_kaiin.html"><h5 id="kaiin">会員情報管理</h5></a>
+                <a href="kanri_kaiin.php"><h5 id="kaiin">会員情報管理</h5></a>
             </section>
             <section class="migi">
-                <a href="kanri_zaseki.html"><h5 id="zaseki">座席予約管理</h5></a>
+                <a href="kanri_zaseki.php"><h5 id="zaseki">座席予約管理</h5></a>
             </section>
         </section>
     </section>
