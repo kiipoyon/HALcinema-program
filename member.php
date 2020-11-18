@@ -397,11 +397,11 @@ if (isset($_POST['signup'])) {
                     <!-- 性別 -->
                     <dt>性別<span>&#42;</span></dt>
                     <dd>
-                        <input type="radio" name="gender" id="gen_01" value="未選択" checked>
+                        <input type="radio" name="gender" id="gen_01" value="0" checked>
                         <label class="radio_label" for="gen_01"> 未選択</label>
-                        <input type="radio" name="gender" id="gen_02" value="男性">
+                        <input type="radio" name="gender" id="gen_02" value="1">
                         <label class="radio_label" for="gen_02"> 男性</label>
-                        <input type="radio" name="gender" id="gen_03" value="女性">
+                        <input type="radio" name="gender" id="gen_03" value="2">
                         <label class="radio_label" for="gen_03"> 女性</label>
                     </dd>
 

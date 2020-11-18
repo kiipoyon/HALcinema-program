@@ -23,7 +23,7 @@ function box_c(self){
         if ($(self).hasClass('active')){
             $(self).removeClass('active');
         }else {
-            swal("選択された座席が上限を超えています")
+            swal("選択された座席が上限を超えています");
         }
     
     }else{
@@ -38,8 +38,10 @@ function box_c(self){
            
     act = $('.active');
     act_h = [];
+    act_h2 = [];
     for (let i = 0; i < act.length; i++) {
         act_h[i] = $(act[i]).text() + "番";
+        act_h2[i] = $(act[i]).text();
     }
     
     $("#zaseki_cnt").text(act.length);
@@ -53,5 +55,6 @@ function box_c(self){
     act_k = act.length * "1800";
     
     $('.total').text(act_k + "円");
+    $('#zaseki_inp').val(act_k + "円");
 
 }

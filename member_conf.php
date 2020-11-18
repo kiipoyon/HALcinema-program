@@ -28,30 +28,36 @@ try {
 }
 
 if (isset($_POST['signup_last'])) {
+    try{
+        //login_tbl
+        $pdo = connect();
+        $pass = password_hash($pass, PASSWORD_DEFAULT);
+        print $pass;
+        $stmt1 = $pdo->prepare("INSERT INTO login_tbl(mail,pass) VALUES (:mail,:pass)");
+        $stmt1->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $stmt1->bindValue(':pass', $pass, PDO::PARAM_STR);
 
-    $pass = password_hash($pas, PASSWORD_DEFAULT);
+        //member_tbl
+        $stmt2 = $pdo->prepare("INSERT INTO member_tbl(username,name_read,birthday,gender,tel,point,date) VALUES (:username,:name_read,:birthday,:gender,:tel,:point,:date)");
 
-    //login_tbl
-    $stmt1 = $pdo->prepare("INSERT INTO login_tbl(mail,pass)
-    VALUES (:mail,:pass)");
+        $stmt2->bindValue(':username', $username, PDO::PARAM_STR);
+        $stmt2->bindValue(':name_read', $name_read, PDO::PARAM_STR);
+        $stmt2->bindValue(':birthday', $birthday, PDO::PARAM_INT);
+        $stmt2->bindValue(':gender', $gender, PDO::PARAM_INT);
+        $stmt2->bindValue(':tel', $tel, PDO::PARAM_INT);
+        $stmt2->bindValue(':point', 0, PDO::PARAM_INT);
+        $stmt2->bindValue(':date', 20201117, PDO::PARAM_INT);
 
-    $stmt1->bindValue(':mail', $mail);
-    $stmt1->bindValue(':pass', $pass);
+        $stmt1->execute();
+        $result = $stmt2->execute();
+        // print $result;
+        //header('location:member_fin.php');
+    }catch(PDOException $error){
+        print $error.getMessage();
+    }
 
-    //member_tbl
-    $stmt2 = $pdo->prepare("INSERT INTO member_tbl(username,name_read,birthday,gender,tel)
-    VALUES (:username,:name_read,:birthday,:gender,:tel)");
 
-    $stmt2->bindValue(':username', $username);
-    $stmt2->bindValue(':name_read', $name_read);
-    $stmt2->bindValue(':birthday', $birthday);
-    $stmt2->bindValue(':gender', $gender);
-    $stmt2->bindValue(':tel', $tel);
 
-    $stmt1->execute();
-    $stmt2->execute();
-
-    header('location:member_fin.php');
 }
 
 ?>

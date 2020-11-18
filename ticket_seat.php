@@ -27,7 +27,7 @@
 
         <!-- logo -->
         <div>
-            <a href="index.php">
+            <a href="index.html">
                 <img src="images/common/logo.png" alt="HALcinema-logo">
             </a>
         </div>
@@ -135,7 +135,7 @@
 
 
                 <!-- シアター座席 -->
-                <form method="POST" action="">
+                <form method="POST" action="ticket_login.php">
 
                     <section>
 
@@ -143,6 +143,7 @@
 
                         <div class="zaseki_text">
                             <p>※実際の座席配置とは異なる場合があります。</p>
+                            <input type="text" name="zaseki_bng" id="zaseki_inp" value=" " hidden/>
                             <a href="#">座席表詳細はこちら</a>
                         </div>
                     </section>
@@ -173,20 +174,16 @@
                             </label>
                         </div>
                     </section>
-                </form>
 
 
-                <div class="btn">
-
-                    <form method="POST" action="index.php" class="back">
+                    <div class="btn">
+                        
                         <input type="submit" name="search" value="< 戻る" class="back_btn">
-                    </form>
-
-                    <form method="POST" action="ticket_login.php" class="next">
+                        
                         <input type="submit" name="search" value="利用規約に同意して次へ >" class="next_btn">
-                    </form>
 
                 </div>
+            </form>
 
             </section>
 
@@ -236,8 +233,8 @@
 
     <script src="js/pagetop.js"></script>
     <script src="js/nowshowing.js"></script>
-    <script src="js/zaseki.js"></script>
     <script src="js/ticket_seat.js"></script>
+    <script src="js/zaseki.js"></script>
 
     <!-- load js end -->
 

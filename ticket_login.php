@@ -1,3 +1,6 @@
+<?php
+    include "common/auth.php";
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -27,7 +30,7 @@
 
         <!-- logo -->
         <div>
-            <a href="index.php">
+            <a href="index.html">
                 <img src="images/common/logo.png" alt="HALcinema-logo">
             </a>
         </div>
@@ -98,13 +101,13 @@
                         <dt>座席・券種</dt>
                         <dd>A-001[一般:¥1,800]、A-002[一般:¥1,800]</dd>
                         <dt>合計金額</dt>
-                        <dd class="total">3,600円</dd>
+                        <dd class="total"><?php echo $_POST["zaseki_bng"]; ?></dd>
                     </dl>
                 </section>
 
 
                 <!-- 会員の方ログイン -->
-                <form action="ticket_info.php" method="post">
+                <form action="ticket_info.html" method="post">
                     <section class="login_area">
                         <h3>・会員の方</h3>
                         <div class="form_area">
@@ -115,7 +118,7 @@
                         <div class="form_area">
                             <label>パスワード</label>
                             <input type="password" placeholder="半角英数字8文字以上" name="pass">
-                            <a href="member_pass_rese.php">※パスワードをお忘れの方はこちら</a>
+                            <a href="member_pass_rese.html">※パスワードをお忘れの方はこちら</a>
                         </div>
 
                         <div class="login_btn">
@@ -138,13 +141,13 @@
 
                     <div class="ippan_btn">
 
-                        <form method="POST" action="member.php" class="next">
+                        <form method="POST" action="member.html" class="next">
                             <div class="login_btn">
                                 <input type="submit" name="shinki_btn" value=" 新規会員登録はこちら >" class="next_btn">
                             </div>
                         </form>
 
-                        <form method="POST" action="ticket_info.php" class="next">
+                        <form method="POST" action="ticket_info.html" class="next">
                             <div class="login_btn">
                                 <input type="submit" name="no-member_btn" value="  会員にならずに購入 >" class="no-member_btn">
                             </div>
@@ -157,7 +160,7 @@
 
                 <div class="btn">
 
-                    <form method="POST" action="ticket_seat.php" class="back">
+                    <form method="POST" action="ticket_seat.html" class="back">
                         <input type="submit" name="search" value="< 戻る" class="back_btn">
                     </form>
 
