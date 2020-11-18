@@ -37,7 +37,7 @@
     <nav>
       <ul>
         <li class="nav__solid">
-          <a href="index.php">
+          <a href="index.html">
             <img src="./images/common/HOME.png" alt="">
             <h1>HALシネマ</h1>
             <p>HOME</p>
@@ -46,7 +46,7 @@
         <!--
   -->
         <li class="nav__solid">
-          <a href="nowshowing.php">
+          <a href="nowshowing.html">
             <img src="./images/common/NOWSHOWING.png" alt="">
             <h1>上映中</h1>
             <p>NOW SHOWING</p>
@@ -55,7 +55,7 @@
         <!--
   -->
         <li class="nav__solid">
-          <a href="comingsoon.php">
+          <a href="comingsoon.html">
             <img src="./images/common/COMINGSOON.png" alt="">
             <h1>公開予定</h1>
             <p>COMING SOON</p>
@@ -64,7 +64,7 @@
         <!--
   -->
         <li class="nav__solid">
-          <a href="service.php">
+          <a href="service.html">
             <img src="./images/common/THEATER.png" alt="">
             <h1>サービス案内</h1>
             <p>SERVICE INFO</p>
@@ -73,7 +73,7 @@
         <!--
   -->
         <li class="nav__solid">
-          <a href="member_login.php">
+          <a href="member_login.html">
             <img src="./images/common/LOGIN.png" alt="">
             <h1>ログイン</h1>
             <p>LOGIN</p>
@@ -82,7 +82,7 @@
         <!--
   -->
         <li>
-          <a href="ticket.php">
+          <a href="ticket.html">
             <img src="./images/common/TICKETS.png" alt="">
             <h1>チケット購入/照会</h1>
             <p>TICKETS</p>
@@ -117,23 +117,30 @@
 
       <!-- 会員の方ログイン -->
       <article class="ticket">
-        <form action="member_login_db.php" method="post">
+        <form action="member_info.php" method="post" onsubmit="return check()">
           <section class="login_area">
             <h3>・会員の方</h3>
             <div class="form_area">
               <label>メールアドレス</label>
-              <input type="email" placeholder="info@sample.com" name="mail" size="50">
+              <input id="e-mail" type="email" placeholder="info@sample.com" name="mail" size="50">
             </div>
 
             <div class="form_area">
               <label>パスワード</label>
-              <input type="password" placeholder="半角英数字8〜10文字" name="pass" size="10">
-              <a href="member_pass_rese.php">※パスワードをお忘れの方はこちら</a>
+              <input id="password" type="password" placeholder="半角英数字8〜10文字" name="pass" size="10">
+              <a href="member_pass_rese.html">※パスワードをお忘れの方はこちら</a>
             </div>
+
+            <?php if(isset($_GET["err"])){ ?>
+              <p id="error-message">認証失敗！！</p>
+            <?php }else{ ?>
+              <p id="error-message"></p>
+            <?php } ?>
 
             <div class="login_btn">
               <input type="submit" name="submit_login" value="ログイン >" class="next_btn">
             </div>
+
           </section>
         </form>
 
@@ -200,6 +207,38 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
   <!-- jquery end -->
+
+  <script>
+      function check() {
+        // 未入力なら「パスワードを入力してください」と表示
+        // ８文字未満なら「８文字以上で入力してください」と表示
+        
+        try { 
+          const mail = document.getElementById("e-mail");
+          const password = document.getElementById("password");
+
+          if (!mail.value) {
+            throw new Error("メールアドレスを入力してください"); //エラーを投げる
+          }
+
+          if (!password.value) {
+            throw new Error("パスワードを入力してください"); //エラーを投げる
+          }
+
+          if (password.value.length < 8 || password.value.length > 16) {
+            throw new Error("８文字以上16文字以下で入力してください"); //エラーを投げる
+          }
+          
+        } catch(err){ 
+          const errorMessage = document.getElementById("error-message");
+          errorMessage.innerHTML = err.message;
+          return false;
+        }
+
+        return true;
+
+      };
+  </script>
 
   <!-- bootstrap js -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"

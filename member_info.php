@@ -1,3 +1,36 @@
+<?php
+require 'common.php';
+
+$mail = $_POST['mail'];
+$dsn = "mysql:host=localhost; dbname=haldb; charset=utf8";
+$username = "dbadmin";
+$password = "dbadmin";
+try {
+    $dbh = connect();
+} catch (PDOException $e) {
+    $msg = $e->getMessage();
+}
+
+$sql = "SELECT * FROM login_tbl WHERE mail = :mail";
+$stmt = $dbh->prepare($sql);
+$stmt->bindValue(':mail', $mail);
+$stmt->execute();
+$member = $stmt->fetch();
+
+//指定したハッシュがパスワードにマッチしているかチェック
+// password_verify($_POST['pass'] , $member['pass'])
+if (password_verify($_POST['pass'] , $member['pass'])){
+    //DBのユーザー情報をセッションに保存
+    $_SESSION['mail'] = $mail;
+} else {
+    // $msg = 'メールアドレスもしくはパスワードが間違っています。'.$_POST['pass'].",".$member['pass'];
+    // print $msg;
+   header("Location: member_login.php?err=1"); 
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -35,42 +68,42 @@
     <nav>
         <ul>
             <li class="nav__solid">
-                <a href="index.php">
+                <a href="index.html">
                     <img src="./images/common/HOME.png" alt="">
                     <h1>HALシネマ</h1>
                     <p>HOME</p>
                 </a>
             </li><!--
         --><li class="nav__solid">
-            <a href="nowshowing.php">
+            <a href="nowshowing.html">
                 <img src="./images/common/NOWSHOWING.png" alt="">
                 <h1>上映中</h1>
                 <p>NOW SHOWING</p>
             </a>
         </li><!--
         --><li class="nav__solid">
-            <a href="comingsoon.php">
+            <a href="comingsoon.html">
                 <img src="./images/common/COMINGSOON.png" alt="">
                 <h1>公開予定</h1>
                 <p>COMING SOON</p>
             </a>
             </li><!--
         --><li class="nav__solid">
-            <a href="service.php">
+            <a href="service.html">
                 <img src="./images/common/THEATER.png" alt="">
                 <h1>サービス案内</h1>
                 <p>SERVICE INFO</p>
             </a>
             </li><!--
         --><li class="nav__solid">
-            <a href="member_login.php">
+            <a href="member_login.html">
                 <img src="./images/common/LOGIN.png" alt="">
                 <h1>ログイン</h1>
                 <p>LOGIN</p>
             </a>
             </li><!--
         --><li>
-            <a href="ticket_choice.php">
+            <a href="ticket_choice.html">
                 <img src="./images/common/TICKETS.png" alt="">
                 <h1>チケット照会</h1>
                 <p>TICKETS</p>
@@ -128,7 +161,7 @@
                 <hr>
 
                 <div>
-                  <a href="#">アカウント編集</a>
+                  <a href="change.php">アカウント編集</a>
                   <p>メールアドレス、個人情報等の変更ができます。</p>
                 </div>
 
@@ -142,7 +175,7 @@
                 <hr>
 
                 <div>
-                  <a href="member_withd.php">退会する</a>
+                  <a href="member_withd.html">退会する</a>
                   <p>退会を望まれる方はこちらからできます。</p>
                 </div>
 
