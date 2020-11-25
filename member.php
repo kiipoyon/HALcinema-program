@@ -407,7 +407,7 @@ if (isset($_POST['signup'])) {
 
                     <!-- 電話番号 ------------------------------------->
                     <dt>電話番号<span>&#42;</span></dt>
-                    <dd><input type="number" name="tel"></dd>
+                    <dd><input type="tel" name="tel"></dd>
 
                     <!-- メールアドレス ----------------------------------------->
                     <dt>メールアドレス<span>&#42;</span></dt>
