@@ -11,25 +11,27 @@ try {
     $msg = $e->getMessage();
 }
 
-$sql = "SELECT * FROM login_tbl WHERE mail = :mail and pass = password(:pass)"; //パスワード認証を行っている
+$sql = "SELECT count(*) FROM login_tbl WHERE mail = :mail and pass = password(:pass)"; //パスワード認証を行っている
 $stmt = $dbh->prepare($sql);
 $stmt->bindValue(':mail', $mail);
 $stmt->bindValue(':pass', $_POST['pass']);
 $stmt->execute();
-$stmt->store_result();
+
 //$member = $stmt->fetch();
-
-
+//print "sample[".$stmt->fetchColumn()."]";
+$count = $stmt->fetchColumn();
 
 //指定したハッシュがパスワードにマッチしているかチェック
-// password_verify($_POST['pass'] , $member['pass'])
-if ($stmt->num_rows >= 1){
+//password_verify($_POST['pass'] , $member['pass'])
+if ($count >= 1){
     //DBのユーザー情報をセッションに保存
     $_SESSION['mail'] = $mail;
+    //print $count;    
 } else {
     // $msg = 'メールアドレスもしくはパスワードが間違っています。'.$_POST['pass'].",".$member['pass'];
+    // print $count;    
     // print $msg;
-   header("Location: member_login.php?err=1"); 
+    header("Location: member_login.php?err=1"); 
 }
 
 
