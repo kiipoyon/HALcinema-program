@@ -1,5 +1,5 @@
 <?php
-require 'common.php';
+require 'common/common.php';
 
 $mail = $_POST['mail'];
 $dsn = "mysql:host=localhost; dbname=haldb; charset=utf8";
@@ -11,15 +11,19 @@ try {
     $msg = $e->getMessage();
 }
 
-$sql = "SELECT * FROM login_tbl WHERE mail = :mail";
+$sql = "SELECT * FROM login_tbl WHERE mail = :mail and pass = password(:pass)"; //パスワード認証を行っている
 $stmt = $dbh->prepare($sql);
 $stmt->bindValue(':mail', $mail);
+$stmt->bindValue(':pass', $_POST['pass']);
 $stmt->execute();
-$member = $stmt->fetch();
+$stmt->store_result();
+//$member = $stmt->fetch();
+
+
 
 //指定したハッシュがパスワードにマッチしているかチェック
 // password_verify($_POST['pass'] , $member['pass'])
-if (password_verify($_POST['pass'] , $member['pass'])){
+if ($stmt->num_rows >= 1){
     //DBのユーザー情報をセッションに保存
     $_SESSION['mail'] = $mail;
 } else {
