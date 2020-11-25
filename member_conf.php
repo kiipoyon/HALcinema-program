@@ -35,10 +35,10 @@ if (isset($_POST['signup_last'])) {
     try{
         //login_tbl
         $pdo = connect();
-        $pass = password_hash($pass, PASSWORD_DEFAULT);
+        $pass2 = password_hash($pass, PASSWORD_DEFAULT);
         $stmt1 = $pdo->prepare("INSERT INTO login_tbl(mail,pass) VALUES (:mail,:pass)");
         $stmt1->bindValue(':mail', $mail, PDO::PARAM_STR);
-        $stmt1->bindValue(':pass', $pass, PDO::PARAM_STR);
+        $stmt1->bindValue(':pass', $pass2, PDO::PARAM_STR);
 
         //member_tbl
         $stmt2 = $pdo->prepare("INSERT INTO member_tbl(mail,username,name_read,birthday,gender,tel,date) VALUES(:mail,:username,:name_read,:birthday,:gender,:tel,:date)");
@@ -54,7 +54,7 @@ if (isset($_POST['signup_last'])) {
         $stmt1->execute();
         $stmt2->execute();
         //print $result;
-        //header('location:member_fin.php');
+        header('location:member_fin.php');
     }catch(PDOException $error){
         print $error.getMessage();
         die();
