@@ -71,34 +71,29 @@
 
 <!-- main -->
 <main class="main_wrap">
-    <h4>映画情報管理</h4>
+    <h4>映画情報管理 確認</h4>
     <form>
         <div class="msr_text_02">
-            <label>映画のタイトル</label>
-            <input type="text" />
+            <h2>映画情報が追加されました</h2>
+        </div>
+        <div class="msr_text_02">
+            <label>映画タイトル</label>
         </div>
         <div class="msr_file_02">
             <p>画像</p>
-            <div class="msr_filebox_02">
-              <label for="file_photo">画像を選択してください</label>
-              <input type="file" id="file_photo">
-            </div>
         </div>
         <div class="msr_text_02">
             <label>監督</label>
-            <input type="text" />
         </div>
         <div class="msr_text_02">
             <label>キャスト</label>
-            <input type="text" />
         </div>
         <div class="msr_textarea_02">
             <label>ストーリー</label>
-            <textarea></textarea>
         </div>
         <p class="msr_sendbtn_02">
-            <a href="kanri_eiga_kaku.php">
-            <input type="submit" value="追加">
+            <a href="kanri_top.php">
+            <input type="submit" value="トップに戻る">
             </a>
         </p>
     </form>

@@ -225,8 +225,8 @@
             throw new Error("パスワードを入力してください"); //エラーを投げる
           }
 
-          if (password.value.length < 8 || password.value.length > 16) {
-            throw new Error("８文字以上16文字以下で入力してください"); //エラーを投げる
+          if (password.value.length < 8 || password.value.length > 20) {
+            throw new Error("８文字以上20文字以下で入力してください"); //エラーを投げる
           }
           
         } catch(err){ 

@@ -26,7 +26,7 @@ if (password_verify($_POST['pass'] , $member['pass'])){
     $link = '<a href="member_info.php">ホーム</a>';
 } else {
     $msg = 'メールアドレスもしくはパスワードが間違っています。';
-    $link = '<a href="login.php">戻る</a>';
+    $link = '<a href="member_login.php">戻る</a>';
 }
 
 

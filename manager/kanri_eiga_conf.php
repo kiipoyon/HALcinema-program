@@ -1,3 +1,69 @@
+<?php
+
+require_once 'common/common.php';
+
+$username = $_SESSION['username'];
+$name_read = $_SESSION['name_read'];
+
+$year = $_SESSION['year'];
+$month = $_SESSION['month'];
+$day = $_SESSION['day'];
+
+$gender = $_SESSION['gender'];
+$tel = $_SESSION['tel'];
+
+$mail = $_SESSION['mail'];
+$pass = $_SESSION['pass'];
+
+//連結
+$time_value = $year . $month . $day;
+$birthday = date('Y-m-d H:i',strtotime($time_value));
+
+$today = date("Y-m-d");
+
+$errorMessage = "";
+
+try {
+    $pdo = connect();
+} catch (PDOException $e) {
+    $errorMessage = 'データベースエラー';
+    echo $errorMessage;
+    exit();
+}
+
+if (isset($_POST['signup_last'])) {
+    try{
+        //login_tbl
+        $pdo = connect();
+//        $pass2 = password_hash($pass, PASSWORD_DEFAULT);
+        $stmt1 = $pdo->prepare("INSERT INTO login_tbl(mail,pass) VALUES (:mail,password(:pass))");
+        $stmt1->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $stmt1->bindValue(':pass', $pass, PDO::PARAM_STR);
+
+        //member_tbl
+        $stmt2 = $pdo->prepare("INSERT INTO member_tbl(mail,username,name_read,birthday,gender,tel,date) VALUES(:mail,:username,:name_read,:birthday,:gender,:tel,:date)");
+
+        $stmt2->bindValue(':mail',$mail);
+        $stmt2->bindValue(':username', $username);
+        $stmt2->bindValue(':name_read', $name_read);
+        $stmt2->bindValue(':birthday', $birthday);
+        $stmt2->bindValue(':gender', $gender);
+        $stmt2->bindValue(':tel', $tel);
+        $stmt2->bindValue(':date', $today);
+
+        $stmt1->execute();
+        $stmt2->execute();
+        //print $result;
+        header('location:member_fin.php');
+    }catch(PDOException $error){
+        print $error.getMessage();
+        die();
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -71,7 +137,7 @@
 
 <!-- main -->
 <main class="main_wrap">
-    <h4>映画情報管理</h4>
+    <h4>映画情報管理　確認</h4>
     <form>
         <div class="msr_text_02">
             <label>映画のタイトル</label>
@@ -97,9 +163,7 @@
             <textarea></textarea>
         </div>
         <p class="msr_sendbtn_02">
-            <a href="kanri_eiga_kaku.php">
             <input type="submit" value="追加">
-            </a>
         </p>
     </form>
 </main>
