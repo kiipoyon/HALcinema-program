@@ -1,5 +1,5 @@
 <?php
-require 'common.php';
+require 'common/common.php';
 
 $mail = $_POST['mail'];
 $dsn = "mysql:host=localhost; dbname=haldb; charset=utf8";
@@ -103,7 +103,7 @@ if (password_verify($_POST['pass'] , $member['pass'])){
             </a>
             </li><!--
         --><li>
-            <a href="ticket_choice.html">
+            <a href="ticket_choice.php">
                 <img src="./images/common/TICKETS.png" alt="">
                 <h1>チケット照会</h1>
                 <p>TICKETS</p>

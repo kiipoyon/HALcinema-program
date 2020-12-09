@@ -101,13 +101,13 @@
                         <dt>座席・券種</dt>
                         <dd>A-001[一般:¥1,800]、A-002[一般:¥1,800]</dd>
                         <dt>合計金額</dt>
-                        <dd class="total"><?php echo $_POST["zaseki_bng"]; ?></dd>
+                        <dd class="total"><?php echo $_GET["zaseki_bng"]; ?></dd>
                     </dl>
                 </section>
 
 
                 <!-- 会員の方ログイン -->
-                <form action="ticket_info.html" method="post">
+                <form action="" method="post">
                     <section class="login_area">
                         <h3>・会員の方</h3>
                         <div class="form_area">

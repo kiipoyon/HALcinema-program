@@ -11,30 +11,13 @@ main {
 .carousel-item{
     width: 100%;
 }
-.carousel-item:nth-child(2) svg{
-    background: url(../images/slide/slide_02.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' stroke='%23FAEBD7' stroke-width='0.5' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
-.carousel-item:nth-child(n+3) img{
-    width: 100%;
-    height: 800px;
-}
-.carousel-item:nth-child(3) img{
-    object-fit: contain;
-}
-.carousel-item:nth-child(4) img{
-    object-fit: cover;
-}
-.carousel-item:nth-child(5) img{
-    object-fit: none;
-}
-.carousel-item:nth-child(6) img{
-    object-fit: scale-down;
-}
-.carousel-item:nth-child(7) img{
-    object-fit: fill;
-}
+.carousel-control-next-icon {
+     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' stroke='%23FAEBD7' stroke-width='0.5' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+ }
 /* slide end */
 
 /* bootstrap card */
@@ -129,7 +112,7 @@ h6.card-text {
     font-size: 60px;
     position: absolute;
     left: 15%;
-    top: 1960px;
+    top: 1700px;
     color: #737373;
     padding: 0.5rem;
 }
@@ -138,7 +121,7 @@ h6.card-text {
     font-size: 60px;
     position: absolute;
     right: 15%;
-    top: 1960px;
+    top: 1700px;
     color: #737373;
     padding: 0.5rem;
 }
