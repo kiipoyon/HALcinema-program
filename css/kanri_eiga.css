@@ -15,6 +15,7 @@ form{
     margin-left: 300px;
 }
 
+
 .msr_text_02 {
     padding-bottom: 20px;
     width: 460px;
@@ -43,6 +44,9 @@ form{
   .msr_file_02 {
     padding-bottom: 20px;
     width: 460px;
+  }
+  .msr_file_02 img{
+    width: 100%;
   }
   .msr_file_02>p {
     font-size: 14px;
@@ -111,7 +115,6 @@ form{
   送信ボタン
   ---------------------------------------*/
   .msr_sendbtn_02{
-    margin:0 0 10px;
   }
   .msr_sendbtn_02 input[type=submit] {
     background: url(/stylerecipe_img/arrow_blue02.png) no-repeat;

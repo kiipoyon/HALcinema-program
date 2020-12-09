@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+.main_wrap{
+    margin-left: 300px;
+}
+
+h4{
+    font-size: 30px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}
+
+.box{
+    width: 960px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.tab_container {
+    padding-bottom: 1em;
+    background-color: #fff;
+    border:1px solid #707070;
+    margin: 0 auto;}
+  .tab_item {
+    width: calc(100%/4);
+    padding:15px 0;
+    border-bottom: 3px solid #4DA7D8 ;
+    background-color: #707070;
+    text-align: center;
+    color: #FFF ;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+  .tab_item:hover {
+    opacity: 0.75;
+  }
+  input[name="tab_item"] {
+    display: none;
+  }
+  .tab_content {
+    display: none;
+    padding: 1em 1em 0;
+    clear: both;
+    overflow: hidden;
+  }
+  #tab1:checked ~ #tab1_content,
+  #tab2:checked ~ #tab2_content,
+  #tab3:checked ~ #tab3_content,
+  #tab4:checked ~ #tab4_content {
+    display: block;
+  }
+  .tab_container input:checked + .tab_item {
+    background-color: #4DA7D8 ;
+    color: #fff;
+  }
+
+  table{
+      width: 900px;
+      margin-left: 30px;
+  }
+    table tr th{
+        background-color: #4DA7D8;
+        width: 225px;
+        padding: 5px;
+        color: #fff;
+    }
+    table tr td{
+        width: 225px;
+        padding: 5px;
+        border-bottom: solid 1px;
+    }
