@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../css/kanri_eiga.css">
     <!--load css end-->
 
-    <title>映画情報管理 || HALシネマ</title>
+    <title>座席情報管理 || HALシネマ</title>
 </head>
 <body>
 
@@ -72,18 +72,9 @@
 
 <!-- main -->
 <main class="main_wrap">
-    <h4>映画情報一覧</h4>
+    <h4>映画情報管理　編集</h4>
     <section class="box">
         <div class="tab_container">
-            <input id="tab1" type="radio" name="tab_item" checked>
-            <label class="tab_item" for="tab1">映画情報</label>
-            <input id="tab2" type="radio" name="tab_item">
-            <label class="tab_item" for="tab2">　　　　</label>
-            <input id="tab3" type="radio" name="tab_item">
-            <label class="tab_item" for="tab3">　　　　</label>
-            <input id="tab4" type="radio" name="tab_item">
-            <label class="tab_item" for="tab4">　　　　</label>
-            <div class="tab_content" id="tab1_content">
                 <table>
                     <tr>
                         <th>映画番号</th>
@@ -96,12 +87,10 @@
                     <tr>
                         <td>0001</td>
                         <td>01</td>
-                        <td><img src="./images/thumbnail/thumbnail_01.png" alt=""></td>
                         <td>01</td>
                         <td>01</td>
                         <td>01</td>
-                        <td><a href="kanri_eiga_henshu.php">編集</a></td>
-                        <td><a href="kanri_eiga_delete.php">削除</a></td>
+                        <td>01</td>
                     </tr>
                     <tr>
                         <td>0001</td>
@@ -110,8 +99,6 @@
                         <td>01</td>
                         <td>01</td>
                         <td>01</td>
-                        <td><a href="kanri_eiga_henshu.php">編集</a></td>
-                        <td><a href="kanri_eiga_delete.php">削除</a></td>
                     </tr>
                     <tr>
                         <td>0001</td>
@@ -120,8 +107,6 @@
                         <td>01</td>
                         <td>01</td>
                         <td>01</td>
-                        <td><a href="kanri_eiga_henshu.php">編集</a></td>
-                        <td><a href="kanri_eiga_delete.php">削除</a></td>
                     </tr>
                     <tr>
                         <td>0001</td>
@@ -130,8 +115,6 @@
                         <td>01</td>
                         <td>01</td>
                         <td>01</td>
-                        <td><a href="kanri_eiga_henshu.php">編集</a></td>
-                        <td><a href="kanri_eiga_delete.php">削除</a></td>
                     </tr>
                     <tr>
                         <td>0001</td>
@@ -140,8 +123,6 @@
                         <td>01</td>
                         <td>01</td>
                         <td>01</td>
-                        <td><a href="kanri_eiga_henshu.php">編集</a></td>
-                        <td><a href="kanri_eiga_delete.php">削除</a></td>
                     </tr>
                     <tr>
                         <td>0001</td>
@@ -150,8 +131,6 @@
                         <td>01</td>
                         <td>01</td>
                         <td>01</td>
-                        <td><a href="kanri_eiga_henshu.php">編集</a></td>
-                        <td><a href="kanri_eiga_delete.php">削除</a></td>
                     </tr>
                     <tr>
                         <td>0001</td>
@@ -160,8 +139,6 @@
                         <td>01</td>
                         <td>01</td>
                         <td>01</td>
-                        <td><a href="kanri_eiga_henshu.php">編集</a></td>
-                        <td><a href="kanri_eiga_delete.php">削除</a></td>
                     </tr>
                 </table>
               </div>
@@ -184,13 +161,28 @@
 
           </div>
     </section>
-
     <div class="btn">
-        <p class="msr_sendbtn_02">
-            <a href="kanri_eiga_tuika.php">
-            <input type="submit" value="新規映画追加">
+        <div>
+            <p class="msr_sendbtn_02">
+            <a href="kanri_eiga_henshu.php">
+            <input type="submit" value="映画情報を編集する">
             </a>
-        </p>
+            </p>
+        </div>
+        <div>
+            <p class="msr_sendbtn_02">
+            <a href="kanri_eiga_tuika.php">
+            <input type="submit" value="映画情報を追加する">
+            </a>
+            </p>
+        </div>
+        <div>
+            <p class="msr_sendbtn_02">
+            <a href="kanri_eiga_delete.php">
+            <input type="submit" value="映画情報を削除する">
+            </a>
+            </p>
+        </div>
     </div>
 </main>
 <!-- main end -->
