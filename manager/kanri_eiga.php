@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="../css/common/common.css"/>
 
     <link rel="stylesheet" href="../css/common/kanri_common.css">
+    <link rel="stylesheet" href="../css/kanri_zaseki.css">
     <link rel="stylesheet" href="../css/kanri_eiga.css">
     <!--load css end-->
 
-    <title>映画情報管理 || HALシネマ</title>
+    <title>座席情報管理 || HALシネマ</title>
 </head>
 <body>
 
@@ -72,36 +73,111 @@
 <!-- main -->
 <main class="main_wrap">
     <h4>映画情報管理</h4>
-    <form>
-        <div class="msr_text_02">
-            <label>映画のタイトル</label>
-            <input type="text" />
-        </div>
-        <div class="msr_file_02">
-            <p>画像</p>
-            <div class="msr_filebox_02">
-              <label for="file_photo">画像を選択してください</label>
-              <input type="file" id="file_photo">
+    <section class="box">
+        <div class="tab_container">
+            <input id="tab1" type="radio" name="tab_item" checked>
+            <label class="tab_item" for="tab1">映画情報</label>
+            <input id="tab2" type="radio" name="tab_item">
+            <label class="tab_item" for="tab2">　　　　</label>
+            <input id="tab3" type="radio" name="tab_item">
+            <label class="tab_item" for="tab3">　　　　</label>
+            <input id="tab4" type="radio" name="tab_item">
+            <label class="tab_item" for="tab4">　　　　</label>
+            <div class="tab_content" id="tab1_content">
+                <table>
+                    <tr>
+                        <th>映画番号</th>
+                        <th>映画タイトル</th>
+                        <th>画像</th>
+                        <th>監督</th>
+                        <th>キャスト</th>
+                        <th>ストーリ</th>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                        <td>01</td>
+                    </tr>
+                </table>
+              </div>
             </div>
-        </div>
-        <div class="msr_text_02">
-            <label>監督</label>
-            <input type="text" />
-        </div>
-        <div class="msr_text_02">
-            <label>キャスト</label>
-            <input type="text" />
-        </div>
-        <div class="msr_textarea_02">
-            <label>ストーリー</label>
-            <textarea></textarea>
-        </div>
-        <p class="msr_sendbtn_02">
-            <a href="kanri_eiga_kaku.php">
-            <input type="submit" value="追加">
+            <div class="tab_content" id="tab2_content">
+              <div class="tab_content_description">
+                <p class="c-txtsp">　　　　</p>
+              </div>
+            </div>
+            <div class="tab_content" id="tab3_content">
+              <div class="tab_content_description">
+                <p class="c-txtsp">　　　　</p>
+              </div>
+            </div>
+            <div class="tab_content" id="tab4_content">
+              <div class="tab_content_description">
+                <p class="c-txtsp">　　　　</p>
+              </div>
+            </div>
+
+          </div>
+    </section>
+
+    <div class="button1">
+            <p class="msr_sendbtn_02">
+            <a href="kanri_eiga_hen.php">
+            <input type="submit" value="映画情報を編集する">
             </a>
-        </p>
-    </form>
+            </p>
+          </div>
 </main>
 <!-- main end -->
 
