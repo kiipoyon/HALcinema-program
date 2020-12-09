@@ -110,8 +110,6 @@
 <script src="https://kit.fontawesome.com/b7fcd44df6.js" crossorigin="anonymous"></script>
 <!-- fontawesome end -->
 
-<script src="js/pagetop.js"></script>
-<script src="./js/ranking.js"></script>
 <!-- load js end -->
 
 </body>
