@@ -1,5 +1,5 @@
 /* news */
-#news li{
+#news li {
     width: 90%;
     margin: 0 auto;
     padding: 5px 0;
@@ -9,26 +9,27 @@
     font-size: 20px;
     text-decoration: none;
 }
+
 /* news end */
 
-/* schedule */
-#schedule_box{
+
+
+#schedule_box {
     position: relative;
 
     z-index: 1;
 }
 
-#date_box{
+#date_box {
     position: relative;
     overflow: hidden;
-
     width: 90%;
-    top: -301px;
-    z-index: 2;
+    top: -151px;
+    z-index: 3;
     margin: 0 auto;
 }
 
-#schedule_date{
+#schedule_date {
     position: relative;
 
     left: 0;
@@ -36,113 +37,130 @@
 }
 
 /* flex content */
-.flex_cont{
+.flex_cont {
     flex: 0 0 auto;
 }
+
 /* flex content end */
 
 /* arrow */
-.fas{
-    font-size: 50px;
+.fas {
+    font-size: 3rem;
 }
-#arrow{
+
+#arrow {
     display: flex;
 }
-.arrow{
-    width: 50px;
-    background-color: #4DA7D8;
-    height: 300px;
+
+.arrow {
+    width: 40px;
+    background-color: #4da7d8;
+    height: 150px;
 
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
-.arrow_right{
+
+.arrow_right {
     position: absolute;
-    top: 0;
+    top: 0px;
     right: 0;
 }
+
+
 /* arrow end */
 
-
-
 /* date */
-#date_p{
+#date_p {
     display: flex;
     position: relative;
 
     top: -80px;
 }
-#date_p h3,#date_p p{
+
+#date_p h3,
+#date_p p {
     flex: 0 0 0 auto;
 }
-#date_p p{
+
+#date_p p {
     margin: 0 0 0 5rem;
-    font-size: 20px;
+    font-size: 2rem;
 }
-select{
+
+select {
     position: relative;
 
     top: -50px;
-    width: 300px;
+    width: 150px;
     height: 30px;
 }
-.custom-select{
-    width: 300px;
+
+.custom-select {
+    width: 150px;
 }
+
 /* date end */
 
-
-
 /* rect */
-.rect{
-    width: 300px;
-    height: 300px;
-    background-color: #4DA7D8;
+.rect {
+    width: 204px;
+    height: auto;
+    min-height: 150px;
+    background-color: #4da7d8;
     margin: 1px;
+    cursor: pointer;
+
 }
-.active{
-    background-color: #FF8B60;
+
+.active {
+    background-color: #ff8b60;
     font-weight: bold;
 }
-.date_box{
-    display: flex;
 
-    width: 180px;
+.date_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50%;
     margin: 0 auto;
 }
-.date{
-    flex: 0 0 0 auto;
 
-    font-size: 4rem;
+.date {
+    flex: 0 0 0 auto;
+    font-size: 2.5rem;
     color: white;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
-.date_wd{
+
+.date_wd {
     flex: 0 0 0 auto;
 
-    font-size: 2rem;
+    font-size: 1.6rem;
     padding: 2rem 0;
     color: white;
 }
+
 /* rect end */
 /* schedule end */
 
-
-
 /* schedule content box */
-.schedule_content-box{
+.schedule_content-box {
     width: 100%;
 }
-.movie_p{
-    margin-top: 1rem;
-    font-size: 20px;
+
+.movie_p {
+    margin: 2rem 0 2rem 2rem;
+    font-size: 1.6rem;
     color: #357497;
 }
 
 /* col-md-10 */
-.col-md-10{
+.col-md-10 {
     display: flex;
     flex: 0 0 auto;
     position: relative;
@@ -151,13 +169,16 @@ select{
     width: 100%;
     color: white;
 }
-.movies:nth-child(2n+1) .col-md-10{
-    background-color: #CCCCCC;
+
+.movies:nth-child(2n + 1) .col-md-10 {
+    background-color: #cccccc;
 }
-.movies:nth-child(2n+2) .col-md-10{
+
+.movies:nth-child(2n + 2) .col-md-10 {
     background-color: #555555;
 }
-.col-md-10 h3{
+
+.col-md-10 h3 {
     position: absolute;
 
     font-weight: bold;
@@ -165,67 +186,78 @@ select{
     transform: translateY(-50%);
     padding: 10px;
 }
-.col-md-10 a{
+
+.col-md-10 a {
     margin: 0 0 0 auto;
     padding: 10px;
     text-decoration: none;
     color: white;
 }
+
 /* col-md-10 end */
 
 /* schedule content body */
-.schedule_content-body{
+.schedule_content-body {
     width: 95%;
     margin: 0 auto 3rem auto;
 }
-.schedule_content-body img{
+
+.schedule_content-body img {
     height: 400px;
 }
-.theater_number{
+
+.theater_number {
     margin-top: 1rem;
     padding: 0 10px;
     color: black;
     border-bottom: solid 1px black;
     width: 280px;
-    font-size: 25px;
+    font-size: 2rem;
     font-weight: bold;
-}
-.movie_time{
-    color: black;
-    font-size: 17px;
     text-align: center;
-    width: 200px;
 }
+
+.movie_time {
+    color: black;
+    font-size: 1.6rem;
+    width: 280px;
+    text-align: center;
+}
+
 /* schedule content body end */
 
 /* movie time */
-.movie_body{
+.movie_body {
     display: flex;
 }
-.movie_times{
+
+.movie_times {
     display: flex;
     flex: 0 0 0 auto;
     flex-wrap: wrap;
 
     width: 100%;
     margin-top: 70px;
-    margin-left: 3rem;
+    margin-left: 9.5rem;
 }
-.times{
+
+.times {
     position: absolute;
 
     top: 10px;
     font-size: 30px;
     margin-left: 1rem;
 }
-.times_end{
+
+.times_end {
     position: absolute;
 
     bottom: 50px;
     right: 30px;
     font-size: 20px;
 }
-.times_ticket{
+
+.times_ticket {
     display: flex;
     position: absolute;
 
@@ -235,9 +267,10 @@ select{
     height: 35px;
     width: 80%;
     margin: 0 auto;
-    background-color: #4DA7D8;
+    background-color: #4da7d8;
 }
-.minus{
+
+.minus {
     position: relative;
 
     margin-left: 10px;
@@ -246,7 +279,8 @@ select{
     border: solid 1px black;
     background-color: white;
 }
-.minus svg{
+
+.minus svg {
     display: flex;
     position: absolute;
 
@@ -257,25 +291,45 @@ select{
     margin: auto;
     height: 70%;
     width: 70%;
-    color: #4DA7D8;
+    color: #4da7d8;
 }
-.times_ticket p{
+
+.ticket_a {
+    color: #555555;
+    transition: all 0.3s;
+}
+
+.ticket_a:hover {
+    color: #4da7d8;
+}
+
+.times_ticket p {
     display: flex;
 
     margin-bottom: 0;
-    margin-left: 1rem;
-    font-size: 20px;
+    margin-left: 2rem;
+    font-size: 2rem;
     height: 100%;
     justify-content: center;
     align-items: center;
     color: white;
 }
-.theater_movie{
+
+.theater_movie {
     position: relative;
     flex: 0 0 auto;
 
     margin: 10px 1rem;
     width: 200px;
     height: 150px;
-    background-color: #F6F6F6;
+    background-color: #f6f6f6;
+}
+
+/* ここまで上映スケジュール中身 */
+
+
+
+.theater_title {
+    font-size: 3.5rem;
+    margin: 50px 0 -80px 0;
 }
