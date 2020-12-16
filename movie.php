@@ -335,7 +335,6 @@
         <!-- wrapper end -->
 
         <div id="page__top">
-            <p>ページトップへ</p>
             <div><i class="fas fa-caret-up"></i></div>
         </div>
 
