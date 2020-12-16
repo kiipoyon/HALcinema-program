@@ -50,6 +50,7 @@ function box_c(self){
         $('#zaseki_bng').text("※ココに選択した座席番号表示※");
     } else {
         $("#zaseki_bng").text(act_h);
+        $("#zaseki_count").val(act_h2);
     }
     
     act_k = act.length * "1800";
