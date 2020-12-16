@@ -1,0 +1,125 @@
+main{
+  width: 70%;
+  margin: 0 auto 100px auto;
+}
+
+/* title------------------------------------------ */
+#title_div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  height: 100px;
+  margin: 100px auto 100px auto;
+}
+
+.contents_title{
+  width: 80%;
+  margin: auto;
+  border-left: solid 0.7rem #EC93B6;
+}
+
+.contents_title h1 {
+  padding: 0;
+  margin: 0 0 0 25px;
+
+  color: #555555;
+  font-size: 35px;
+}
+
+.contents_title h2 {
+  padding: 0;
+  margin: 0 0 0 25px;
+
+  color: #707070;
+  font-size: 25px;
+}
+
+section{
+  background-color: #fff;
+  margin: auto;    
+}
+
+form{
+  width: 80%;
+  margin: auto;
+  padding-top: 3.0rem;
+  padding-bottom: 3.0rem;
+}
+
+.member_title{
+  margin-bottom: 80px;
+  border-left: #EC93B6 solid 0.7rem;
+}
+
+.member_title h1 {
+  padding: 0;
+  margin: 0 0 0 25px;
+
+  color: #555555;
+  font-size: 25px;
+}
+
+.member_title h2 {
+  padding: 0;
+  margin: 0 0 0 25px;
+
+  color: #707070;
+  font-size: 15px;
+}
+/* -------------------------------------------------- */
+form dl h3{
+  padding: 50px 0;
+  font-size: 2.5rem;
+}
+
+.form_conf{
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+form dl dt{
+  width: 250px;
+  padding: 10px 0;
+}
+
+form dl dd{
+  padding: 15px 0;
+}
+
+.form_conf > div{
+  display: flex;
+  height: 50px;
+  border-bottom: #b9b9b9 solid 2px;
+}
+
+
+
+/* 送信ボタン */
+input[type=submit]{
+  width: 120px;
+  height: 30px;
+  color: #fff;
+  background-color: #4DA7D8;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+}
+input[type=button]{
+  width: 120px;
+  height: 30px;
+  color: #fff;
+  background-color: #4DA7D8;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.b-submit{
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 50px;
+}
