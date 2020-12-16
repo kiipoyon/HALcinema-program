@@ -1,3 +1,39 @@
+<?php
+require "common/common.php";
+
+if(isset($_POST["back"])) {
+    header("location:ticket_deno.php");
+}
+
+if (isset($_POST["pay_next"])) {
+
+    if(
+        !empty($_POST["card_num1"]) && !empty($_POST["card_num2"]) && !empty($_POST["card_num3"]) && !empty($_POST["card_num4"]) &&
+        !empty($_POST["card_name1"]) && !empty($_POST["card_name2"]) &&
+        !empty($_POST["card_month"]) && !empty($_POST["card_year"])
+    ){
+        $cardNum = $_POST["card_num1"].$_POST["card_num2"].$_POST["card_num3"];
+        $cardNumF = str_repeat('*', mb_strlen($cardNum, 'UTF8'));
+        $cardNum2 = $cardNumF.$_POST["card_num4"];
+        $cardNumAry = str_split($cardNum2, 4);
+        $card = implode(' - ', $cardNumAry);
+
+        $cardName = $_POST["card_name1"]." ".$_POST["card_name2"];
+
+        $cardDate = $_POST["card_month"]."/".$_POST["card_year"];
+
+        session_start();
+        $_SESSION["card"] = $card;
+        $_SESSION["cardName"] = $cardName;
+        $_SESSION["cardDate"] = $cardDate;
+
+        header("location:ticket_pay_conf.php");
+    }else{
+        $errorMessage = "必須項目をすべて入力してください";
+    }
+
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -96,9 +132,26 @@
                         <dt>時間</dt>
                         <dd>14時30分 ~ 16時20分</dd>
                         <dt>座席・券種</dt>
-                        <dd>A-001[一般:¥1,800]、A-002[一般:¥1,800]</dd>
+                        <dd>
+                            <?php
+
+                                $seat_cnt = $_SESSION["seat_cnt"];
+                                $seat = explode(",", $seat_cnt);
+                                $seatLength = count($seat);
+
+                                for ($i = 0; $i < $seatLength; $i++) {
+                                    if ($i == $seatLength-1) {
+                                        $seat_ken = $seat[$i]."[".$_SESSION["ticket_deno".$i]."]";
+                                        echo $seat_ken;
+                                    }else {
+                                        $seat_ken = $seat[$i]."[".$_SESSION["ticket_deno".$i]."],";
+                                        echo $seat_ken;
+                                    }
+                                }
+                            ?>
+                            </dd>
                         <dt>合計金額</dt>
-                        <dd class="total">3,600円</dd>
+                        <dd class="total"><?php echo $_SESSION["seat"]; ?></dd>
                     </dl>
                 </section>
 
@@ -113,24 +166,24 @@
                 </section>
 
                 <!-- クレジット情報入力エリア -->
-                <form action="ticket_pay_conf.php" method="post">
+                <form action="" method="post">
                     <section class="info_form">
                         <ul>
                             <li class="info_list">
                                 <label for="num_input">カード番号<span class="red_info">*</span></label>
-                                <input id="num_input" type="text" maxlength="4" placeholder="0000" name="card_num"
-                                    class="num_text"> -
-                                <input type="text" maxlength="4" placeholder="0000" name="card_num" class="num_text"> -
-                                <input type="text" maxlength="4" placeholder="0000" name="card_num" class="num_text"> -
-                                <input type="text" maxlength="4" placeholder="0000" name="card_num" class="num_text">
+                                <input id="num_input" type="text" maxlength="4" placeholder="0000" name="card_num1"
+                                    class="num_text" > -
+                                <input type="text" maxlength="4" placeholder="0000" name="card_num2" class="num_text" > -
+                                <input type="text" maxlength="4" placeholder="0000" name="card_num3" class="num_text" > -
+                                <input type="text" maxlength="4" placeholder="0000" name="card_num4" class="num_text" >
                                 <span class="red_text">半角数字</span>
                             </li>
 
                             <li class="info_list">
                                 <label>カード名義<span class="red_info">*</span></label>
-                                <input type="text" placeholder="TARO" name="card_name" class="name_text">（名）
-                                <input type="text" placeholder="HAL" name="card_name" class="name_text">（姓）
-                                <span class="red_text">大文字英数字</span>
+                                <input type="text" placeholder="TARO" name="card_name1" class="name_text" >（名）
+                                <input type="text" placeholder="HAL" name="card_name2" class="name_text">（姓）
+                                <span class="red_text">大文字英字</span>
                             </li>
 
                             <li class="info_list">
@@ -148,10 +201,8 @@
                                     <option value="10">10</option>
                                     <option value="11">11</option>
                                     <option value="12">12</option>
-                                </select> /月 20
-
-                                <input type="text" maxlength="2" placeholder="xx" name="card_month" class="month_text">
-                                年
+                                </select> /
+                                <input type="text" maxlength="2" placeholder="00" name="card_year" class="month_text">
                                 <span class="red_text">半角数字</span>
                             </li>
 
@@ -163,19 +214,14 @@
 
                         </ul>
                     </section>
+
+
+
+                    <div class="btn">
+                        <input type="submit" name="back" value="< 戻る" class="back_btn">
+                        <input type="submit" name="pay_next" value="次へ >" class="next_btn">
+                    </div>
                 </form>
-
-
-
-                <div class="btn">
-
-                    <form method="POST" action="ticket_deno.php" class="back">
-                        <input type="submit" name="search" value="< 戻る" class="back_btn">
-                    </form>
-
-                    <form method="POST" action="ticket_pay_conf.php" class="next">
-                        <input type="submit" name="search" value="次へ >" class="next_btn">
-                    </form>
 
                 </div>
             </section>

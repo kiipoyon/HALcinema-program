@@ -1,6 +1,44 @@
 <?php
-    include "common/auth.php";
+require 'common/common.php';
+
+if(isset($_SESSION['mail'])){
+    header('location:ticket_info.php');
+}
+
+if(isset($_POST['login_btn'])) {
+
+    try {
+        $dbh = connect();
+    } catch (PDOException $e) {
+        $msg = $e->getMessage();
+    }
+
+    $mail = $_POST['mail'];
+    $sql = "SELECT * FROM login_tbl WHERE mail = :mail";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':mail', $mail);
+    $stmt->execute();
+    $member = $stmt->fetch();
+
+    //指定したハッシュがパスワードにマッチしているかチェック
+    // password_verify($_POST['pass'] , $member['pass'])
+    if (password_verify($_POST['pass'] , $member['pass'])){
+        //DBのユーザー情報をセッションに保存
+        $_SESSION['mail'] = $mail;
+        $msg = 'ログインしました。';
+        // echo $msg;
+
+        // echo $_SESSION['mail'];
+
+        header('location:ticket_info.php');
+    } else {
+        $msg = 'メールアドレスもしくはパスワードが間違っています。';
+        echo $msg;
+}
+
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -101,7 +139,7 @@
                         <dt>座席・券種</dt>
                         <dd>A-001[一般:¥1,800]、A-002[一般:¥1,800]</dd>
                         <dt>合計金額</dt>
-                        <dd class="total"><?php echo $_GET["zaseki_bng"]; ?></dd>
+                        <dd class="total"><?php echo $_SESSION["seat"]; ?></dd>
                     </dl>
                 </section>
 

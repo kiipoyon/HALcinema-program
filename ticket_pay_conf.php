@@ -1,3 +1,24 @@
+<?php
+require "common/common.php";
+
+
+try {
+    $dbh = connect();
+} catch (PDOException $e) {
+    $msg = $e->getMessage();
+}
+
+$mail = $_SESSION['mail'];
+$sql = "SELECT * FROM member_tbl WHERE mail = :mail";
+$stmt = $dbh->prepare($sql);
+$stmt->bindValue(':mail', $mail);
+$stmt->execute();
+$member = $stmt->fetch();
+
+$userName = $member["username"];
+$nameRead = $member["name_read"];
+$tel = $member["tel"];
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -100,9 +121,25 @@
                         <dt>時間</dt>
                         <dd>14時30分 ~ 16時20分</dd>
                         <dt>座席・券種</dt>
-                        <dd>A-001[一般:¥1,800]、A-002[一般:¥1,800]</dd>
+                        <dd>
+                            <?php
+                                $seat_cnt = $_SESSION["seat_cnt"];
+                                $seat = explode(",", $seat_cnt);
+                                $seatLength = count($seat);
+
+                                for ($i = 0; $i < $seatLength; $i++) {
+                                    if ($i == $seatLength-1) {
+                                        $seat_ken = $seat[$i]."[".$_SESSION["ticket_deno".$i]."]";
+                                        echo $seat_ken;
+                                    }else {
+                                        $seat_ken = $seat[$i]."[".$_SESSION["ticket_deno".$i]."],";
+                                        echo $seat_ken;
+                                    }
+                                }
+                            ?>
+                        </dd>
                         <dt>合計金額</dt>
-                        <dd class="total">3,600円</dd>
+                        <dd class="total"><?php echo $_SESSION["seat"];?></dd>
                     </dl>
                 </section>
 
@@ -112,13 +149,13 @@
                     <h3>・お客様情報</h3>
                     <dl>
                         <dt>氏名</dt>
-                        <dd>春太郎</dd>
+                        <dd><?php echo $userName; ?></dd>
                         <dt>氏名(かな)</dt>
-                        <dd>はるたろう</dd>
+                        <dd><?php echo $nameRead; ?></dd>
                         <dt>電話番号</dt>
-                        <dd>0123-456-7890</dd>
+                        <dd><?php echo $tel; ?></dd>
                         <dt>メールアドレス</dt>
-                        <dd>hal@cinema.co.jp</dd>
+                        <dd><?php echo $_SESSION["mail"]; ?></dd>
                     </dl>
                     <div class="page_back">
                         <form method="POST" action="ticket_info.php" class="back">
@@ -137,15 +174,20 @@
                             <th>券種名 / 料金</th>
                         </tr>
 
-                        <tr class="deno_number">
-                            <td>A-001</td>
-                            <td>[一般:¥1,800]</td>
-                        </tr>
+                        <?php
+                                    for ($i = 0; $i < $seatLength; $i++){
+                                ?>
 
-                        <tr class="deno_number">
-                            <td>A-002</td>
-                            <td>[一般:¥1,800]</td>
-                        </tr>
+                                    <tr class='deno_number'>
+                                        <td><?php echo $seat_ken = $seat[$i];?></td>
+                                        <td>
+                                            <?php echo "[".$_SESSION["ticket_deno".$i]."]" ?>
+                                        </td>
+                                    </tr>
+
+                                <?php
+                                    }
+                                ?>
                     </table>
                     <div class="page_back">
                         <form method="POST" action="ticket_deno.php" class="back">
@@ -160,11 +202,11 @@
                     <h3>・クレジット情報</h3>
                     <dl>
                         <dt>カード番号</dt>
-                        <dd>xxxx-xxxx-xxxx-0123</dd>
+                        <dd><?php echo $_SESSION["card"]; ?></dd>
                         <dt>カード名義</dt>
-                        <dd>TARO HAL</dd>
+                        <dd><?php echo $_SESSION["cardName"]; ?></dd>
                         <dt>有効期限</dt>
-                        <dd>12/2020</dd>
+                        <dd><?php echo $_SESSION["cardDate"]; ?></dd>
                     </dl>
                 </section>
 

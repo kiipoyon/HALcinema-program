@@ -1,3 +1,54 @@
+<?php
+require "common/common.php";
+
+if(isset($_POST["back"])) {
+    header("location:ticket_seat.php");
+}
+
+$seat_cnt = $_SESSION["seat_cnt"];
+$seat = explode(",", $seat_cnt);
+$seatLength = count($seat);
+
+try {
+    $dbh = connect();
+} catch (PDOException $e) {
+    $msg = $e->getMessage();
+}
+
+$mail = $_SESSION['mail'];
+$sql = "SELECT * FROM member_tbl WHERE mail = :mail";
+$stmt = $dbh->prepare($sql);
+$stmt->bindValue(':mail', $mail);
+$stmt->execute();
+$member = $stmt->fetch();
+
+$userName = $member["username"];
+$nameRead = $member["name_read"];
+$tel = $member["tel"];
+$gender = $member["gender"];
+
+if (isset($_POST["next"])) {
+
+    if(
+        !empty($_POST["userName"]) && !empty($_POST["nameRead"]) && !empty($_POST["tel"]) && !empty($_POST["mail"]) &&
+        !empty($_POST["mailConf"]) && !empty($_POST["gender"])
+    ){
+
+        session_start();
+        $_SESSION["userName"] = $_POST["userName"];
+        $_SESSION["nameRead"] = $_POST["nameRead"];
+        $_SESSION["tel"] = $_POST["tel"];
+        $_SESSION["mail"] = $_POST["mail"];
+        $_SESSION["mailConf"] = $_POST["mailConf"];
+        $_SESSION["gender"] = $_POST["gender"];
+
+
+        header("location:ticket_deno.php");
+
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -96,9 +147,21 @@
                         <dt>時間</dt>
                         <dd>14時30分 ~ 16時20分</dd>
                         <dt>座席・券種</dt>
-                        <dd>A-001[一般:¥1,800]、A-002[一般:¥1,800]</dd>
+                        <dd>
+                            <?php
+                                for ($i = 0; $i < $seatLength; $i++) {
+                                    if ($i == $seatLength-1) {
+                                        $seat_ken = $seat[$i]."[一般:1800]";
+                                        echo $seat_ken;
+                                    }else {
+                                        $seat_ken = $seat[$i]."[一般:1800],";
+                                        echo $seat_ken;
+                                    }
+                                }
+                            ?>
+                        </dd>
                         <dt>合計金額</dt>
-                        <dd class="total">3,600円</dd>
+                        <dd class="total"><?php echo $_SESSION["seat"]; ?></dd>
                     </dl>
                 </section>
 
@@ -118,56 +181,50 @@
                         <ul>
                             <li class="info_list">
                                 <label>氏名<span class="red_info">*</span></label>
-                                <input type="text" placeholder="例:春太郎" name="">
+                                <input type="text" placeholder="例:春太郎" name="userName" value="<?php echo $userName; ?>">
                             </li>
 
                             <li class="info_list">
                                 <label>氏名(かな)<span class="red_info">*</span></label>
-                                <input type="text" placeholder="例:はるたろう" name="">
+                                <input type="text" placeholder="例:はるたろう" name="nameRead" value="<?php echo $nameRead; ?>" >
                             </li>
 
                             <li class="info_list">
                                 <label>電話番号<span class="red_info">*</span></label>
-                                <input type="tel" placeholder="例:0123456789" name="">
+                                <input type="tel" placeholder="例:0123456789" name="tel" value="<?php echo $tel; ?>">
                             </li>
 
                             <li class="info_list">
                                 <label>メールアドレス<span class="red_info">*</span></label>
-                                <input type="email" placeholder="例:abc@halcinema.co.jp" name="">
+                                <input type="email" placeholder="例:abc@halcinema.co.jp" name="mail" value="<?php echo $mail; ?>">
                             </li>
 
                             <li class="info_list">
                                 <label>メールアドレス(確認用)<span class="red_info">*</span></label>
-                                <input type="email" placeholder="例:abc@halcinema.co.jp" name="">
+                                <input type="email" placeholder="例:abc@halcinema.co.jp" name="mailConf" value="<?php echo $mail; ?>">
                             </li>
 
                             <li class="info_list">
                                 <label>性別</label>
 
-                                <input type="radio" name="gender" id="gen_01" value="未選択" checked>
+                                <input type="radio" name="gender" id="gen_01" value="未選択" value="0" <?php if($gender === '0'){ echo 'checked'; } ?> >
                                 <label class="radio_label" for="gen_01"> 未選択</label>
-                                <input type="radio" name="gender" id="gen_02" value="男性">
+                                <input type="radio" name="gender" id="gen_02" value="男性" value="1" <?php if($gender === '1'){ echo 'checked'; } ?> >
                                 <label class="radio_label" for="gen_02"> 男性</label>
-                                <input type="radio" name="gender" id="gen_03" value="女性">
+                                <input type="radio" name="gender" id="gen_03" value="女性" value="2" <?php if($gender === '2'){ echo 'checked'; } ?> >
                                 <label class="radio_label" for="gen_03"> 女性</label>
                             </li>
                         </ul>
                     </section>
+
+
+
+                    <div class="btn">
+                            <input type="submit" name="back" value="< 戻る" class="back_btn">
+                            <input type="submit" name="next" value="次へ >" class="next_btn">
+
+                    </div>
                 </form>
-
-
-
-                <div class="btn">
-
-                    <form method="POST" action="ticket_login.php" class="back">
-                        <input type="submit" name="search" value="< 戻る" class="back_btn">
-                    </form>
-
-                    <form method="POST" action="ticket_deno.php" class="next">
-                        <input type="submit" name="search" value="次へ >" class="next_btn">
-                    </form>
-
-                </div>
 
             </section>
 

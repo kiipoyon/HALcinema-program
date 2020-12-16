@@ -1,3 +1,16 @@
+<?php
+    if(isset($_POST["seat_btn"])){
+        session_start();
+        $_SESSION["seat"] = $_POST["zaseki_bng"];
+        $_SESSION["seat_cnt"] = $_POST["zaseki_cnt"];
+        // echo $_SESSION["seat"];
+
+        if(isset($_SESSION["seat"])){
+            header("location:ticket_login.php");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -96,7 +109,7 @@
                         <dt>時間</dt>
                         <dd>14時30分 ~ 16時20分</dd>
                         <dt>座席・券種</dt>
-                        <dd>A-001[一般:¥1,800]、A-002[一般:¥1,800]</dd>
+                        <dd>[一般:¥1,800]</dd>
                         <dt>合計金額</dt>
                         <dd class="total">0円</dd>
                     </dl>
@@ -135,7 +148,7 @@
 
 
                 <!-- シアター座席 -->
-                <form method="POST" action="ticket_login.php">
+                <form method="POST" action="">
 
                     <section>
 
@@ -144,6 +157,7 @@
                         <div class="zaseki_text">
                             <p>※実際の座席配置とは異なる場合があります。</p>
                             <input type="text" name="zaseki_bng" id="zaseki_inp" value=" " hidden/>
+                            <input type="text" name="zaseki_cnt" id="zaseki_count" value=" " hidden/>
                             <a href="#">座席表詳細はこちら</a>
                         </div>
                     </section>
@@ -177,10 +191,10 @@
 
 
                     <div class="btn">
-                        
+
                         <input type="submit" name="search" value="< 戻る" class="back_btn">
-                        
-                        <input type="submit" name="search" value="利用規約に同意して次へ >" class="next_btn">
+
+                        <input type="submit" name="seat_btn" value="利用規約に同意して次へ >" class="next_btn">
 
                 </div>
             </form>

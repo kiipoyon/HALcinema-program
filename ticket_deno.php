@@ -1,3 +1,41 @@
+<?php
+require "common/common.php";
+
+
+$seat_cnt = $_SESSION["seat_cnt"];
+$seat = explode(",", $seat_cnt);
+$seatLength = count($seat);
+
+if(isset($_POST["back"])) {
+    header("location:ticket_info.php");
+}
+
+try {
+    $dbh = connect();
+} catch (PDOException $e) {
+    $msg = $e->getMessage();
+}
+
+$mail = $_SESSION['mail'];
+$sql = "SELECT * FROM member_tbl WHERE mail = :mail";
+$stmt = $dbh->prepare($sql);
+$stmt->bindValue(':mail', $mail);
+$stmt->execute();
+$member = $stmt->fetch();
+
+$userName = $member["username"];
+$point = $member["point"];
+$date = $member["date"];
+
+
+if (isset($_POST["next"])) {
+    for ($i=0; $i < $seatLength; $i++) {
+        $_SESSION["ticket_deno".$i] = $_POST["ticket_deno".$i];
+        // echo $_SESSION["ticket_deno".$i];
+    }
+    header("location:ticket_pay.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -96,7 +134,19 @@
                         <dt>時間</dt>
                         <dd>14時30分 ~ 16時20分</dd>
                         <dt>座席・券種</dt>
-                        <dd>A-001[一般:¥1,800]、A-002[一般:¥1,800]</dd>
+                        <dd>
+                        <?php
+                                for ($i = 0; $i < $seatLength; $i++) {
+                                    if ($i == $seatLength-1) {
+                                        $seat_ken = $seat[$i]."[一般:1800]";
+                                        echo $seat_ken;
+                                    }else {
+                                        $seat_ken = $seat[$i]."[一般:1800],";
+                                        echo $seat_ken;
+                                    }
+                                }
+                            ?>
+                        </dd>
                         <dt>合計金額</dt>
                         <dd class="total">3,600円</dd>
                     </dl>
@@ -106,9 +156,9 @@
                 <!-- 会員情報 -->
                 <section class="info_area">
                     <h3>・会員情報</h3>
-                    <p class="info_p_01">会員氏名 ： 春太郎　様</p>
-                    <p class="info_p_02">現在のお客様のシネマポイント数は、<span class="red_info">5ポイント</span>です。<br>
-                        ポイント有効期限は、<span class="red_info">2020/09/30</span>までとなります。</p>
+                    <p class="info_p_01">会員氏名 ： <?php echo $userName; ?>　様</p>
+                    <p class="info_p_02">現在のお客様のシネマポイント数は、<span class="red_info"><?php echo $point; ?>ポイント</span>です。<br>
+                        ポイント有効期限は、<span class="red_info"><?php echo $date; ?></span>までとなります。</p>
                     <p class="info_p_03">6ポイントで1回無料で映画を鑑賞いただけます。「6ポイント無料券(¥0)」で券種をお選び下さい。<br>
                         上映形式によって追加料金が発生します。<br>
                         ※IMAX、IMAX3D、4DX、4DX3D作品の「6ポイント無料券(¥0)」のご利用は対象外となります。</p>
@@ -120,7 +170,7 @@
                     <h3>・券種選択</h3>
                     <p> チケットの種類をお選びください。</p>
 
-                    <form method="POST" action="ticket_pay.php" class="next">
+                    <form method="POST" action="" class="next">
                         <section class="deno_area">
 
                             <table>
@@ -130,45 +180,42 @@
                                     <th>券種名 / 料金</th>
                                 </tr>
 
-                                <tr class="deno_number">
-                                    <td>A-001</td>
-                                    <td>
-                                        <select name="ticket_deno">
-                                            <option value="一般:¥1,800">[一般:¥1,800]</option>
-                                            <option value="一般:¥1,800">[一般:¥1,800]</option>
-                                            <option value="一般:¥1,800">[一般:¥1,800]</option>
-                                        </select>
-                                    </td>
-                                </tr>
 
-                                <tr class="deno_number">
-                                    <td>A-002</td>
-                                    <td>
-                                        <select name="ticket_deno">
-                                            <option value="一般:¥1,800">[一般:¥1,800]</option>
-                                            <option value="一般:¥1,800">[一般:¥1,800]</option>
-                                            <option value="一般:¥1,800">[一般:¥1,800]</option>
-                                        </select>
-                                    </td>
-                                </tr>
+
+                                <?php
+                                    for ($i = 0; $i < $seatLength; $i++){
+                                ?>
+
+                                    <tr class='deno_number'>
+                                        <td><?php echo $seat_ken = $seat[$i];?></td>
+                                        <td>
+                                            <select name='ticket_deno<?php echo $i; ?>'>
+                                                <option value='一般:¥1,800'>[一般:¥1,800]</option>
+                                                <option value='大学生:¥1,500'>[大学生:¥1,500]</option>
+                                                <option value='高校生:¥1,000'>[高校生:¥1,000]</option>
+                                                <option value='中学生・小学生:¥1,000'>[中学生・小学生:¥1,000]</option>
+                                                <option value='シニア:¥1,200'>[シニア:¥1,200]</option>
+                                                <option value='障がい者:¥1,800'>[障がい者:¥1,800]</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                <?php
+                                    }
+                                ?>
+
 
                             </table>
                         </section>
+                    </section>
+
+
+                        <div class="btn">
+                            <input type="submit" name="back" value="< 戻る" class="back_btn">
+                            <input type="submit" name="next" value="次へ >" class="next_btn">
+
+                        </div>
                     </form>
-                </section>
-
-
-                <div class="btn">
-
-                    <form method="POST" action="ticket_info.php" class="back">
-                        <input type="submit" name="search" value="< 戻る" class="back_btn">
-                    </form>
-
-                    <form method="POST" action="ticket_pay.php" class="next">
-                        <input type="submit" name="search" value="次へ >" class="next_btn">
-                    </form>
-
-                </div>
 
             </section>
 
