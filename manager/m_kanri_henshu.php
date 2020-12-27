@@ -4,10 +4,6 @@
     // データベースに接続する
     $pdo = connect();
 
-
-    // 管理ページのログインパスワード
-    define( 'PASSWORD', 'bbs');
-
     // データベースの接続情報
     define( 'DB_HOST', 'localhost');
     define( 'DB_USER', 'nhs80333');
@@ -216,7 +212,7 @@
 	</div>
 	<a class="btn_cancel" href="m_kanri.php">キャンセル</a>
 	<input type="submit" name="btn_submit" value="更新">
-	<input type="hidden" name="message_id" value="<?php echo $message_data['movie_no']; ?>">
+	<input type="hidden" name="movie_id" value="<?php echo $message_data['movie_no']; ?>">
 </form>
 
 </body>
