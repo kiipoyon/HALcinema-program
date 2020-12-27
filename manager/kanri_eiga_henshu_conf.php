@@ -14,8 +14,6 @@
 	$image = $_SESSION['image'];
 	$counter = "";
 
-	var_dump($movie_no);
-
 	if (isset($_POST['apdate_btn'])) {
 
 		// 映画情報テーブル
@@ -31,8 +29,6 @@
 		$stmt->bindParam(':counter', $counter, PDO::PARAM_INT);
 	
 		$stmt->execute();
-
-		var_dump($stmt);
 	
 		header('location:kanri_eiga_henshu_fin.php');
 	}	
@@ -54,8 +50,9 @@
     <link rel="stylesheet" href="../css/common/common.css"/>
 
     <link rel="stylesheet" href="../css/common/kanri_common.css">
-    <link rel="stylesheet" href="../css/kanri_eiga_list.css">
-    <link rel="stylesheet" href="../css/m_kanri_henshu.css">
+		<link rel="stylesheet" href="../css/kanri_eiga_list.css">
+		<link rel="stylesheet" href="../css/kanri_eiga.css">
+    <link rel="stylesheet" href="../css/kanri_eiga_henshu.css">
     <!--load css end-->
 
     <title>映画情報管理 || HALシネマ</title>
@@ -106,33 +103,40 @@
 
 </nav>
 
-<h1>映画　管理</h1>
+<main class="main_wrap">
 
-<form method="post">
-	<div>
-		<label for="title">タイトル</label>
-		<?php echo $title; ?>
-	</div>
-	<div>
-		<label for="image">サムネイル</label>
-		<?php echo $image; ?>
-	</div>
-	<div>
-		<label for="story">あらすじ</label>
-		<?php echo $story; ?>
-	</div>
-	<div>
-		<label for="director">監督名　</label>
-		<?php echo $director; ?>
-	</div>
-	<div>
-		<label for="cast">キャスト</label>
-		<?php echo $cast; ?>
-	</div>
-	<button type="button" onclick=history.back()>戻る</button>
-	<input type="submit" name="apdate_btn" value="更新">
-	<input type="hidden" name="message_id" value="<?php echo $message_data['movie_no']; ?>">
-</form>
+	<h4>映画情報管理　編集</h4>
+
+	<form method="post">
+		<div>
+			<label for="title">タイトル</label>
+			<?php echo $title; ?>
+		</div>
+		<div>
+			<label for="image">サムネイル</label>
+			<?php echo $image; ?>
+		</div>
+		<div>
+			<label for="story">あらすじ</label>
+			<?php echo $story; ?>
+		</div>
+		<div>
+			<label for="director">監督名　</label>
+			<?php echo $director; ?>
+		</div>
+		<div>
+			<label for="cast">キャスト</label>
+			<?php echo $cast; ?>
+		</div>
+		<div class="btn">
+			<input type="button" onclick="history.back()" value="戻る">
+			<input type="submit" name="apdate_btn" value="更新">
+		</div>
+
+		<input type="hidden" name="message_id" value="<?php echo $message_data['movie_no']; ?>">
+	</form>
+
+</main>
 
 </body>
 </html>

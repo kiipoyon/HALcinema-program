@@ -60,8 +60,9 @@
     <link rel="stylesheet" href="../css/common/common.css"/>
 
     <link rel="stylesheet" href="../css/common/kanri_common.css">
-    <link rel="stylesheet" href="../css/kanri_eiga_list.css">
-    <link rel="stylesheet" href="../css/m_kanri_henshu.css">
+		<link rel="stylesheet" href="../css/kanri_eiga_list.css">
+		<link rel="stylesheet" href="../css/kanri_eiga.css">
+    <link rel="stylesheet" href="../css/kanri_eiga_henshu.css">
     <!--load css end-->
 
     <title>映画情報管理 || HALシネマ</title>
@@ -112,34 +113,41 @@
 
 </nav>
 
-<h1>映画　管理</h1>
+<main class="main_wrap">
 
-<form method="post">
-	<div>
-		<label for="title">タイトル</label>
-		<input id="title" type="text" size="60" name="title">
-	</div>
-	<div>
-		<label for="image">サムネイル</label>
-		<input type="file" name="image">
-	</div>
-	<div>
-		<label for="story">あらすじ</label>
-		<textarea id="story" name="story" cols="60" rows="20"></textarea>
-	</div>
-	<div>
-		<label for="director">監督名　</label>
-		<input id="director" type="text"  size="60" name="director">
-		</textarea>
-	</div>
-	<div>
-		<label for="cast">キャスト</label>
-		<textarea id="cast" name="cast" cols="60"></textarea>
-	</div>
-	<a class="btn_cancel" href="m_kanri.php">キャンセル</a>
-	<input type="submit" name="btn_submit" value="確認">
-	<input type="hidden" name="message_id" value="<?php echo $message_data['movie_no']; ?>">
-</form>
+	<h4>映画情報管理　編集</h4>
+
+	<form method="post">
+		<div>
+			<label for="title">タイトル</label>
+			<input id="title" type="text" size="60" name="title">
+		</div>
+		<div>
+			<label for="image">サムネイル</label>
+			<input type="file" name="image">
+		</div>
+		<div>
+			<label for="story">あらすじ</label>
+			<textarea id="story" name="story" cols="60" rows="15"></textarea>
+		</div>
+		<div>
+			<label for="director">監督名　</label>
+			<input id="director" type="text"  size="60" name="director">
+			</textarea>
+		</div>
+		<div>
+			<label for="cast">キャスト</label>
+			<textarea id="cast" name="cast" cols="60"></textarea>
+		</div>
+		<div class="btn">
+			<input type="button" onclick="history.back()" value="キャンセル">
+			<input type="submit" name="btn_submit" value="確認">
+		</div>
+
+		<input type="hidden" name="message_id" value="<?php echo $message_data['movie_no']; ?>">
+	</form>
+
+</main>
 
 </body>
 </html>

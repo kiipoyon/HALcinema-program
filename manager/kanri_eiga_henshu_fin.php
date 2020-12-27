@@ -22,7 +22,8 @@
 
     <link rel="stylesheet" href="../css/common/kanri_common.css">
     <link rel="stylesheet" href="../css/kanri_eiga_list.css">
-    <link rel="stylesheet" href="../css/m_kanri_henshu.css">
+    <link rel="stylesheet" href="../css/kanri_eiga.css">
+    <link rel="stylesheet" href="../css/kanri_eiga_henshu.css">
     <!--load css end-->
 
     <title>映画情報管理 || HALシネマ</title>
@@ -73,16 +74,20 @@
 
 </nav>
 
-<h1>映画　管理</h1>
+<main class="main_wrap">
 
-<form method="post">
-	<div>
-        <p>更新が完了しました</p>
-	</div>
+    <h4>映画情報管理　編集</h4>
 
-	<a href="kanri_eiga.php">完了</a>
-	<input type="hidden" name="message_id" value="<?php echo $message_data['movie_no']; ?>">
-</form>
+    <form method="post">
+        <div>
+            <p>更新が完了しました</p>
+        </div>
+
+        <a href="kanri_eiga.php">完了</a>
+        <input type="hidden" name="message_id" value="<?php echo $message_data['movie_no']; ?>">
+    </form>
+
+</main>
 
 </body>
 </html>
