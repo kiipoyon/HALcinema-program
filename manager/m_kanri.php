@@ -6,13 +6,13 @@
 
 
 // 管理ページのログインパスワード
-define( 'PASSWORD', 'bbs');
+// define( 'PASSWORD', 'bbs');
 
 // データベースの接続情報
-define( 'DB_HOST', 'localhost');
-define( 'DB_USER', 'nhs80333');
-define( 'DB_PASS', 'nhs80333');
-define( 'DB_NAME', 'haldb');
+// define( 'DB_HOST', 'localhost');
+// define( 'DB_USER', 'nhs80333');
+// define( 'DB_PASS', 'nhs80333');
+// define( 'DB_NAME', 'haldb');
 
 // タイムゾーン設定
 date_default_timezone_set('Asia/Tokyo');
@@ -42,22 +42,22 @@ date_default_timezone_set('Asia/Tokyo');
 // }
 
 // データベースに接続
-$mysqli = new mysqli( DB_HOST, DB_USER, DB_PASS, DB_NAME);
+// $mysqli = new mysqli( DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 // 接続エラーの確認
-if( $mysqli->connect_errno ) {
-	$error_message[] = 'データの読み込みに失敗しました。 エラー番号 '.$mysqli->connect_errno.' : '.$mysqli->connect_error;
-} else {
+// if( $mysqli->connect_errno ) {
+// 	$error_message[] = 'データの読み込みに失敗しました。 エラー番号 '.$mysqli->connect_errno.' : '.$mysqli->connect_error;
+// } else {
 
-    $sql = "SELECT movie_no,title,story,director,cast,image FROM movie_tbl ORDER BY movie_no DESC";
-	$res = $mysqli->query($sql);
+//     $sql = "SELECT movie_no,title,story,director,cast,image FROM movie_tbl ORDER BY movie_no DESC";
+// 	$res = $mysqli->query($sql);
 
-    if( $res ) {
-		$message_array = $res->fetch_all(MYSQLI_ASSOC);
-    }
+//     if( $res ) {
+// 		$message_array = $res->fetch_all(MYSQLI_ASSOC);
+//     }
 
-    $mysqli->close();
-}
+//     $mysqli->close();
+// }
 
 ?>
 <!DOCTYPE html>
@@ -129,13 +129,13 @@ if( $mysqli->connect_errno ) {
 </nav>
 
 <h1>映画　管理</h1>
-<?php if( !empty($error_message) ): ?>
+<!-- <?php //if( !empty($error_message) ): ?>
     <ul class="error_message">
-		<?php foreach( $error_message as $value ): ?>
-            <li>・<?php echo $value; ?></li>
-		<?php endforeach; ?>
+		<?php //foreach( $error_message as $value ): ?>
+            <li>・<?php //echo $value; ?></li>
+		<?php //endforeach; ?>
     </ul>
-<?php endif; ?>
+<?php //endif; ?> -->
 <section>
 
 

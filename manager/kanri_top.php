@@ -50,7 +50,7 @@
             </a>
         </li>
         <li>
-            <a href="kanri_eiga.php">
+            <a href="m_kanri.php">
                 <h3 id="eiga">映画情報管理</h3>
             </a>
         </li>
@@ -78,7 +78,7 @@
                 <a href="kanri_uriage.php"><h5 id="uriage">売上情報</h5></a>
             </section>
             <section class="migi">
-                <a href="kanri_eiga.php"><h5 id="eiga">映画情報管理</h5></a>
+                <a href="m_kanri.php"><h5 id="eiga">映画情報管理</h5></a>
             </section>
         </section>
         <section class="btm_box">
