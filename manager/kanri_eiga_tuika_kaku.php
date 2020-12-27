@@ -7,6 +7,7 @@ $image = $_SESSION['image'];
 $director = $_SESSION['director'];
 $cast = $_SESSION['cast'];
 $story = $_SESSION['story'];
+$counter = "";
 
 $errorMessage = "";
 
@@ -23,12 +24,13 @@ if (isset($_POST['movie_add_con'])) {
 
     $pdo = connect();
 
-    $stmt = $pdo->prepare("INSERT INTO movie_tbl(title,image,director,cast,story) VALUES (:title,:image,:director,:cast,:story)");
+    $stmt = $pdo->prepare("INSERT INTO movie_tbl(title,image,director,cast,story,counter) VALUES (:title,:image,:director,:cast,:story,:counter)");
     $stmt->bindValue(':title', $title);
     $stmt->bindValue(':image', $image);
     $stmt->bindValue(':director', $director);
     $stmt->bindValue(':cast', $cast);
     $stmt->bindValue(':story', $story);
+		$stmt->bindParam(':counter', $counter);
 
     $stmt->execute();
 
