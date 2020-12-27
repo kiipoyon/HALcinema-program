@@ -174,8 +174,8 @@ date_default_timezone_set('Asia/Tokyo');
                     <hr>
                     <tr>
                         <p>
-                            <a href="m_kanri_henshu.php?movie_id=<?php echo $row['movie_no']; ?>">編集</a>  
-                            <a href="m_kanri_delete.php?movie_id=<?php echo $row['movie_no']; ?>">削除</a>
+                            <a href="m_kanri_henshu.php?movie_no=<?php echo $row['movie_no']; ?>" method="GET">編集</a>  
+                            <a href="m_kanri_delete.php?movie_no=<?php echo $row['movie_no']; ?>" method="GET">削除</a>
                         </p>
                     </tr>
                     <hr size="20" noshade>
@@ -187,19 +187,6 @@ date_default_timezone_set('Asia/Tokyo');
         </div>
     </section>
 </main>
-<!-- <article>
-    <div class="info">
-        <h2><?php echo $value['title']; ?></h2>
-        <h2><?php echo $value['story']; ?></h2>
-        <h2><?php echo $value['director']; ?></h2>
-        <h2><?php echo $value['cast']; ?></h2>
-        <h2><?php echo $value['image']; ?></h2>
-        <p><a href="edit.php?message_id=<?php echo $value['movie_no']; ?>">編集</a>  
-           <a href="delete.php?message_id=<?php echo $value['movie_no']; ?>">削除</a>
-        </p>
-    </div>
-</article> -->
-
     
 
 </section>
