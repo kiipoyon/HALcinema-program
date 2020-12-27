@@ -12,8 +12,37 @@ h4{
 }
 
 form{
-    margin-left: 300px;
+    margin-left: 100px;
 }
+
+  form div{
+    margin: 0 0 20px 0;
+  }
+
+    form div label{
+      width: 11%;
+    }
+
+      form div input{
+        width: 50%;
+      }
+
+      form div textarea{
+        width: 50%;
+      }
+
+  .btn {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0 0 250px;
+    width: 30%;
+    height: 50px;
+    font-size: 16px;
+  }
+  .btn input{
+    background-color: #eee;
+    width: 45%;
+  }
 
 
 .msr_text_02 {
