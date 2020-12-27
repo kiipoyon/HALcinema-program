@@ -1,3 +1,20 @@
+<?php
+require '../common/common.php';
+
+$dsn = "mysql:host=localhost; dbname=haldb; charset=utf8";
+$username = "dbadmin";
+$password = "dbadmin";
+try {
+    $dbh = connect();
+} catch (PDOException $e) {
+    $msg = $e->getMessage();
+}
+
+$sql = "SELECT * FROM member_tbl";
+
+$stmt = $dbh -> query($sql);
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -84,6 +101,7 @@
             <label class="tab_item" for="tab4">　　　　</label>
             <div class="tab_content" id="tab1_content">
                 <table>
+
                     <tr>
                         <th>No</th>
                         <th>生年月日</th>
@@ -93,69 +111,27 @@
                         <th>ポイント</th>
                         <th>有効期限</th>
                     </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>19990628</td>
-                        <td>春野太郎</td>
-                        <td>0521111111</td>
-                        <td>男</td>
-                        <td>2,000</td>
-                        <td>20200901</td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>19990628</td>
-                        <td>春野太郎</td>
-                        <td>0521111111</td>
-                        <td>男</td>
-                        <td>2,000</td>
-                        <td>20200901</td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>19990628</td>
-                        <td>春野太郎</td>
-                        <td>0521111111</td>
-                        <td>男</td>
-                        <td>2,000</td>
-                        <td>20200901</td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>19990628</td>
-                        <td>春野太郎</td>
-                        <td>0521111111</td>
-                        <td>男</td>
-                        <td>2,000</td>
-                        <td>20200901</td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>19990628</td>
-                        <td>春野太郎</td>
-                        <td>0521111111</td>
-                        <td>男</td>
-                        <td>2,000</td>
-                        <td>20200901</td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>19990628</td>
-                        <td>春野太郎</td>
-                        <td>0521111111</td>
-                        <td>男</td>
-                        <td>2,000</td>
-                        <td>20200901</td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>19990628</td>
-                        <td>春野太郎</td>
-                        <td>0521111111</td>
-                        <td>男</td>
-                        <td>2,000</td>
-                        <td>20200901</td>
-                    </tr>
+
+                    <?php foreach($stmt as $row){ ?>
+                        <tr>
+                            <td><?php echo $row['user_no'] ?></td>
+                            <td><?php echo $row['birthday'] ?></td>
+                            <td><?php echo $row['username'] ?></td>
+                            <td><?php echo $row['tel'] ?></td>
+                            <td><?php 
+                                if ($row['gender'] == 0) {
+                                    echo "";
+                                } else if ($row['gender'] == 1) {
+                                    echo "男";
+                                } else {
+                                    echo "女";
+                                };
+                            ?></td>
+                            <td><?php echo $row['point'] ?></td>
+                            <td><?php echo $row['date'] ?></td>
+                        </tr>
+                    <?php }?>
+
                 </table>
               </div>
             </div>
