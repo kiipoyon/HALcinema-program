@@ -3,55 +3,39 @@
 	require '../common/common.php';
 	// データベースに接続する
 	$pdo = connect();
-
-	$movie_no = $_GET['movie_no'];
-
-	$_SESSION['movie_no'] = $movie_no;
-
-	var_dump($_SESSION['movie_no']);
 	
-	// if( !empty($_GET['movie_id']) && empty($_POST['movie_id']) ) {
+	//セッション取得
 
-	// // 投稿を取得するコードが入る
-	// 	$movie_id = (int)htmlspecialchars($_GET['movie_id'], ENT_QUOTES);
+	$movie_no = $_SESSION['movie_no'];
+	$title = $_SESSION['title'];
+	$story = $_SESSION['story'];
+	$director = $_SESSION['director'];
+	$cast = $_SESSION['cast'];
+	$image = $_SESSION['image'];
+	$counter = "";
 
-	// 	var_dump($movie_id);
+	var_dump($movie_no);
+
+	if (isset($_POST['apdate_btn'])) {
+
+		// 映画情報テーブル
+		$sql = 'UPDATE movie_tbl SET movie_no=:movie_no, title=:title, story=:story, director=:director, cast=:cast, image=:image, counter=:counter WHERE movie_no=:movie_no';
 		
-	// }
+		$stmt = $pdo->prepare($sql);
+		$stmt->bindParam(':movie_no', $movie_no, PDO::PARAM_STR);
+		$stmt->bindParam(':title', $title, PDO::PARAM_STR);
+		$stmt->bindParam(':story', $story, PDO::PARAM_STR);
+		$stmt->bindParam(':director', $director, PDO::PARAM_STR);
+		$stmt->bindParam(':cast', $cast, PDO::PARAM_STR);
+		$stmt->bindParam(':image', $image, PDO::PARAM_STR);
+		$stmt->bindParam(':counter', $counter, PDO::PARAM_INT);
+	
+		$stmt->execute();
 
-	if (isset($_POST['btn_submit'])) {
-
-		if (
-			!empty($_POST['title']) && !empty($_POST['story']) && !empty($_POST['director']) && !empty($_POST['cast']) && !empty($_POST['image'])
-		) {
+		var_dump($stmt);
 	
-			//入力された値を取得
-			$title = $_POST['title'];
-			$story = $_POST['story'];	
-			$director = $_POST['director'];
-			$cast = $_POST['cast'];
-			$image = $_POST['image'];
-	
-			//セッション保存
-			$_SESSION['title'] = $title;
-			$_SESSION['story'] = $story;
-			$_SESSION['director'] = $director;
-			$_SESSION['cast'] = $cast;
-			$_SESSION['image'] = $image;
-	
-	
-			header('location:m_kanri_henshu_conf.php');
-		} else {
-			$errormessage = "必須項目をすべて入力してください。";
-		}
-	} else {
-		//入力された値クリア
-		$title = "";
-		$story = "";
-		$director = "";
-		$cast = "";
-	}
-	
+		header('location:m_kanri_henshu_fin.php');
+	}	
 		
 ?>
 <!DOCTYPE html>
@@ -127,27 +111,26 @@
 <form method="post">
 	<div>
 		<label for="title">タイトル</label>
-		<input id="title" type="text" size="60" name="title">
+		<?php echo $title; ?>
 	</div>
 	<div>
 		<label for="image">サムネイル</label>
-		<input type="file" name="image">
+		<?php echo $image; ?>
 	</div>
 	<div>
 		<label for="story">あらすじ</label>
-		<textarea id="story" name="story" cols="60" rows="20"></textarea>
+		<?php echo $story; ?>
 	</div>
 	<div>
 		<label for="director">監督名　</label>
-		<input id="director" type="text"  size="60" name="director">
-		</textarea>
+		<?php echo $director; ?>
 	</div>
 	<div>
 		<label for="cast">キャスト</label>
-		<textarea id="cast" name="cast" cols="60"></textarea>
+		<?php echo $cast; ?>
 	</div>
-	<a class="btn_cancel" href="m_kanri.php">キャンセル</a>
-	<input type="submit" name="btn_submit" value="確認">
+	<button type="button" onclick=history.back()>戻る</button>
+	<input type="submit" name="apdate_btn" value="更新">
 	<input type="hidden" name="message_id" value="<?php echo $message_data['movie_no']; ?>">
 </form>
 
