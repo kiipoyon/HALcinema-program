@@ -77,7 +77,7 @@ date_default_timezone_set('Asia/Tokyo');
 
     <link rel="stylesheet" href="../css/common/kanri_common.css">
     <link rel="stylesheet" href="../css/kanri_eiga_list.css">
-    <link rel="stylesheet" href="../css/m_kanri.css">
+    <link rel="stylesheet" href="../css/kanri_eiga.css">
     <!--load css end-->
 
     <title>映画情報管理 || HALシネマ</title>
@@ -127,8 +127,6 @@ date_default_timezone_set('Asia/Tokyo');
     </ul>
 
 </nav>
-
-<h1>映画　管理</h1>
 <!-- <?php //if( !empty($error_message) ): ?>
     <ul class="error_message">
 		<?php //foreach( $error_message as $value ): ?>
@@ -140,7 +138,7 @@ date_default_timezone_set('Asia/Tokyo');
 
 
 <main class="main_wrap">
-    <h4>映画情報一覧</h4>
+    <h4>映画情報管理</h4>
     <section class="box">
         <div class="tab_container">
             <input id="tab1" type="radio" name="tab_item" checked>
@@ -157,7 +155,7 @@ date_default_timezone_set('Asia/Tokyo');
                     </tr>
                     <hr>
                     <tr>
-                        <?php echo $row['story']; ?>
+                        <p class="story"><?php echo $row['story']; ?></p>
                     </tr>
                     <hr>
                     <tr>
