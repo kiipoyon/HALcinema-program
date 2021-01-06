@@ -179,13 +179,13 @@ if(isset($_POST['login_btn'])) {
 
                     <div class="ippan_btn">
 
-                        <form method="POST" action="member.html" class="next">
+                        <form method="POST" action="member.php" class="next">
                             <div class="login_btn">
                                 <input type="submit" name="shinki_btn" value=" 新規会員登録はこちら >" class="next_btn">
                             </div>
                         </form>
 
-                        <form method="POST" action="ticket_info.html" class="next">
+                        <form method="POST" action="ticket_info.php" class="next">
                             <div class="login_btn">
                                 <input type="submit" name="no-member_btn" value="  会員にならずに購入 >" class="no-member_btn">
                             </div>

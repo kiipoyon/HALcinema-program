@@ -1,3 +1,35 @@
+<?php
+    require '../common/common.php';
+
+    try {
+        $dbh = connect();
+    } catch (PDOException $e) {
+        $msg = $e->getMessage();
+    }
+
+    $sql = "SELECT COUNT(*) AS num FROM movie_tbl";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+    $count = $stmt->fetch();
+
+    $num = $count["num"];
+    for ($i = 0; $i <= $num; $i++){
+
+        $sql = "SELECT * FROM movie_tbl WHERE movie_no = :movie_no";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(':movie_no', $i);
+        $stmt->execute();
+        $movie = $stmt->fetch();
+
+        $MovieNo[$i] = $movie["title"];
+
+    }
+
+    $JsonNum = json_encode($num);
+    $JsonMovie = json_encode($MovieNo);
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,6 +42,10 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">    <!-- bootstrap css end -->
     <!-- bootstrap css end -->
+    
+    <!-- chartist.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css" integrity="sha512-GQSxWe9Cj4o4EduO7zO9HjULmD4olIjiQqZ7VJuwBxZlkWaUFGCxRkn39jYnD2xZBtEilm0m4WBG7YEmQuMs5Q==" crossorigin="anonymous" />
+    <!-- chartist css end -->
 
     <link rel="stylesheet" href="../css/common/common.css"/>
 
@@ -167,7 +203,8 @@
             </div>
             <div class="tab_content" id="tab4_content">
               <div class="tab_content_description">
-                <p class="c-txtsp">グラフ</p>
+                <div class="ct-chart"></div>
+
               </div>
             </div>
            
@@ -194,8 +231,31 @@
 <script src="https://kit.fontawesome.com/b7fcd44df6.js" crossorigin="anonymous"></script>
 <!-- fontawesome end -->
 
-<script src="js/pagetop.js"></script>
-<script src="./js/ranking.js"></script>
+<!-- chartist js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" integrity="sha512-FHsFVKQ/T1KWJDGSbrUhTJyS1ph3eRrxI228ND0EGaEp6v4a/vGwPWd3Dtd/+9cI7ccofZvl/wulICEurHN1pg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js" integrity="sha512-+IpCthlNahOuERYUSnKFjzjdKXIbJ/7Dd6xvUp+7bEw0Jp2dg6tluyxLs+zq9BMzZgrLv8886T4cBSqnKiVgUw==" crossorigin="anonymous"></script>
+<script>
+var chart = c3.generate({
+    bindto: '.ct-chart',
+    data: {
+      columns: [
+        ['data1', 30, 200, 100, 400, 150, 250],
+        ['data2', 50, 20, 10, 40, 15, 25]
+      ]
+    }
+});
+</script>
+<!-- chartist js end -->
+<script>
+var movie = [];
+let i = 0;
+for( const element of <?php echo $JsonMovie; ?> ){
+    movie[i] = element;
+    i++;
+}
+
+console.log(movie[1]);
+</script>
 <!-- load js end -->
 
 </body>
