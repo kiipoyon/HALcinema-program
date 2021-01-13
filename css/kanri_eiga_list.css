@@ -80,3 +80,8 @@ h4{
       -webkit-line-clamp: 2;
       overflow: hidden;
     }
+
+    .movie_tuika{
+        display: block;
+        text-align: center;
+    }
