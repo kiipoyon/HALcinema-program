@@ -60,7 +60,7 @@ h4{
             }
 
             h5#uriage:before {
-                content: url("../images/kanri/uriage.png");
+                content: url("../images/common/uriage.png");
                 vertical-align: middle;
                 margin-left: 20px;
                 margin-right: 40px;
@@ -74,7 +74,7 @@ h4{
             }
 
             h5#kaiin:before {
-                content: url("../images/kanri/kaiin.png");
+                content: url("../images/common/kaiin.png");
                 vertical-align: middle;
                 margin-left: 20px;
                 margin-right: 40px;
