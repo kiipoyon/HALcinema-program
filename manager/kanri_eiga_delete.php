@@ -6,7 +6,16 @@
 
     $movie_no = $_GET['movie_no'];
 
-	$_SESSION['movie_no'] = $movie_no;
+    $_SESSION['movie_no'] = $movie_no;
+    
+    if(isset($_POST['btn_submit'])){
+        $sql = "DELETE FROM movie_tbl WHERE movie_no = $movie_no";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        header("Location: ./kanri_eiga_delete_con.php");
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +68,7 @@
             </a>
         </li>
         <li>
-            <a href="m_kanri.php">
+            <a href="kanri_eiga.php">
                 <h3 id="eiga">映画情報管理</h3>
             </a>
         </li>
@@ -106,9 +115,8 @@
     <?php
         }
     ?>
-	<a class="btn_cancel" href="m_kanri.php">キャンセル</a>
+	<a class="btn_cancel" href="kanri_eiga.php">キャンセル</a>
 	<input type="submit" name="btn_submit" value="削除">
-	<input type="hidden" name="movie_id" value="<?php echo $message_data['movie_no']; ?>">
 </form>
 
 </body>
