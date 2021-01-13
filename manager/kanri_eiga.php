@@ -184,6 +184,7 @@ date_default_timezone_set('Asia/Tokyo');
             <!-- </div> -->
         </div>
     </section>
+	<a href="kanri_eiga_tuika.php" class="movie_tuika">追加</a>
 </main>
     
 
