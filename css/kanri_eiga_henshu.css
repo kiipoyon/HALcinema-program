@@ -1,177 +1,251 @@
 @charset "utf-8";
 
-.main_wrap{
-    margin-left: 300px;
+.main_wrap {
+  min-width: 1000px;
+  margin-left: 300px;
 }
 
-h4{
-    font-size: 30px;
-    margin-top: 60px;
-    margin-bottom: 50px;
-    margin-left: 50px;
+h4 {
+  font-size: 30px;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  margin-left: 50px;
 }
 
-form{
-    margin-left: 100px;
+form {
+  margin-left: 350px;
 }
 
-  form div{
-    margin: 0 0 20px 0;
-  }
+/* ラベルをinputの上に配置 */
+label {
+  vertical-align: middle;
+  display: inline-block;
+  margin-bottom: .5rem;
+  display: table;
+}
 
-    form div label{
-      width: 11%;
-    }
+form div {
+  margin: 0 0 20px 0;
+}
 
-      form div input{
-        width: 50%;
-      }
+form div label {
+  width: 11%;
+}
 
-      form div textarea{
-        width: 50%;
-      }
+form div input {
+  width: 50%;
+}
 
-  .btn {
-    display: flex;
-    justify-content: space-between;
-    margin: 50px 0 0 250px;
-    width: 30%;
-    height: 50px;
-    font-size: 16px;
-  }
-  .btn input{
-    background-color: #eee;
-    width: 45%;
-  }
+form div textarea {
+  width: 50%;
+}
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0 50px 100px;
+  width: 30%;
+  height: 50px;
+  font-size: 16px;
+}
+
+.btn input {
+  background-color: #eee;
+  width: 45%;
+}
 
 
 .msr_text_02 {
-    padding-bottom: 20px;
-    width: 460px;
-  }
-  .msr_text_02  label {
-    display: block;
-    font-size: 14px;
-    padding-bottom: 5px;
-  }
-  .msr_text_02 input[type=text] {
-    border: 1px solid #1B73BA;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    color: #333;
-    font-size: 13px;
-    padding: 10px;
-    height: 40px;
-    width: 460px;
-  }
+  padding-bottom: 20px;
+  width: 460px;
+}
 
-  /*--------------------------------------
+.msr_text_02 label {
+  display: block;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.msr_text_02 input[type=text] {
+  border: 1px solid #1B73BA;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #333;
+  font-size: 13px;
+  padding: 10px;
+  height: 40px;
+  width: 460px;
+}
+
+/*--------------------------------------
   ファイル選択
   ---------------------------------------*/
-  
-  .msr_file_02 {
-    padding-bottom: 20px;
-    width: 460px;
-  }
-  .msr_file_02 img{
-    width: 100%;
-  }
-  .msr_file_02>p {
-    font-size: 14px;
-    padding-bottom: 5px;
-  }
-  .msr_filebox_02 {
-    position: relative;
-  }
-  .msr_filebox_02 input[type=file] {
-    display: none;
-  }
-  .msr_filebox_02 label {
-    border: 1px solid #1B73BA;
-    cursor: pointer;
-    font-size: 14px;
-    display: block;
-    position: relative;
-    padding: 10px;
-    height: 40px;
-    width: 460px;
-  }
-  .msr_filebox_02 label:before {
-    background: #1B73BA;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    content: "Browse...";
-    color: #fff;
-    display: inline-block;
-    font-size: 14px;
-    text-align: center;
-    padding-top: 10px;
-    position: absolute;
-    right: 0;
-    top: -1px;
-    height: 40px;
-    width: 99px;
-  }
-  
-  /*--------------------------------------
+
+.msr_file_02 {
+  padding-bottom: 20px;
+  width: 460px;
+}
+
+.msr_file_02 img {
+  width: 100%;
+}
+
+.msr_file_02>p {
+  font-size: 4px;
+  padding-bottom: 5px;
+}
+
+.msr_filebox_02 {
+  position: relative;
+}
+
+.msr_filebox_02 input[type=file] {
+  display: none;
+}
+
+.msr_filebox_02 label {
+  border: 1px solid #1B73BA;
+  cursor: pointer;
+  font-size: 14px;
+  display: block;
+  position: relative;
+  padding: 10px;
+  height: 40px;
+  width: 460px;
+}
+
+.msr_filebox_02 label:before {
+  background: #1B73BA;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  content: "Browse...";
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 10px;
+  position: absolute;
+  right: 0;
+  top: -1px;
+  height: 40px;
+  width: 99px;
+}
+
+/*--------------------------------------
   テキストエリア
   ---------------------------------------*/
-  
-  .msr_textarea_02 {
-    padding-bottom: 10px;
-    width: 460px;
-  }
-  .msr_textarea_02 label {
-    display: block;
-    font-size: 14px;
-    padding-bottom: 5px;
-  }
-  .msr_textarea_02 textarea {
-    border: 1px solid #1B73BA;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    color: #333;
-    font-size: 13px;
-    padding: 10px;
-    height: 210px;
-    width: 460px;
-  }
-  
-  /*--------------------------------------
+
+.msr_textarea_02 {
+  padding-bottom: 10px;
+  width: 460px;
+}
+
+.msr_textarea_02 label {
+  display: block;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.msr_textarea_02 textarea {
+  border: 1px solid #1B73BA;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #333;
+  font-size: 13px;
+  padding: 10px;
+  height: 210px;
+  width: 460px;
+}
+
+/*--------------------------------------
   送信ボタン
   ---------------------------------------*/
-  .msr_sendbtn_02{
-  }
-  .msr_sendbtn_02 input[type=submit] {
-    background: url(/stylerecipe_img/arrow_blue02.png) no-repeat;
-    background-position: 10px;
-    border: 2px solid #1B73BA;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    color: #1B73BA;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s ease-in-out;
-    -o-transition: 0.2s ease-in-out;
-    -moz-transition: 0.2s ease-in-out;
-    -webkit-transition: 0.2s ease-in-out;
-    height: 40px;
-    width: 150px;
-  }
-  .msr_sendbtn_02 input[type=submit]:hover {
-    opacity: 0.6;
-  }
-  .msr_sendbtn_02 input[disabled=disabled] {
-    background: #B4B4B4 url(/stylerecipe_img/arrow_gray02.png) no-repeat;
-    background-position: 10px;
-    border: 2px solid #7E7E7E;
-    color: #7E7E7E;
-    cursor: default;
-  }
-  .msr_sendbtn_02 input[disabled=disabled]:hover {
-    opacity: 1;
-  }
+.msr_sendbtn_02 {}
+
+.msr_sendbtn_02 input[type=submit] {
+  background: url(/stylerecipe_img/arrow_blue02.png) no-repeat;
+  background-position: 10px;
+  border: 2px solid #1B73BA;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #1B73BA;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  height: 40px;
+  width: 150px;
+}
+
+.msr_sendbtn_02 input[type=submit]:hover {
+  opacity: 0.6;
+}
+
+.msr_sendbtn_02 input[disabled=disabled] {
+  background: #B4B4B4 url(/stylerecipe_img/arrow_gray02.png) no-repeat;
+  background-position: 10px;
+  border: 2px solid #7E7E7E;
+  color: #7E7E7E;
+  cursor: default;
+}
+
+.msr_sendbtn_02 input[disabled=disabled]:hover {
+  opacity: 1;
+}
+
+
+
+/* 確認画面(hensyu_conf) */
+.conf_main {
+  width: 600px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.conf_main .conf_div {
+  width: 90%;
+  margin: 30px auto;
+  border-bottom: 1px dotted #ddd;
+}
+
+.conf_main .conf_div label {
+  color: #aaa;
+  font-size: 14px;
+  width: 100%;
+}
+
+.conf_main .btn {
+  width: 50%;
+  margin: 30px auto;
+}
+
+
+
+/* 完了画面(hennsyu_fin) */
+.fin_main {
+  width: 600px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.fin_main .fin_div {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.fin_main a {
+  display: block;
+  width: 200px;
+  text-align: center;
+  margin: 30px auto;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 25px;
+}
