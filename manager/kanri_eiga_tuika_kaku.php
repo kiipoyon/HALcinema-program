@@ -25,13 +25,13 @@ if (isset($_POST['movie_add_con'])) {
         $pdo = connect();
 
         $stmt = $pdo->prepare("INSERT INTO movie_tbl(movie_no,title,image,director,cast,story,counter) VALUES (:movie_no,:title,:image,:director,:cast,:story,:counter)");
-        $stmt->bindValue(':movie_no', $movie_no);
-        $stmt->bindValue(':title', $title);
-        $stmt->bindValue(':image', $image);
-        $stmt->bindValue(':director', $director);
-        $stmt->bindValue(':cast', $cast);
-        $stmt->bindValue(':story', $story);
-        $stmt->bindParam(':counter', $counter);
+        $stmt->bindParam(':movie_no', $movie_no, PDO::PARAM_STR);
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':image', $image, PDO::PARAM_STR);
+        $stmt->bindParam(':director', $director, PDO::PARAM_STR);
+        $stmt->bindParam(':cast', $cast, PDO::PARAM_STR);
+        $stmt->bindParam(':story', $story, PDO::PARAM_STR);
+        $stmt->bindParam(':counter', $counter, PDO::PARAM_INT);
 
         $stmt->execute();
 
