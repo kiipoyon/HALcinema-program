@@ -1,8 +1,8 @@
 <?php
 
-    require '../common/common.php';
-    // データベースに接続する
-    $pdo = connect();
+require '../common/common.php';
+// データベースに接続する
+$pdo = connect();
 
 
 // 管理ページのログインパスワード
@@ -62,6 +62,7 @@ date_default_timezone_set('Asia/Tokyo');
 ?>
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,10 +71,10 @@ date_default_timezone_set('Asia/Tokyo');
     <link rel="stylesheet" href="../css/common/reset.css">
 
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">    <!-- bootstrap css end -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous"> <!-- bootstrap css end -->
     <!-- bootstrap css end -->
 
-    <link rel="stylesheet" href="../css/common/common.css"/>
+    <link rel="stylesheet" href="../css/common/common.css" />
 
     <link rel="stylesheet" href="../css/common/kanri_common.css">
     <link rel="stylesheet" href="../css/kanri_eiga_list.css">
@@ -82,112 +83,121 @@ date_default_timezone_set('Asia/Tokyo');
 
     <title>映画情報管理 || HALシネマ</title>
 </head>
+
 <body>
-<!-- header -->
-<header id="header">
+    <!-- header -->
+    <header id="header">
 
-    <!-- logo -->
-    <div>
-        <img src="../images/common/logo.png" alt="HALcinema-logo">
-    </div>
-    <!-- logo end -->
-
-</header>
-<!-- header end -->
-
-<!-- nav -->
-<nav>
-
-    <ul>
-        <li>
-            <a href="kanri_top.php">
-                <h3 id="top">管理者トップ</h3>
-            </a>
-        </li>
-        <li>
-            <a href="kanri_uriage.php">
-                <h3 id="uriage">売上情報管理</h3>
-            </a>
-        </li>
-        <li>
-            <a href="kanri_eiga.php">
-                <h3 id="eiga">映画情報管理</h3>
-            </a>
-        </li>
-        <li>
-            <a href="kanri_kaiin.php">
-                <h3 id="kaiin">会員情報管理</h3>
-            </a>
-        </li>
-        <li>
-            <a href="kanri_zaseki.php">
-                <h3 id="zaseki">座席予約管理</h3>
-            </a>
-        </li>
-    </ul>
-
-</nav>
-<!-- <?php //if( !empty($error_message) ): ?>
-    <ul class="error_message">
-		<?php //foreach( $error_message as $value ): ?>
-            <li>・<?php //echo $value; ?></li>
-		<?php //endforeach; ?>
-    </ul>
-<?php //endif; ?> -->
-<section>
-
-
-<main class="main_wrap">
-    <h4>映画情報管理</h4>
-    <section class="box">
-        <div class="tab_container">
-            <input id="tab1" type="radio" name="tab_item" checked>
-            <label class="tab_item" for="tab1">映画情報</label>
-            <div class="tab_content" id="tab1_content">
-                <table>
-                    <?php
-                        $sql = "SELECT movie_no,title,story,director,cast,image FROM movie_tbl ORDER BY movie_no DESC";
-                        $stmt = $pdo->query($sql);
-                        foreach($stmt as $row){
-                    ?>
-                    <tr>
-                        <?php echo $row['title']; ?>
-                    </tr>
-                    <hr>
-                    <tr>
-                        <p class="story"><?php echo $row['story']; ?></p>
-                    </tr>
-                    <hr>
-                    <tr>
-                        <?php echo $row['director']; ?>
-                    </tr>
-                    <hr>
-                    <tr>
-                        <?php echo $row['cast']; ?>
-                    </tr>
-                    <hr>
-                    <tr>
-                        <?php echo $row['image']; ?>
-                    </tr>
-                    <hr>
-                    <tr>
-                        <p>
-                            <a href="kanri_eiga_henshu.php?movie_no=<?php echo $row['movie_no']; ?>" method="GET">編集</a>  
-                            <a href="kanri_eiga_delete.php?movie_no=<?php echo $row['movie_no']; ?>" method="GET">削除</a>
-                        </p>
-                    </tr>
-                    <hr size="20" noshade>
-                    <?php
-                        }
-                    ?>
-                </table>
-            <!-- </div> -->
+        <!-- logo -->
+        <div>
+            <img src="../images/common/logo.png" alt="HALcinema-logo">
         </div>
-    </section>
-	<a href="kanri_eiga_tuika.php" class="movie_tuika">追加</a>
-</main>
-    
+        <!-- logo end -->
 
-</section>
+    </header>
+    <!-- header end -->
+
+    <!-- nav -->
+    <nav>
+
+        <ul>
+            <li>
+                <a href="kanri_top.php">
+                    <h3 id="top">管理者トップ</h3>
+                </a>
+            </li>
+            <li>
+                <a href="kanri_uriage.php">
+                    <h3 id="uriage">売上情報管理</h3>
+                </a>
+            </li>
+            <li>
+                <a href="kanri_eiga.php">
+                    <h3 id="eiga">映画情報管理</h3>
+                </a>
+            </li>
+            <li>
+                <a href="kanri_kaiin.php">
+                    <h3 id="kaiin">会員情報管理</h3>
+                </a>
+            </li>
+            <li>
+                <a href="kanri_zaseki.php">
+                    <h3 id="zaseki">座席予約管理</h3>
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+    <!-- <?php //if( !empty($error_message) ): 
+            ?>
+    <ul class="error_message">
+		<?php //foreach( $error_message as $value ): 
+        ?>
+            <li>・<?php //echo $value; 
+                    ?></li>
+		<?php //endforeach; 
+        ?>
+    </ul>
+<?php //endif; 
+?> -->
+    <section>
+
+
+        <main class="main_wrap">
+            <h4>映画情報管理</h4>
+            <div class="movie_tuika">
+                <a href="kanri_eiga_tuika.php">追加</a>
+            </div>
+            <section class="box">
+                <div class="tab_container">
+                    <input id="tab1" type="radio" name="tab_item" checked>
+                    <label class="tab_item" for="tab1">映画情報</label>
+                    <div class="tab_content" id="tab1_content">
+                        <table>
+                            <?php
+                            $sql = "SELECT movie_no,title,story,director,cast,image FROM movie_tbl ORDER BY movie_no DESC";
+                            $stmt = $pdo->query($sql);
+                            foreach ($stmt as $row) {
+                            ?>
+                                <tr>
+                                    <?php echo $row['title']; ?>
+                                </tr>
+                                <hr>
+                                <tr>
+                                    <p class="story"><?php echo $row['story']; ?></p>
+                                </tr>
+                                <hr>
+                                <tr>
+                                    <?php echo $row['director']; ?>
+                                </tr>
+                                <hr>
+                                <tr>
+                                    <?php echo $row['cast']; ?>
+                                </tr>
+                                <hr>
+                                <tr>
+                                    <?php echo $row['image']; ?>
+                                </tr>
+                                <hr>
+                                <tr>
+                                    <p>
+                                        <a href="kanri_eiga_henshu.php?movie_no=<?php echo $row['movie_no']; ?>" method="GET">編集</a>
+                                        <a href="kanri_eiga_delete.php?movie_no=<?php echo $row['movie_no']; ?>" method="GET">削除</a>
+                                    </p>
+                                </tr>
+                                <hr size="20" noshade>
+                            <?php
+                            }
+                            ?>
+                        </table>
+                        <!-- </div> -->
+                    </div>
+            </section>
+        </main>
+
+
+    </section>
 </body>
+
 </html>
