@@ -4,75 +4,10 @@
     // データベースに接続する
     $pdo = connect();
 
-    // タイムゾーン設定
-    date_default_timezone_set('Asia/Tokyo');
+    $movie_no = $_GET['movie_no'];
 
-    // 変数の初期化
-    // $message_id = null;
-	// $mysqli = null;
-	// $sql = null;
-	// $res = null;
-	// $error_message = array();
-	// $message_data = array();
+	$_SESSION['movie_no'] = $movie_no;
 
-    // session_start();
-
-    // 管理者としてログインしているか確認
-    //if( empty($_SESSION['login_login']) || $_SESSION['login_login'] !== true ) {
-
-	// ログインページへリダイレクト
-    // header("Location: ./login.php");
-    // }
-
-    if( !empty($_GET['movie_id']) && empty($_POST['movie_id']) ) {
-
-	// 投稿を取得するコードが入る
-    $movie_id = (int)htmlspecialchars($_GET['movie_id'], ENT_QUOTES);
-
-	// データベースに接続
-	$mysqli = new mysqli( DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-	// 接続エラーの確認
-	if( $mysqli->connect_errno ) {
-		$error_message[] = 'データベースの接続に失敗しました。 エラー番号 '.$mysqli->connect_errno.' : '.$mysqli->connect_error;
-	} else {
-
-		// データの読み込み
-		$sql = "SELECT * FROM movie_tbl WHERE movie_no = $movie_id";
-		$res = $mysqli->query($sql);
-
-		if( $res ) {
-			$message_data = $res->fetch_assoc();
-		} else {
-
-			// データが読み込めなかったら一覧に戻る
-			header("Location: ./m_kanri.php");
-		}
-
-		$mysqli->close();
-	}
-    } elseif( !empty($_POST['movie_id']) ) {
-
-		$movie_id = (int)htmlspecialchars( $_POST['movie_id'], ENT_QUOTES);
-
-			// データベースに接続
-			$mysqli = new mysqli( DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-			// 接続エラーの確認
-			if( $mysqli->connect_errno ) {
-				$error_message[] = 'データベースの接続に失敗しました。 エラー番号 ' . $mysqli->connect_errno . ' : ' . $mysqli->connect_error;
-			} else {
-				$sql = "DELETE FROM movie_tbl WHERE movie_no = $movie_id";
-				$res = $mysqli->query($sql);
-			}
-
-			$mysqli->close();
-
-			// 更新に成功したら一覧に戻る
-			if( $res ) {
-                header("Location: ./m_kanri.php");
-			}
-		}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -143,33 +78,34 @@
 </nav>
 
 <h1>映画　削除</h1>
-<?php if( !empty($error_message) ): ?>
-    <ul class="error_message">
-		<?php foreach( $error_message as $value ): ?>
-            <li>・<?php echo $value; ?></li>
-		<?php endforeach; ?>
-    </ul>
-<?php endif; ?>
 
 <p class="text-confirm">以下の投稿を削除します。<br>よろしければ「削除」ボタンを押してください。</p>
 
 <form method="post">
+    <?php
+        $sql = "SELECT * FROM movie_tbl WHERE movie_no = $movie_no";
+        $stmt = $pdo->query($sql);
+        foreach($stmt as $row){
+     ?>
 	<div>
 		<label for="title">タイトル</label>
-		<p><?php if( !empty($message_data['title']) ){ echo $message_data['title']; } ?></p>
+		<p><?php echo $row['title']; ?></p>
 	</div>
 	<div>
 		<label for="story">あらすじ</label>
-		<p><?php if( !empty($message_data['story']) ){ echo $message_data['story']; } ?></p>
+		<p><?php echo $row['story']; ?></p>
 	</div>
 	<div>
 		<label for="director">監督名　</label>
-		<p><?php if( !empty($message_data['director']) ){ echo $message_data['director']; } ?></p>
+		<p><?php echo $row['director']; ?></p>
 	</div>
 	<div>
 		<label for="cast">キャスト</label>
-		<p><?php if( !empty($message_data['cast']) ){ echo $message_data['cast']; } ?></p>
+		<p><?php echo $row['cast']; ?></p>
 	</div>
+    <?php
+        }
+    ?>
 	<a class="btn_cancel" href="m_kanri.php">キャンセル</a>
 	<input type="submit" name="btn_submit" value="削除">
 	<input type="hidden" name="movie_id" value="<?php echo $message_data['movie_no']; ?>">
