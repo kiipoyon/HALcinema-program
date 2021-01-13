@@ -36,7 +36,7 @@ h3#top:before {
   }
 
 h3#uriage:before {
-    content: url("../../images/kanri/uriage.png");
+    content: url("../../images/common/uriage.png");
     vertical-align: middle;
     margin-left: 20px;
     margin-right: 20px;
@@ -50,7 +50,7 @@ h3#eiga:before {
 }
 
 h3#kaiin:before {
-    content: url("../../images/kanri/kaiin.png");
+    content: url("../../images/common/kaiin.png");
     vertical-align: middle;
     margin-left: 20px;
     margin-right: 20px;
