@@ -1,13 +1,19 @@
 <?php
     require '../common/common.php';
 
-    if(isset($_POST['btn'])) {
+    try {
+        $dbh = connect();
+    } catch (PDOException $e) {
+        $msg = $e->getMessage();
+    }
 
-        try {
-            $dbh = connect();
-        } catch (PDOException $e) {
-            $msg = $e->getMessage();
-        }
+    $sql = 'SELECT * FROM sale_tbl';
+    // $sql = 'SELECT sale_no FROM sale_tbl WHERE sale_date>=20210101 AND sale_date<=20211031';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+    $member = $stmt->fetch();
+
+    if(isset($_POST['btn'])) {
 
         $year = $_POST['year'];
         $month = $_POST['month'];
@@ -21,14 +27,25 @@
         $stmt->execute();
         $member = $stmt->fetch();
 
-        $saleNo = $member["sale_no"];
-        $saleDate = $member["sale_date"];
-        $saleName = $member["sale_name"];
-        $saleMoney = $member["sale_money"];
-        echo $saleNo;
-        echo $saleDate;
-        echo $saleName;
-        echo $saleMoney;
+    }
+
+    $sql2 = 'SELECT * FROM cost_tbl';
+    // $sql = 'SELECT sale_no FROM sale_tbl WHERE sale_date>=20210101 AND sale_date<=20211031';
+    $stmt2 = $dbh->prepare($sql2);
+    $stmt2->execute();
+    $member2 = $stmt2->fetch();
+
+    if(isset($_POST['btn2'])){
+
+        $year = $_POST['year'];
+        $month = $_POST['month'];
+        $data = $year . $month;
+
+        $sql2 = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $data . '01 AND cost_date<=' . $data . '31';
+        // $sql = 'SELECT sale_no FROM sale_tbl WHERE sale_date>=20210101 AND sale_date<=20211031';
+        $stmt2 = $dbh->prepare($sql2);
+        $stmt2->execute();
+        $member2 = $stmt2->fetch();
     }
 
     // $sql = "SELECT COUNT(*) AS num FROM movie_tbl";
@@ -144,14 +161,13 @@
             <label class="tab_item" for="tab4">グラフ</label>
             <div class="tab_content" id="tab1_content">
               <div class="tab_content_description">
-              <form action="" method="post">
-                <select required class="year" name="year">
+                <select required class="year" id="tab1year" name="tab1">
                     <option value="2021">2021年</option>
                     <option value="2020">2020年</option>
                     <option value="2019">2019年</option>
                     <option value="2018">2018年</option>
                 </select>
-                <select required class="month" name="month">
+                <select required class="month" id="tab1month" name="tab1">
                     <option value="01">1月</option>
                     <option value="02">2月</option>
                     <option value="03">3月</option>
@@ -165,63 +181,33 @@
                     <option value="11">11月</option>
                     <option value="12">12月</option>
                 </select>
-                <button type="submit" class="btn btn-primary" name="btn">Primary</button>
-                </form>
-                <table>
-                    <tr>
-                        <th>No</th>
-                        <th>売上名称</th>
-                        <th>売上金額</th>
-                        <th>入力日付</th>
-                    </tr>
-                    <tr>
-                        <td><?php echo $saleNo?></td>
-                        <td><?php echo $saleName?></td>
-                        <td><?php echo $saleMoney?></td>
-                        <td><?php echo $saleDate?></td>
-                    </tr>
-                    <tr>
-                        <td><?php echo $saleNo?></td>
-                        <td><?php echo $saleName?></td>
-                        <td><?php echo $saleMoney?></td>
-                        <td><?php echo $saleDate?></td>
-                    </tr>
-                    <tr>
-                        <td><?php echo $saleNo?></td>
-                        <td><?php echo $saleName?></td>
-                        <td><?php echo $saleMoney?></td>
-                        <td><?php echo $saleDate?></td>
-                    </tr>
-                    <tr>
-                        <td><?php echo $saleNo?></td>
-                        <td><?php echo $saleName?></td>
-                        <td><?php echo $saleMoney?></td>
-                        <td><?php echo $saleDate?></td>
-                    </tr>
-                    <tr>
-                        <td><?php echo $saleNo?></td>
-                        <td><?php echo $saleName?></td>
-                        <td><?php echo $saleMoney?></td>
-                        <td><?php echo $saleDate?></td>
-                    </tr>
-                    <tr>
-                        <td><?php echo $saleNo?></td>
-                        <td><?php echo $saleName?></td>
-                        <td><?php echo $saleMoney?></td>
-                        <td><?php echo $saleDate?></td>
-                    </tr>
-                    <tr>
-                        <td><?php echo $saleNo?></td>
-                        <td><?php echo $saleName?></td>
-                        <td><?php echo $saleMoney?></td>
-                        <td><?php echo $saleDate?></td>
-                    </tr>
-                </table>
+                <div id="table1"></div>
               </div>
             </div>
             <div class="tab_content" id="tab2_content">
               <div class="tab_content_description">
-                <p class="c-txtsp">経費情報</p>
+                <select required class="year tab2" id="tab2year" name="tab2">
+                    <option value="2021">2021年</option>
+                    <option value="2020">2020年</option>
+                    <option value="2019">2019年</option>
+                    <option value="2018">2018年</option>
+                </select>
+                <select required class="month tab2" id="tab2month" name="tab2">
+                    <option value="01">1月</option>
+                    <option value="02">2月</option>
+                    <option value="03">3月</option>
+                    <option value="04">4月</option>
+                    <option value="05">5月</option>
+                    <option value="06">6月</option>
+                    <option value="07">7月</option>
+                    <option value="08">8月</option>
+                    <option value="09">9月</option>
+                    <option value="10">10月</option>
+                    <option value="11">11月</option>
+                    <option value="12">12月</option>
+                </select>
+                <div id="table2"></div>
+              </div>
               </div>
             </div>
             <div class="tab_content" id="tab3_content">
@@ -275,13 +261,36 @@ var chart = c3.generate({
 </script>
 <!-- chartist js end -->
 <script>
-// var movie = [];
-// let i = 0;
-// for( const element of  ){
-//     movie[i] = element;
-//     i++;
-// }
-// console.log(movie[1]);
+$('[name=tab1]').on("change", function(){
+        $.ajax({
+            url: "test.php",
+            method: "POST",
+            data: {
+                name: $(this).attr('name'),
+                year: $('#tab1year').val(),
+                month: $('#tab1month').val(),
+            },
+        })
+        .done(function(data){
+            $('#table1').html(data);
+        });
+            console.log($(this));
+});
+$('[name=tab2]').on("change", function(){
+        $.ajax({
+            url: "test.php",
+            method: "POST",
+            data: {
+                name: $(this).attr('name'),
+                year: $('#tab2year').val(),
+                month: $('#tab2month').val(),
+            },
+        })
+        .done(function(data){
+            $('#table2').html(data);
+            console.log(data);
+        });
+});
 </script>
 <!-- load js end -->
 </body>
