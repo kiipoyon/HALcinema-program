@@ -35,7 +35,6 @@
 
     <link rel="stylesheet" href="../css/common/kanri_common.css">
     <link rel="stylesheet" href="../css/kanri_eiga_list.css">
-    <link rel="stylesheet" href="../css/m_kanri_delete.css">
     <!--load css end-->
 
     <title>映画情報管理 || HALシネマ</title>
@@ -115,9 +114,9 @@
     <?php
         }
     ?>
-	<a class="btn_cancel" href="kanri_eiga.php">キャンセル</a>
+	<input type="button" value="キャンセル" onClick="history.back()">
 	<input type="submit" name="btn_submit" value="削除">
-</form>
+</form> 
 
 </body>
 </html>
