@@ -121,21 +121,18 @@ if (isset($_POST['movie_add_con'])) {
     <main class="main_wrap">
         <h4>映画情報追加 確認</h4>
         <form method="post">
-            <div class="msr_text_02">
+            <div class="msr_text_02_kaku">
                 <h2>以下の内容で映画情報を追加します</h2>
             </div>
-            <div class="msr_text_02">
+            <div class="msr_text_02_kaku">
                 <label>映画タイトル</label>
                 <div><?php echo $title; ?></div>
             </div>
-            <div class="msr_file_02">
-                <div><?php echo $title; ?></div>
-            </div>
-            <div class="msr_text_02">
+            <div class="msr_text_02_kaku">
                 <label>監督</label>
                 <div><?php echo $director; ?></div>
             </div>
-            <div class="msr_text_02">
+            <div class="msr_text_02_kaku">
                 <label>キャスト</label>
                 <div><?php echo $cast; ?></div>
             </div>
