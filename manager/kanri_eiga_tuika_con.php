@@ -85,7 +85,7 @@ session_start();
             </div>
         </form>
 
-        <div class="btn">
+        <div class="btn margin">
             <p class="msr_sendbtn_02">
                 <a href="kanri_eiga.php">
                     <input type="submit" value="一覧に戻る">

@@ -136,7 +136,7 @@ if (isset($_POST['movie_add_con'])) {
                 <label>キャスト</label>
                 <div><?php echo $cast; ?></div>
             </div>
-            <div class="msr_textarea_02">
+            <div class="msr_textarea_02_kaku">
                 <label>ストーリー</label>
                 <div><?php echo $story; ?></div>
             </div>
