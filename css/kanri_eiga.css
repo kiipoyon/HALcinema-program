@@ -37,6 +37,33 @@ form {
     width: 460px;
 }
 
+.msr_text_02_kaku {
+    padding-bottom: 20px;
+    width: 460px;
+}
+
+.msr_text_02_kaku label {
+    display: block;
+    font-size: 16px;
+    padding-bottom: 5px;
+    background-color: #1B73BA;
+    color: #fff;
+    padding: 6px 2px 2px 6px;
+    font-weight: bold;
+}
+
+.msr_text_02_kaku div {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    color: #333;
+    font-size: 16px;
+    padding: 10px;
+    height: 40px;
+    width: 460px;
+    padding: 0 0 0 6px;
+}
+
 /*--------------------------------------
 ファイル選択
 ---------------------------------------*/
@@ -119,29 +146,32 @@ form {
     width: 460px;
 }
 
-
-.msr_textarea_02 {
+.msr_textarea_02_kaku {
     padding-bottom: 10px;
     width: 460px;
 }
 
-.msr_textarea_02 label {
+.msr_textarea_02_kaku label {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     padding-bottom: 5px;
+    padding: 6px 2px 2px 6px;
+    font-weight: bold;
+    background-color: #1B73BA;
+    color: #fff;
 }
 
-.msr_textarea_02 textarea {
-    border: 1px solid #1B73BA;
+.msr_textarea_02_kaku div {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     color: #333;
-    font-size: 13px;
+    font-size: 16px;
     padding: 10px;
-    height: 210px;
     width: 460px;
+    padding: 0 0 0 6px;
 }
+
 
 /*--------------------------------------
 送信ボタン
@@ -150,6 +180,9 @@ form {
 .btn{
     padding:24px 0 0 0;
     display: flex;
+}
+.margin{
+    margin-left: 300px;
 }
 
 .msr_sendbtn_02 {
