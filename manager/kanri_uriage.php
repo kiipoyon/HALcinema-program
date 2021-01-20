@@ -1,32 +1,56 @@
 <?php
     require '../common/common.php';
 
-    try {
-        $dbh = connect();
-    } catch (PDOException $e) {
-        $msg = $e->getMessage();
-    }
+    if(isset($_POST['btn'])) {
 
-    $sql = "SELECT COUNT(*) AS num FROM movie_tbl";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute();
-    $count = $stmt->fetch();
+        try {
+            $dbh = connect();
+        } catch (PDOException $e) {
+            $msg = $e->getMessage();
+        }
 
-    $num = $count["num"];
-    for ($i = 0; $i <= $num; $i++){
+        $year = $_POST['year'];
+        $month = $_POST['month'];
+        $data = $year . $month;
 
-        $sql = "SELECT * FROM movie_tbl WHERE movie_no = :movie_no";
+        // echo $data;
+
+        $sql = 'SELECT * FROM sale_tbl WHERE sale_date>=' . $data . '01 AND sale_date<=' . $data . '31';
+        // $sql = 'SELECT sale_no FROM sale_tbl WHERE sale_date>=20210101 AND sale_date<=20211031';
         $stmt = $dbh->prepare($sql);
-        $stmt->bindValue(':movie_no', $i);
         $stmt->execute();
-        $movie = $stmt->fetch();
+        $member = $stmt->fetch();
 
-        $MovieNo[$i] = $movie["title"];
-
+        $saleNo = $member["sale_no"];
+        $saleDate = $member["sale_date"];
+        $saleName = $member["sale_name"];
+        $saleMoney = $member["sale_money"];
+        echo $saleNo;
+        echo $saleDate;
+        echo $saleName;
+        echo $saleMoney;
     }
 
-    $JsonNum = json_encode($num);
-    $JsonMovie = json_encode($MovieNo);
+    // $sql = "SELECT COUNT(*) AS num FROM movie_tbl";
+    // $stmt = $dbh->prepare($sql);
+    // $stmt->execute();
+    // $count = $stmt->fetch();
+
+    // $num = $count["num"];
+    // for ($i = 0; $i <= $num; $i++){
+
+    //     $sql = "SELECT * FROM movie_tbl WHERE movie_no = :movie_no";
+    //     $stmt = $dbh->prepare($sql);
+    //     $stmt->bindValue(':movie_no', $i);
+    //     $stmt->execute();
+    //     $movie = $stmt->fetch();
+
+    //     $MovieNo[$i] = $movie["title"];
+
+    // }
+
+    // $JsonNum = json_encode($num);
+    // $JsonMovie = json_encode($MovieNo);
 
 ?>
 
@@ -120,25 +144,29 @@
             <label class="tab_item" for="tab4">グラフ</label>
             <div class="tab_content" id="tab1_content">
               <div class="tab_content_description">
-                <select required class="year">
-                    <option value="" hidden>2020年</option>
-                    <option value="1">2019年</option>
-                    <option value="2">2018年</option>
+              <form action="" method="post">
+                <select required class="year" name="year">
+                    <option value="2021">2021年</option>
+                    <option value="2020">2020年</option>
+                    <option value="2019">2019年</option>
+                    <option value="2018">2018年</option>
                 </select>
-                <select required class="month">
-                    <option value="" hidden>1月</option>
-                    <option value="1">2月</option>
-                    <option value="2">3月</option>
-                    <option value="3">4月</option>
-                    <option value="4">5月</option>
-                    <option value="5">6月</option>
-                    <option value="6">7月</option>
-                    <option value="7">8月</option>
-                    <option value="8">9月</option>
-                    <option value="9">10月</option>
-                    <option value="10">11月</option>
-                    <option value="11">12月</option>
+                <select required class="month" name="month">
+                    <option value="01">1月</option>
+                    <option value="02">2月</option>
+                    <option value="03">3月</option>
+                    <option value="04">4月</option>
+                    <option value="05">5月</option>
+                    <option value="06">6月</option>
+                    <option value="07">7月</option>
+                    <option value="08">8月</option>
+                    <option value="09">9月</option>
+                    <option value="10">10月</option>
+                    <option value="11">11月</option>
+                    <option value="12">12月</option>
                 </select>
+                <button type="submit" class="btn btn-primary" name="btn">Primary</button>
+                </form>
                 <table>
                     <tr>
                         <th>No</th>
@@ -147,46 +175,46 @@
                         <th>入力日付</th>
                     </tr>
                     <tr>
-                        <td>0001</td>
-                        <td>チケット購入</td>
-                        <td>1,000 円</td>
-                        <td>20200801</td>
+                        <td><?php echo $saleNo?></td>
+                        <td><?php echo $saleName?></td>
+                        <td><?php echo $saleMoney?></td>
+                        <td><?php echo $saleDate?></td>
                     </tr>
                     <tr>
-                        <td>0002</td>
-                        <td>チケット購入</td>
-                        <td>1,000 円</td>
-                        <td>20200801</td>
+                        <td><?php echo $saleNo?></td>
+                        <td><?php echo $saleName?></td>
+                        <td><?php echo $saleMoney?></td>
+                        <td><?php echo $saleDate?></td>
                     </tr>
                     <tr>
-                        <td>0003</td>
-                        <td>チケット購入</td>
-                        <td>1,000 円</td>
-                        <td>20200801</td>
+                        <td><?php echo $saleNo?></td>
+                        <td><?php echo $saleName?></td>
+                        <td><?php echo $saleMoney?></td>
+                        <td><?php echo $saleDate?></td>
                     </tr>
                     <tr>
-                        <td>0004</td>
-                        <td>チケット購入</td>
-                        <td>1,000 円</td>
-                        <td>20200801</td>
+                        <td><?php echo $saleNo?></td>
+                        <td><?php echo $saleName?></td>
+                        <td><?php echo $saleMoney?></td>
+                        <td><?php echo $saleDate?></td>
                     </tr>
                     <tr>
-                        <td>0005</td>
-                        <td>チケット購入</td>
-                        <td>1,000 円</td>
-                        <td>20200801</td>
+                        <td><?php echo $saleNo?></td>
+                        <td><?php echo $saleName?></td>
+                        <td><?php echo $saleMoney?></td>
+                        <td><?php echo $saleDate?></td>
                     </tr>
                     <tr>
-                        <td>0006</td>
-                        <td>チケット購入</td>
-                        <td>1,000 円</td>
-                        <td>20200801</td>
+                        <td><?php echo $saleNo?></td>
+                        <td><?php echo $saleName?></td>
+                        <td><?php echo $saleMoney?></td>
+                        <td><?php echo $saleDate?></td>
                     </tr>
                     <tr>
-                        <td>0007</td>
-                        <td>チケット購入</td>
-                        <td>1,000 円</td>
-                        <td>20200801</td>
+                        <td><?php echo $saleNo?></td>
+                        <td><?php echo $saleName?></td>
+                        <td><?php echo $saleMoney?></td>
+                        <td><?php echo $saleDate?></td>
                     </tr>
                 </table>
               </div>
@@ -207,7 +235,7 @@
 
               </div>
             </div>
-           
+
           </div>
     </section>
 
@@ -247,16 +275,14 @@ var chart = c3.generate({
 </script>
 <!-- chartist js end -->
 <script>
-var movie = [];
-let i = 0;
-for( const element of <?php echo $JsonMovie; ?> ){
-    movie[i] = element;
-    i++;
-}
-
-console.log(movie[1]);
+// var movie = [];
+// let i = 0;
+// for( const element of  ){
+//     movie[i] = element;
+//     i++;
+// }
+// console.log(movie[1]);
 </script>
 <!-- load js end -->
-
 </body>
 </html>
