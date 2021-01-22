@@ -23,18 +23,20 @@
     for ($i = 1; $i <= 12; $i++) {
     
         $uriage = 0;
+        $sales = array();
         // $keihi = 0;
         
         // 各月売上総額計算
         $sql = 'SELECT sale_money FROM sale_tbl WHERE sale_date>=' . $year . $i . '01 AND sale_date<=' . $year . $i . '31';
         
-        $sales = $dbh->query($sql);
-        echo $sales;
+        $stmt = $dbh->query($sql);        
         
-        // foreach ($sales as $row){
-        //     $uriage += $row['sale_money'];
-        //     echo $row['sale_money'];
-        // }
+        foreach ($stmt as $row){
+            $sales[] = $row["sale_money"];
+        }
+        
+        $uriage = array_sum($sales);
+        echo($uriage)
         
         // 各月経費総額計算
         // $sql = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $year . $i . '01 AND cost_date<=' . $year . $i . '31';
