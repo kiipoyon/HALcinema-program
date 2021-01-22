@@ -23,12 +23,17 @@
     for ($i = 1; $i <= 12; $i++) {
     
         $uriage = 0;
+        $keihi = 0;
+        
         $sales = array();
-        // $keihi = 0;
-        
+        $cost = array();
+
         // 各月売上総額計算
-        $sql = 'SELECT sale_money FROM sale_tbl WHERE sale_date>=' . $year . $i . '01 AND sale_date<=' . $year . $i . '31';
-        
+        if ($i <= 9) {
+            $sql = 'SELECT sale_money FROM sale_tbl WHERE sale_date>=' . $year . '0' . $i . '01 AND sale_date<=' . $year . '0' . $i . '31';
+        }else {
+            $sql = 'SELECT sale_money FROM sale_tbl WHERE sale_date>=' . $year . $i . '01 AND sale_date<=' . $year . $i . '31';
+        }
         $stmt = $dbh->query($sql);        
         
         foreach ($stmt as $row){
@@ -36,18 +41,25 @@
         }
         
         $uriage = array_sum($sales);
-        echo($uriage);
         
+
+
         // 各月経費総額計算
-        // $sql = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $year . $i . '01 AND cost_date<=' . $year . $i . '31';
-        // $stmt = $dbh->query($sql);
+        if ($i <= 9) {
+            $sql = 'SELECT cost_money FROM cost_tbl WHERE cost_date>=' . $year . '0' . $i . '01 AND cost_date<=' . $year . '0' . $i . '31';
+        }else {
+            $sql = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $year . $i . '01 AND cost_date<=' . $year . $i . '31';
+        }
+        $stmt = $dbh->query($sql);
             
-        // foreach ($stmt as $row){
-        //     $keihi =+ $row;
-        // }
+        foreach ($stmt as $row){
+            $cost[] = $row["cost_money"];
+        }
         
+        $keihi = array_sum($cost);
+
         // 利益計算
-        $rieki = $uriage;
+        $rieki = $uriage - $keihi;
         
 ?>
       

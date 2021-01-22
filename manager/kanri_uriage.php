@@ -11,10 +11,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">    <!-- bootstrap css end -->
     <!-- bootstrap css end -->
     
-    <!-- chartist.js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css" integrity="sha512-GQSxWe9Cj4o4EduO7zO9HjULmD4olIjiQqZ7VJuwBxZlkWaUFGCxRkn39jYnD2xZBtEilm0m4WBG7YEmQuMs5Q==" crossorigin="anonymous" />
-    <!-- chartist css end -->
-
     <link rel="stylesheet" href="../css/common/common.css"/>
 
     <link rel="stylesheet" href="../css/common/kanri_common.css">
@@ -150,8 +146,7 @@
             </div>
             <div class="tab_content" id="tab4_content">
               <div class="tab_content_description">
-                <div class="ct-chart"></div>
-
+                <canvas id="myChart"></canvas>
               </div>
             </div>
 
@@ -179,94 +174,33 @@
 <!-- fontawesome end -->
 
 <!-- chartist js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" integrity="sha512-FHsFVKQ/T1KWJDGSbrUhTJyS1ph3eRrxI228ND0EGaEp6v4a/vGwPWd3Dtd/+9cI7ccofZvl/wulICEurHN1pg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js" integrity="sha512-+IpCthlNahOuERYUSnKFjzjdKXIbJ/7Dd6xvUp+7bEw0Jp2dg6tluyxLs+zq9BMzZgrLv8886T4cBSqnKiVgUw==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 <script>
-var chart = c3.generate({
-    bindto: '.ct-chart',
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
     data: {
-      columns: [
-        ['data1', 30, 200, 100, 400, 150, 250],
-        ['data2', 50, 20, 10, 40, 15, 25]
-      ]
-    }
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
 });
 </script>
 <!-- chartist js end -->
+
 <!-- 情報取得Ajax -->
-<script>
-$(window).on('load', function(){
-    var now = new Date();
-    var y = now.getFullYear();
-    
-    $.ajax({
-        url: "test.php",
-        method: "POST",
-        data: {
-            name: "tab1",
-            year: y,
-            month: "01",
-        },
-    })
-    .done(function(data){
-        $('#table1').html(data);
-    });
-    
-    $.ajax({
-        url: "test.php",
-        method: "POST",
-        data: {
-            name: "tab2",
-            year: y,
-            month: "01",
-        },
-    })
-    .done(function(data){
-        $('#table2').html(data);
-    });
-    
-    $.ajax({
-        url: "uriage_components/rieki.php",
-        method: "POST",
-        data: {
-            year: y,
-        },
-    })
-    .done(function(data){
-        $('#table3').html(data);
-    });
-});
-$('[name=tab1]').on("change", function(){
-        $.ajax({
-            url: "test.php",
-            method: "POST",
-            data: {
-                name: $(this).attr('name'),
-                year: $('#tab1year').val(),
-                month: $('#tab1month').val(),
-            },
-        })
-        .done(function(data){
-            $('#table1').html(data);
-        });
-            // console.log($(this));
-});
-$('[name=tab2]').on("change", function(){
-        $.ajax({
-            url: "test.php",
-            method: "POST",
-            data: {
-                name: $(this).attr('name'),
-                year: $('#tab2year').val(),
-                month: $('#tab2month').val(),
-            },
-        })
-        .done(function(data){
-            $('#table2').html(data);
-            // console.log(data);
-        });
-});
-</script>
+<script src="./uriage_components/js/tab.js"></script>
 <!-- load js end -->
 </body>
 </html>
