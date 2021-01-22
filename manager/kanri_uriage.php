@@ -229,7 +229,7 @@ $(window).on('load', function(){
         url: "uriage_components/rieki.php",
         method: "POST",
         data: {
-            year: y
+            year: y,
         },
     })
     .done(function(data){

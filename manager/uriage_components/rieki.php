@@ -23,7 +23,7 @@
     for ($i = 0; $i <= 12; $i++) {
     
         // 各月売上総額計算
-        $sql = 'SELECT * FROM sale_tbl WHERE sale_date>=' . $year . $i . '01 AND sale_date<=' $year . $i . '31';
+        $sql = 'SELECT * FROM sale_tbl WHERE sale_date>=' . $year . $i . '01 AND sale_date<=' . $year . $i . '31';
         $stmt = $dbh->query($sql);
             
         foreach ($stmt as $row){
