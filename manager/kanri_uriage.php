@@ -134,12 +134,17 @@
                     <option value="12">12月</option>
                 </select>
                 <div id="table2"></div>
-              </div>
-              </div>
+            </div>
             </div>
             <div class="tab_content" id="tab3_content">
               <div class="tab_content_description">
-                <p class="c-txtsp">利益情報</p>
+                <!-- <p class="c-txtsp">利益情報</p> -->
+                <select required class="year" id="tab3year" name="tab3">
+                    <option value="2021">2021年</option>
+                    <option value="2020">2020年</option>
+                    <option value="2019">2019年</option>
+                    <option value="2018">2018年</option>
+                </select>
                 <div id="table3"></div>
               </div>
             </div>
