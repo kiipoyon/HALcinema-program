@@ -20,7 +20,7 @@
         
 <?php
     
-    for ($i = 0; $i <= 12; $i++) {
+    for ($i = 1; $i <= 12; $i++) {
     
         $uriage = 0;
         $keihi = 0;
@@ -34,15 +34,15 @@
         }
         
         // 各月経費総額計算
-        $sql = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $year . $i . '01 AND cost_date<=' . $year . $i . '31';
-        $stmt = $dbh->query($sql);
+        // $sql = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $year . $i . '01 AND cost_date<=' . $year . $i . '31';
+        // $stmt = $dbh->query($sql);
             
-        foreach ($stmt as $row){
-            $keihi =+ $row;
-        }
+        // foreach ($stmt as $row){
+        //     $keihi =+ $row;
+        // }
         
         // 利益計算
-        $rieki = $uriage - $keihi;
+        $rieki = $uriage;
         
 ?>
       
