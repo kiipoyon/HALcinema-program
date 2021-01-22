@@ -22,8 +22,8 @@
     
     for ($i = 1; $i <= 12; $i++) {
     
-        $uriage = 0;
-        $keihi = 0;
+        // $uriage = 0;
+        // $keihi = 0;
         
         // 各月売上総額計算
         $sql = 'SELECT * FROM sale_tbl WHERE sale_date>=' . $year . $i . '01 AND sale_date<=' . $year . $i . '31';
@@ -50,7 +50,6 @@
             <td><?php echo $rieki . "円" ; ?></td>
             <td><?php echo $year . "年" . $i . "月" ; ?></td>
         </tr>
-        <br />
         
 <?php
     }
