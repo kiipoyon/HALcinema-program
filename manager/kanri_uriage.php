@@ -140,6 +140,7 @@
             <div class="tab_content" id="tab3_content">
               <div class="tab_content_description">
                 <p class="c-txtsp">利益情報</p>
+                <div id="table3"></div>
               </div>
             </div>
             <div class="tab_content" id="tab4_content">
@@ -217,6 +218,17 @@ $(window).on('load', function(){
     })
     .done(function(data){
         $('#table2').html(data);
+    });
+    
+    $.ajax({
+        url: "uriage_components/rieki.php",
+        method: "POST",
+        data: {
+            year: y
+        },
+    })
+    .done(function(data){
+        $('#table3').html(data);
     });
 });
 $('[name=tab1]').on("change", function(){

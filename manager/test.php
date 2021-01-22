@@ -15,7 +15,6 @@
         $sql = 'SELECT * FROM sale_tbl WHERE sale_date>=' . $data . '01 AND sale_date<=' . $data . '31';
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
-        $member = $stmt->fetch();
         
 
         ?>
@@ -51,13 +50,10 @@
 
         <?php
         }else if ($name === "tab2") {
-
           
-        $sql = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $data . '01 AND cost_date<=' . $data . '31';
+        $sql = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $year . '0101 AND cost_date<=' . $year . '1231';
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
-        $member = $stmt->fetch();
-        
 
         ?>
         <table>
