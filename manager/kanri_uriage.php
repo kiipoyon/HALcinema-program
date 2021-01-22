@@ -1,76 +1,3 @@
-<?php
-    require '../common/common.php';
-
-    try {
-        $dbh = connect();
-    } catch (PDOException $e) {
-        $msg = $e->getMessage();
-    }
-
-    $sql = 'SELECT * FROM sale_tbl';
-    // $sql = 'SELECT sale_no FROM sale_tbl WHERE sale_date>=20210101 AND sale_date<=20211031';
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute();
-    $member = $stmt->fetch();
-
-    if(isset($_POST['btn'])) {
-
-        $year = $_POST['year'];
-        $month = $_POST['month'];
-        $data = $year . $month;
-
-        // echo $data;
-
-        $sql = 'SELECT * FROM sale_tbl WHERE sale_date>=' . $data . '01 AND sale_date<=' . $data . '31';
-        // $sql = 'SELECT sale_no FROM sale_tbl WHERE sale_date>=20210101 AND sale_date<=20211031';
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute();
-        $member = $stmt->fetch();
-
-    }
-
-    $sql2 = 'SELECT * FROM cost_tbl';
-    // $sql = 'SELECT sale_no FROM sale_tbl WHERE sale_date>=20210101 AND sale_date<=20211031';
-    $stmt2 = $dbh->prepare($sql2);
-    $stmt2->execute();
-    $member2 = $stmt2->fetch();
-
-    if(isset($_POST['btn2'])){
-
-        $year = $_POST['year'];
-        $month = $_POST['month'];
-        $data = $year . $month;
-
-        $sql2 = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $data . '01 AND cost_date<=' . $data . '31';
-        // $sql = 'SELECT sale_no FROM sale_tbl WHERE sale_date>=20210101 AND sale_date<=20211031';
-        $stmt2 = $dbh->prepare($sql2);
-        $stmt2->execute();
-        $member2 = $stmt2->fetch();
-    }
-
-    // $sql = "SELECT COUNT(*) AS num FROM movie_tbl";
-    // $stmt = $dbh->prepare($sql);
-    // $stmt->execute();
-    // $count = $stmt->fetch();
-
-    // $num = $count["num"];
-    // for ($i = 0; $i <= $num; $i++){
-
-    //     $sql = "SELECT * FROM movie_tbl WHERE movie_no = :movie_no";
-    //     $stmt = $dbh->prepare($sql);
-    //     $stmt->bindValue(':movie_no', $i);
-    //     $stmt->execute();
-    //     $movie = $stmt->fetch();
-
-    //     $MovieNo[$i] = $movie["title"];
-
-    // }
-
-    // $JsonNum = json_encode($num);
-    // $JsonMovie = json_encode($MovieNo);
-
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -260,7 +187,38 @@ var chart = c3.generate({
 });
 </script>
 <!-- chartist js end -->
+<!-- 情報取得Ajax -->
 <script>
+$(window).on('load', function(){
+    var now = new Date();
+    var y = now.getFullYear();
+    
+    $.ajax({
+        url: "test.php",
+        method: "POST",
+        data: {
+            name: "tab1",
+            year: y,
+            month: "01",
+        },
+    })
+    .done(function(data){
+        $('#table1').html(data);
+    });
+    
+    $.ajax({
+        url: "test.php",
+        method: "POST",
+        data: {
+            name: "tab2",
+            year: y,
+            month: "01",
+        },
+    })
+    .done(function(data){
+        $('#table2').html(data);
+    });
+});
 $('[name=tab1]').on("change", function(){
         $.ajax({
             url: "test.php",
@@ -274,7 +232,7 @@ $('[name=tab1]').on("change", function(){
         .done(function(data){
             $('#table1').html(data);
         });
-            console.log($(this));
+            // console.log($(this));
 });
 $('[name=tab2]').on("change", function(){
         $.ajax({
@@ -288,7 +246,7 @@ $('[name=tab2]').on("change", function(){
         })
         .done(function(data){
             $('#table2').html(data);
-            console.log(data);
+            // console.log(data);
         });
 });
 </script>
