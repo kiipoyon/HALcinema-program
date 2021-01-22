@@ -36,7 +36,7 @@
         }
         
         $uriage = array_sum($sales);
-        echo($uriage)
+        echo($uriage);
         
         // 各月経費総額計算
         // $sql = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $year . $i . '01 AND cost_date<=' . $year . $i . '31';
