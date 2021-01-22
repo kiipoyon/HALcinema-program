@@ -31,6 +31,7 @@
         $stmt->execute();
         
         $sales = $dbh->query($sql);
+        echo $sales;
         
         foreach ($sales as $row){
             $uriage += $row;
