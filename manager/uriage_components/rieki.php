@@ -26,13 +26,13 @@
         // $keihi = 0;
         
         // 各月売上総額計算
-        $sql = 'SELECT sale_money FROM sale_tbl WHERE sale_date>=' . $year . '0101 AND sale_date<=' . $year . '1231';
+        $sql = 'SELECT * FROM sale_tbl WHERE sale_date>=' . $year . '0101 AND sale_date<=' . $year . '1231';
         
         $sales = $dbh->query($sql);
         
         foreach ($sales as $row){
-            $uriage += $row;
-            echo $row;
+            // $uriage += $row;
+            echo $row['sale_money'];
         }
         
         // 各月経費総額計算
