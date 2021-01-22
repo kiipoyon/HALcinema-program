@@ -1,6 +1,6 @@
 <?php
 
-    require '../common/common.php';
+    require '../../common/common.php';
 
     try {
         $dbh = connect();
