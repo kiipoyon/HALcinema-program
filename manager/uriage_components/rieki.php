@@ -27,11 +27,14 @@
         
         // 各月売上総額計算
         $sql = 'SELECT * FROM sale_tbl WHERE sale_date>=' . $year . $i . '01 AND sale_date<=' . $year . $i . '31';
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+        
         $sales = $dbh->query($sql);
         
         foreach ($sales as $row){
             $uriage += $row;
-            echo $uriage;
+            echo $row;
         }
         
         // 各月経費総額計算

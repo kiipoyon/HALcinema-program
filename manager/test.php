@@ -51,7 +51,7 @@
         <?php
         }else if ($name === "tab2") {
           
-        $sql = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $year . '0101 AND cost_date<=' . $year . '1231';
+        $sql = 'SELECT * FROM cost_tbl WHERE cost_date>=' . $data . '01 AND cost_date<=' . $data . '31';
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
 
