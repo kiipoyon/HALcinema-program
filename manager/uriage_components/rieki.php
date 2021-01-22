@@ -31,6 +31,7 @@
         
         foreach ($sales as $row){
             $uriage += $row;
+            echo $uriage;
         }
         
         // 各月経費総額計算
