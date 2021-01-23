@@ -173,10 +173,12 @@
 <script src="https://kit.fontawesome.com/b7fcd44df6.js" crossorigin="anonymous"></script>
 <!-- fontawesome end -->
 
-<!-- chartist js -->
+<!-- chart js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 <script>
+
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
     // The type of chart we want to create
@@ -197,7 +199,7 @@ var chart = new Chart(ctx, {
     options: {}
 });
 </script>
-<!-- chartist js end -->
+<!-- chart js end -->
 
 <!-- 情報取得Ajax -->
 <script src="./uriage_components/js/tab.js"></script>
