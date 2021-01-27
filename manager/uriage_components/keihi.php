@@ -17,9 +17,9 @@
     <table>
         <tr>
             <th>No</th>
+            <th>入力日付</th>
             <th>売上名称</th>
             <th>売上金額</th>
-           <th>入力日付</th>
         </tr>
 
 <?php

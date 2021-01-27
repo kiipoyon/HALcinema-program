@@ -64,7 +64,7 @@
 ?>
       
         <tr>
-            <td><?php echo $rieki . "円" ; ?></td>
+            <td class="month<?php echo $i?>" ><?php echo $rieki ; ?></td>
             <td><?php echo $year . "年" . $i . "月" ; ?></td>
         </tr>
         

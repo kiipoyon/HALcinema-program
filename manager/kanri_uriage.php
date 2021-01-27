@@ -146,6 +146,12 @@
             </div>
             <div class="tab_content" id="tab4_content">
               <div class="tab_content_description">
+                <select required class="year" id="tab4year" name="tab4">
+                    <option value="2021">2021年</option>
+                    <option value="2020">2020年</option>
+                    <option value="2019">2019年</option>
+                    <option value="2018">2018年</option>
+                </select>
                 <canvas id="myChart"></canvas>
               </div>
             </div>
@@ -175,30 +181,6 @@
 
 <!-- chart js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
-<script>
-
-
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
-        }]
-    },
-
-    // Configuration options go here
-    options: {}
-});
-</script>
 <!-- chart js end -->
 
 <!-- 情報取得Ajax -->
